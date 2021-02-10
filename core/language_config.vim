@@ -16,3 +16,5 @@ func! ComplieOrRun()
         exec "! javac % && java %<"
     endif
 endfunc
+
+map <leader>r :call ComplieOrRun()<CR>

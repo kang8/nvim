@@ -5,5 +5,6 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-source ~/.config/nvim/core/language_config.vim
 source ~/.config/nvim/core/basic.vim
+source ~/.config/nvim/core/key_bindings.vim
+source ~/.config/nvim/core/language_config.vim
