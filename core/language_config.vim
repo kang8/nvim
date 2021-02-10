@@ -2,13 +2,17 @@
 " 语言设置
 """""""""""""""
 
-func! ComplieAndRun()
+func! ComplieOrRun()
     exec "w"
     if &filetype == 'c'
-        exec "!gcc % -o %<"
-        exec "!time ./%<"
-    if &filetype == 'cpp'
-        exec "!g++ % -o %<"
-        exec "!time ./%<"
+        exec "! gcc % -o /tmp/%<.out && /tmp/%<.out"
+    elseif &filetype == 'cpp'
+        exec "! g++ % -o /tmp/%<.out && /tmp/%<.out"
+    elseif &filetype == 'python'
+        exec "! python3 %"
+    elseif &filetype == 'php'
+        exec "! php %"
+    elseif &filetype == 'java'
+        exec "! javac % && java %<"
     endif
 endfunc
