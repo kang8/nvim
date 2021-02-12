@@ -31,7 +31,7 @@ set expandtab
 set smarttab autoindent smartindent
 set shiftwidth=4 tabstop=4 softtabstop=4
 
-set list listchars=eol:¬,tab:▸\ ,trail:·,
+set list listchars=eol:¬,tab:>-,trail:·
 
 set encoding=utf-8
 
