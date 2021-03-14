@@ -15,7 +15,7 @@ func! ComplieOrRun()
     elseif &filetype == 'php'
         exec "! php %"
     elseif &filetype == 'java'
-        exec "! javac % && java %< "
+        exec "! javac -d /tmp % && cd /tmp && java %< "
     endif
 endfunc
 
