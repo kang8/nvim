@@ -13,7 +13,8 @@ set novisualbell
 set showcmd
 set showmode
 set ruler
-set nu rnu
+" 显示行号
+"set nu rnu
 
 set hlsearch
 set incsearch

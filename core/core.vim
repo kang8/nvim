@@ -6,6 +6,7 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 source ~/.config/nvim/core/basic.vim
+source ~/.config/nvim/core/function.vim
 source ~/.config/nvim/core/key_bindings.vim
 source ~/.config/nvim/core/language_config.vim
 source ~/.config/nvim/plug/plug_list.vim
