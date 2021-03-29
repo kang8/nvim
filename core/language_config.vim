@@ -16,7 +16,14 @@ func! ComplieOrRun()
         exec "! php %"
     elseif &filetype == 'java'
         exec "! javac -d /tmp % && cd /tmp && java %< "
+    elseif &filetype == 'javascript'
+        exec "! node %"
     endif
 endfunc
 
+" run
 map <leader>r :call ComplieOrRun()<CR>
+" 另外一个运行，因为上面的函数运行完后按下另一个按键后执行结果就会消失
+" 所以想重新写一个函数来重新开一个窗口来记录下输出的结果
+" out run
+" map <leader>or :call ComplieOrRun()<CR>
