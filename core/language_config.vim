@@ -18,6 +18,8 @@ func! ComplieOrRun()
         exec "! javac -d /tmp % && cd /tmp && java %< "
     elseif &filetype == 'javascript'
         exec "! node %"
+    elseif &filetype == 'go'
+        exec "! go run %"
     endif
 endfunc
 

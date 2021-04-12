@@ -12,3 +12,5 @@ map <leader>n :call ChangeDisplayNumber()<CR>
 
 " paste 的切换
 set pastetoggle=<leader>p
+
+map <M-c> :bn<CR>

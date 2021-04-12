@@ -20,3 +20,9 @@ nmap <leader>t :TagbarToggle<CR>
 
 " 907th/vim-auto/save
 let g:auto_save = 1
+
+" ludovicchabant/vim-gutentags
+let g:gutentags_project_root = ['.root', '.svn', '.git']
+let g:gutentags_ctags_tagfile = '.tags'
+let s:vim_tags = expand('~/.cache/tags')
+let g:gutentags_cache_dir = s:vim_tags
