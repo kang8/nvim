@@ -17,3 +17,6 @@ let g:airline_powerline_fonts=1
 
 " majutsushi/ragbar tag tree setting
 nmap <leader>t :TagbarToggle<CR>
+
+" 907th/vim-auto/save
+let g:auto_save = 1

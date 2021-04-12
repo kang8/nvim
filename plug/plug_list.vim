@@ -22,4 +22,5 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-surround'
 Plug 'gcmt/wildfire.vim'
 Plug 'yianwillis/vimcdoc'    "vimdoc 中文
+Plug '907th/vim-auto-save'
 call plug#end()
