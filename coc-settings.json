@@ -25,5 +25,6 @@
 		"unit": "\uf475",
 		"value": "\uf89f",
 		"variable": "\ue71b"
-	}
+	},
+  "vetur.ignoreProjectWarning": true
 }

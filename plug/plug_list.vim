@@ -13,6 +13,7 @@ Plug 'luochen1990/rainbow'              "彩虹括号
 Plug 'airblade/vim-gitgutter'
 "Plug 'junegunn/fzf'
 "Plug 'junegunn/fzf.vim'
+"Plug 'theniceboy/vim-deus'
 Plug 'morhetz/gruvbox'
 Plug 'preservim/nerdcommenter'          " 注释
 Plug 'ludovicchabant/vim-gutentags'
@@ -24,5 +25,6 @@ Plug 'gcmt/wildfire.vim'
 Plug 'yianwillis/vimcdoc'    "vimdoc 中文
 Plug '907th/vim-auto-save'
 Plug 'storyn26383/vim-vue'
+Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'jelera/vim-javascript-syntax'
 call plug#end()

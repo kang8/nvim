@@ -1,5 +1,6 @@
 " gruvbox color theme
 colorscheme gruvbox
+set termguicolors
 
 " airblade/vim-gitgutter. Git setting
 set updatetime=10
@@ -29,3 +30,19 @@ let g:gutentags_cache_dir = s:vim_tags
 
 " luochen1990/rainbow
 let g:rainbow_active = 1 "open rainbow
+
+
+" ===
+" === treesitter
+" ===
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = {"html","css","javascript","json","vue","bash"},
+  highlight = {
+    enable = true, -- false will disable the whole extension
+  },
+  indent = {
+    enable = true
+  }
+}
+EOF
