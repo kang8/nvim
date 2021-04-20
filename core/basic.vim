@@ -39,3 +39,5 @@ set encoding=utf-8
 colorscheme darkblue
 set background=dark
 set t_Co=256
+
+au BufNewFile,BufRead *.html,*.js,*.vue,*.css set tabstop=2 softtabstop=2 shiftwidth=2

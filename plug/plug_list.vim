@@ -8,7 +8,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'          " emoji 图标
 Plug 'ryanoasis/vim-devicons'
 Plug 'jiangmiao/auto-pairs'
-Plug 'Yggdroot/indentLine'
+"Plug 'Yggdroot/indentLine'
 Plug 'luochen1990/rainbow'              "彩虹括号
 Plug 'airblade/vim-gitgutter'
 "Plug 'junegunn/fzf'
@@ -23,4 +23,6 @@ Plug 'tpope/vim-surround'
 Plug 'gcmt/wildfire.vim'
 Plug 'yianwillis/vimcdoc'    "vimdoc 中文
 Plug '907th/vim-auto-save'
+Plug 'storyn26383/vim-vue'
+Plug 'jelera/vim-javascript-syntax'
 call plug#end()

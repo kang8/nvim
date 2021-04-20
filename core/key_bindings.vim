@@ -14,3 +14,4 @@ map <leader>n :call ChangeDisplayNumber()<CR>
 set pastetoggle=<leader>p
 
 map <M-c> :bn<CR>
+map <Tab> :bn<CR>
