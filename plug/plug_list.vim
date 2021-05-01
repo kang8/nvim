@@ -27,4 +27,5 @@ Plug '907th/vim-auto-save'
 Plug 'storyn26383/vim-vue'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'jelera/vim-javascript-syntax'
+Plug 'lambdalisue/suda.vim'
 call plug#end()
