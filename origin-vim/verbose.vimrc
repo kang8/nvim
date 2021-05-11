@@ -65,3 +65,5 @@ set g:mapleader=" "
 set shortmess=atI " 启动时不显示援助乌干达
 
 autocmd filetype javascript,html,css,xml set tabstop=2 shiftwidth=2 softtabstop=2 " 根据文件类型设置特有的规则
+
+set cursorline " 高亮当前行

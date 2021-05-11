@@ -1,4 +1,4 @@
 # Install
 ```bash
-$ git clone url ~/.config/nvim
+$ git clone [url] ~/.config/nvim
 ```
