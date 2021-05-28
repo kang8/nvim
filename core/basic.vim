@@ -40,6 +40,6 @@ colorscheme darkblue
 set background=dark
 set t_Co=256
 
-au BufNewFile,BufRead *.html,*.js,*.vue,*.css,*.json set tabstop=2 softtabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.html,*.js,*.vue,*.css,*.json,*.yml set tabstop=2 softtabstop=2 shiftwidth=2
 
 set cursorline
