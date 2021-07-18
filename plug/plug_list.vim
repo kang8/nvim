@@ -8,7 +8,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'          " emoji 图标
 Plug 'ryanoasis/vim-devicons'
 Plug 'jiangmiao/auto-pairs'
-"Plug 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 Plug 'luochen1990/rainbow'              "彩虹括号
 Plug 'airblade/vim-gitgutter'
 "Plug 'junegunn/fzf'

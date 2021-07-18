@@ -119,3 +119,12 @@ nmap <leader>rn <Plug>(coc-rename)
 " ===
 cnoreabbrev sudowrite w suda://%
 cnoreabbrev sw w suda://%
+
+" ===
+" === indentline
+" ===
+let g:indentLine_fileTypeExclude = ['json', 'markdown', 'md']
+
+let s:box_drawings_light_vertical = '|'
+
+let g:indentLine_char = s:box_drawings_light_vertical
