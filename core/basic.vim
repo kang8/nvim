@@ -43,3 +43,12 @@ set t_Co=256
 au BufNewFile,BufRead *.html,*.js,*.vue,*.css,*.json,*.yml,*.yaml set tabstop=2 softtabstop=2 shiftwidth=2
 
 set cursorline
+
+" 记住上次编辑的历史
+autocmd BufReadPost *
+  \ if line("'\"") > 1 && line("'\"") <= line("$") |
+  \   exe "normal! g`\"" |
+  \ endif
+
+set undofile
+set undodir=/tmp
