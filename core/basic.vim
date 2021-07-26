@@ -52,3 +52,6 @@ autocmd BufReadPost *
 
 set undofile
 set undodir=/tmp
+
+" fileformat 文件换行符
+set ff=unix
