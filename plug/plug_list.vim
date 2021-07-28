@@ -28,4 +28,5 @@ Plug 'storyn26383/vim-vue'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'lambdalisue/suda.vim'
+Plug 'junegunn/vim-easy-align'
 call plug#end()
