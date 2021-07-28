@@ -14,7 +14,7 @@ Plug 'airblade/vim-gitgutter'
 "Plug 'junegunn/fzf'
 "Plug 'junegunn/fzf.vim'
 "Plug 'theniceboy/vim-deus'
-Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox' " theme
 Plug 'preservim/nerdcommenter'          " 注释
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
@@ -23,10 +23,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-surround'
 Plug 'gcmt/wildfire.vim'
 Plug 'yianwillis/vimcdoc'    "vimdoc 中文
-Plug '907th/vim-auto-save'
+Plug '907th/vim-auto-save' " 自动保存
 Plug 'storyn26383/vim-vue'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'jelera/vim-javascript-syntax'
-Plug 'lambdalisue/suda.vim'
-Plug 'junegunn/vim-easy-align'
+Plug 'lambdalisue/suda.vim' " nvim 使用 sudo
+Plug 'junegunn/vim-easy-align' " 对其
 call plug#end()
