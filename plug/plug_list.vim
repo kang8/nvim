@@ -28,5 +28,6 @@ Plug 'storyn26383/vim-vue'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'lambdalisue/suda.vim' " nvim 使用 sudo
-Plug 'junegunn/vim-easy-align' " 对其
+Plug 'junegunn/vim-easy-align' " 对齐
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' } " prettier format
 call plug#end()

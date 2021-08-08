@@ -141,3 +141,8 @@ let g:indentLine_char = s:box_drawings_light_vertical
 " ===
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+" ===
+" === vim-prettier
+" ===
+nmap <C-M-L> :Prettier<CR>
