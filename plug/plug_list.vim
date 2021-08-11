@@ -31,4 +31,5 @@ Plug 'lambdalisue/suda.vim' " nvim 使用 sudo
 Plug 'junegunn/vim-easy-align' " 对齐
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' } " prettier format
 Plug 'cespare/vim-toml' " syntax for TOML
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } " MarkDown 预览
 call plug#end()
