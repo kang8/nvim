@@ -64,3 +64,11 @@ if has('unix') && executable(s:clip)
         autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
     augroup END
 endif
+
+" Use the clipboard register '*' (primary selection)
+set clipboard=unnamed
+if has('unnamedplus')
+  " Use X11 CLIPBOARD selection, register '+' (clipboard selection)
+  " NOTE: in alacritty use <C-S-V> to paste
+  set clipboard=unnamedplus
+endif
