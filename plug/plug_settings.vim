@@ -146,3 +146,10 @@ nmap ga <Plug>(EasyAlign)
 " === vim-prettier
 " ===
 nmap <C-M-L> :Prettier<CR>
+
+" ===
+" === nerdcommenter
+" ===
+let g:NERDSpaceDelims=1
+nmap <C-_> <Plug>NERDCommenterToggle
+vmap <C-_> <Plug>NERDCommenterToggle
