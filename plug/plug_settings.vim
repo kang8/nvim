@@ -145,6 +145,7 @@ nmap ga <Plug>(EasyAlign)
 " ===
 " === vim-prettier
 " ===
+" <Ctrl + Alt + L> 快捷键调用 prettier 格式化
 nmap <C-M-L> :Prettier<CR>
 
 " ===
@@ -153,3 +154,10 @@ nmap <C-M-L> :Prettier<CR>
 let g:NERDSpaceDelims=1
 nmap <C-_> <Plug>NERDCommenterToggle
 vmap <C-_> <Plug>NERDCommenterToggle
+
+" ===
+" === markdown-preview.nvim
+" ===
+" 获取当前脚本的绝对路径
+let s:current_path=expand("<sfile>:h")
+let g:mkdp_markdown_css = s:current_path . '/custom-markdown.css'
