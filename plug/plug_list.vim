@@ -3,7 +3,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " call plug#begin('~/.config/nvim/plugged') " 插件列表
 call plug#begin('~/.vim/plugged') " 插件列表
-"Plug 'wakatime/vim-wakatime'
+Plug 'wakatime/vim-wakatime'    " 记录编码事件插件
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'          " emoji 图标
 Plug 'ryanoasis/vim-devicons'
