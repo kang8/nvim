@@ -29,3 +29,6 @@ map <leader>r :call ComplieOrRun()<CR>
 " 所以想重新写一个函数来重新开一个窗口来记录下输出的结果
 " out run
 " map <leader>or :call ComplieOrRun()<CR>
+
+" 执行 mbedtls 用的命令
+:command Mbed exec "! gcc -lmbedtls -lmbedcrypto -lmbedx509 % -o /tmp/%<.out && /tmp/%<.out"
