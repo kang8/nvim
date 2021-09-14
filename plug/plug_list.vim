@@ -1,8 +1,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plug 插件管理工具
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-" call plug#begin('~/.config/nvim/plugged') " 插件列表
-call plug#begin('~/.vim/plugged') " 插件列表
+call plug#begin('~/.config/nvim/plug/.plugged') " 插件列表
 Plug 'wakatime/vim-wakatime'    " 记录编码事件插件
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'          " emoji 图标
