@@ -24,7 +24,7 @@ Plug 'gcmt/wildfire.vim'
 Plug 'yianwillis/vimcdoc'                              " vimdoc 中文
 Plug '907th/vim-auto-save'                             " 自动保存
 Plug 'storyn26383/vim-vue'
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'jelera/vim-javascript-syntax'
 Plug 'lambdalisue/suda.vim'                            " nvim 使用 sudo
 Plug 'junegunn/vim-easy-align'                         " 对齐
