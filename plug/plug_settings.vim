@@ -159,3 +159,12 @@ vmap <C-_> <Plug>NERDCommenterToggle
 " 获取当前脚本的绝对路径
 let s:current_path=expand("<sfile>:h")
 let g:mkdp_markdown_css = s:current_path . '/custom-markdown.css'
+
+" ===
+" === kevinhwang91/rnvimr
+" ===
+" Make Ranger replace netrw and be the file explorer
+let g:rnvimr_enable_ex = 1
+
+
+nmap <space>r :RnvimrToggle<CR>
