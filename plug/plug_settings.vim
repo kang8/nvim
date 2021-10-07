@@ -16,12 +16,46 @@ let g:gitgutter_sign_removed_first_line = '▔'
 let g:gitgutter_sign_modified_removed = '▒ '
 
 " ===
-" scrooloose/nerdtree. directory tree setting
+" Shougo/defx.nvim
 " ===
-let NERDTreeShowHidden=1
-let NERDTreeWinSize=30
-nmap <leader>d :NERDTreeToggle<CR>
+nmap <silent> <leader>d :Defx <CR>
 
+function! s:defx_mappings() abort
+    nnoremap <silent><buffer><expr> <CR>
+      \ defx#is_directory() ?
+      \ defx#do_action('open_or_close_tree') :
+      \ defx#do_action('drop')
+  nnoremap <silent><buffer><expr> o
+      \ match(bufname('%'), 'explorer') >= 0 ?
+      \ (defx#is_directory() ? defx#do_action('open_or_close_tree') : defx#do_action('drop')) :
+      \ (defx#is_directory() ? defx#do_action('open_or_close_tree') : defx#do_action('multi', ['open', 'quit']))
+  nnoremap <silent><buffer><expr> l
+      \ defx#is_directory() ? defx#do_action('open') : 0
+  nnoremap <silent><buffer><expr> h
+      \ defx#do_action('cd', ['..'])
+  nnoremap <silent><buffer><expr> K
+      \ defx#do_action('new_directory')
+  nnoremap <silent><buffer><expr> N
+      \ defx#do_action('new_file')
+  nnoremap <silent><buffer><expr> d
+      \ defx#do_action('remove')
+  nnoremap <silent><buffer><expr> r
+      \ defx#do_action('rename')
+  nnoremap <silent><buffer><expr> q
+      \ defx#do_action('quit')
+endfunction
+
+call defx#custom#option('_', {
+	\ 'columns': 'space:indent:git:icons:space:filename:mark',
+	\ 'winwidth': 30,
+	\ 'split': 'vertical',
+	\ 'direction': 'topleft',
+	\ 'show_ignored_files': 0,
+    \ 'toggle': 1,
+	\ 'root_marker': '≡ '
+	\ })
+
+autocmd FileType defx call s:defx_mappings()
 
 " ===
 " vim-airline/vim-airline state pretty
