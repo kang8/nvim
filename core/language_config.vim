@@ -23,12 +23,8 @@ func! ComplieOrRun()
     endif
 endfunc
 
-" run
-map <leader>r :call ComplieOrRun()<CR>
-" 另外一个运行，因为上面的函数运行完后按下另一个按键后执行结果就会消失
-" 所以想重新写一个函数来重新开一个窗口来记录下输出的结果
-" out run
-" map <leader>or :call ComplieOrRun()<CR>
+" use :Run to exec ComplieOrRun method
+:command Run exec ComplieOrRun()
 
 " 执行 mbedtls 用的命令
 :command Mbed exec "! gcc -lmbedtls -lmbedcrypto -lmbedx509 % -o /tmp/%<.out && /tmp/%<.out"
