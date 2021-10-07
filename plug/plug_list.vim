@@ -18,9 +18,9 @@ Plug 'jiangmiao/auto-pairs'                            " 自动补全括号
 Plug 'Yggdroot/indentLine'                             " 缩进线
 Plug 'luochen1990/rainbow'                             " 彩虹括号
 Plug 'airblade/vim-gitgutter'                          " Git 状态显示
-"Plug 'junegunn/fzf'
-"Plug 'junegunn/fzf.vim'
-"Plug 'theniceboy/vim-deus'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }    " fzf support
+Plug 'junegunn/fzf.vim'                                " support fzf on vim
+Plug 'airblade/vim-rooter'                              " Changes Vim working directory to project root.
 Plug 'morhetz/gruvbox'                                 " theme
 Plug 'preservim/nerdcommenter'                         " 注释
 Plug 'ludovicchabant/vim-gutentags'                    " 使用 ctags 管理 tag 文件（必须安装 ctags）

@@ -240,5 +240,9 @@ let g:mkdp_markdown_css = s:current_path . '/custom-markdown.css'
 " Make Ranger replace netrw and be the file explorer
 let g:rnvimr_enable_ex = 1
 
-
 nmap <space>r :RnvimrToggle<CR>
+
+" ===
+" === junegunn/fzf.vim
+" ===
+nmap <leader>p :Files<CR>
