@@ -5,12 +5,13 @@ call plug#begin('~/.config/nvim/plug/.plugged') " 插件列表
 Plug 'wakatime/vim-wakatime'                           " 记录编码事件插件
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' } " 支持异步的文件树
-  Plug 'kristijanhusak/defx-icons'                       " defx 图标
 else
   Plug 'Shougo/defx.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'kristijanhusak/defx-icons'                       " defx 图标
+Plug 'kristijanhusak/defx-git'                         " defx git 支持
 Plug 'vim-airline/vim-airline'                         " 状态栏美化
 Plug 'ryanoasis/vim-devicons'                          " emoji 图标
 Plug 'jiangmiao/auto-pairs'                            " 自动补全括号
