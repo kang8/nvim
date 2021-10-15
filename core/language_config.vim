@@ -20,6 +20,8 @@ func! ComplieOrRun()
         exec "! node %"
     elseif &filetype == 'go'
         exec "! go run %"
+    elseif &filetype == 'sh'
+        exec "! chmod u+x ./% && ./%"
     endif
 endfunc
 
