@@ -6,12 +6,12 @@ lualine.setup {
     icons_enabled = true,
     theme = 'gruvbox',
     section_separators = {},
-    component_separators = {},
+    component_separators = {'', '|'},
     disabled_filetypes = {}
   },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {'branch'},
+    lualine_b = {'branch','diff'},
     lualine_c = {{
       'filename',
       file_status = true, -- displays file status (readonly status, modified status)
@@ -22,7 +22,7 @@ lualine.setup {
       'encoding',
       'filetype'
     },
-    lualine_y = {'progress'},
+    lualine_y = {'fileformat'},
     lualine_z = {'location'}
   },
   inactive_sections = {
