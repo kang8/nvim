@@ -40,3 +40,8 @@ Plug 'cespare/vim-toml'                                 " syntax for TOML
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } " MarkDown 预览
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}         " ranger support
 call plug#end()
+
+source ~/.config/nvim/plug/customized/gitgutter.vim
+source ~/.config/nvim/plug/customized/gutentags.vim
+source ~/.config/nvim/plug/customized/rnvimr.vim
+source ~/.config/nvim/plug/customized/markdown-preview/markdown-preview.vim
