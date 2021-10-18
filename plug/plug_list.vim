@@ -16,7 +16,7 @@ Plug 'hoob3rt/lualine.nvim'                             " 状态栏 support
 Plug 'ryanoasis/vim-devicons'                           " icon support
 Plug 'jiangmiao/auto-pairs'                             " 自动补全括号
 Plug 'Yggdroot/indentLine'                              " 缩进线
-Plug 'luochen1990/rainbow'                              " 彩虹括号
+Plug 'p00f/nvim-ts-rainbow'                              " 彩虹括号 by treesitter
 Plug 'airblade/vim-gitgutter'                           " Git 状态显示
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }     " fzf support
 Plug 'junegunn/fzf.vim'                                 " support fzf on vim

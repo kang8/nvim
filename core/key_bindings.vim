@@ -28,8 +28,3 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand("%:h").'/' : '%%'
 " 使用 <C-p> 和 <C-n> 在命令行模式下查找历史命令
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
-
-" ===
-" majutsushi/tagbar tag tree setting
-" ===
-nmap <leader>t :TagbarToggle<CR>
