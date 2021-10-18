@@ -36,8 +36,7 @@ set list listchars=eol:¬,tab:>-,trail:·
 
 set encoding=utf-8
 
-colorscheme darkblue
-set background=dark
+set termguicolors
 set t_Co=256
 
 au BufNewFile,BufRead *.html,*.js,*.vue,*.css,*.json,*.yml,*.yaml,*.xml,*.lua set tabstop=2 softtabstop=2 shiftwidth=2
