@@ -9,11 +9,6 @@ let g:gitgutter_sign_removed_first_line = '▔'
 let g:gitgutter_sign_modified_removed = '▒ '
 
 " ===
-" majutsushi/ragbar tag tree setting
-" ===
-nmap <leader>t :TagbarToggle<CR>
-
-" ===
 " 907th/vim-auto/save
 " ===
 let g:auto_save = 1

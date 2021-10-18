@@ -29,3 +29,7 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand("%:h").'/' : '%%'
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
+" ===
+" majutsushi/tagbar tag tree setting
+" ===
+nmap <leader>t :TagbarToggle<CR>
