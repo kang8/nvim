@@ -29,7 +29,6 @@ Plug 'itchyny/vim-cursorword'                           " 使用下划线显示�
 Plug 'neoclide/coc.nvim', {'branch': 'release'}         " 使 vim 支持 nodejs，并支持 lsp
 Plug 'tpope/vim-surround'                               " 为 vim 提供修改成对的环绕字符支持
 Plug 'gcmt/wildfire.vim'                                " 使用 <ENTER> 来选中块
-Plug 'yianwillis/vimcdoc'                               " vimdoc 中文
 Plug '907th/vim-auto-save'                              " 自动保存
 Plug 'storyn26383/vim-vue'                              " 为 vim 提供 vue 的支持
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
