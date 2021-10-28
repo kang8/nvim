@@ -21,7 +21,7 @@ Plug 'airblade/vim-gitgutter'                           " Git 状态显示
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }     " fzf support
 Plug 'junegunn/fzf.vim'                                 " support fzf on vim
 Plug 'airblade/vim-rooter'                              " Changes Vim working directory to project root.
-Plug 'morhetz/gruvbox'                                  " theme
+Plug 'gruvbox-community/gruvbox'                        " theme
 Plug 'preservim/nerdcommenter'                          " 注释
 Plug 'ludovicchabant/vim-gutentags'                     " 使用 ctags 管理 tag 文件（必须安装 ctags）
 Plug 'majutsushi/tagbar'                                " 在一个窗口展示 tags
