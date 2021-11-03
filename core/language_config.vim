@@ -27,6 +27,7 @@ endfunc
 
 " use :Run to exec ComplieOrRun method
 :command Run exec ComplieOrRun()
+map <F5> :call ComplieOrRun()<CR>
 
 " 执行 mbedtls 用的命令
 :command Mbed exec "! gcc -lmbedtls -lmbedcrypto -lmbedx509 % -o /tmp/%<.out && /tmp/%<.out"
