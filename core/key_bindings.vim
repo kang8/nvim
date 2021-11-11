@@ -8,7 +8,8 @@ inoremap jj <esc>
 inoremap kk <esc>A
 
 map <leader>k :nohl<CR>
-map <leader>n :call ChangeDisplayNumber()<CR>
+map <leader>n :call ToggleDisplayNumber()<CR>
+map <leader>l :call ToggleWrap()<CR>
 
 " paste 的切换
 set pastetoggle=<leader>p
