@@ -16,8 +16,9 @@ Plug 'hoob3rt/lualine.nvim'                             " 状态栏 support
 Plug 'ryanoasis/vim-devicons'                           " icon support
 Plug 'jiangmiao/auto-pairs'                             " 自动补全括号
 Plug 'Yggdroot/indentLine'                              " 缩进线
-Plug 'p00f/nvim-ts-rainbow'                              " 彩虹括号 by treesitter
-Plug 'airblade/vim-gitgutter'                           " Git 状态显示
+Plug 'p00f/nvim-ts-rainbow'                             " 彩虹括号 by treesitter
+Plug 'nvim-lua/plenary.nvim'                            " for git
+Plug 'lewis6991/gitsigns.nvim'                          " for git
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }     " fzf support
 Plug 'junegunn/fzf.vim'                                 " support fzf on vim
 Plug 'airblade/vim-rooter'                              " Changes Vim working directory to project root.
@@ -41,7 +42,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } " MarkD
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}         " ranger support
 call plug#end()
 
-source ~/.config/nvim/plug/customized/gitgutter.vim
 source ~/.config/nvim/plug/customized/gutentags.vim
 source ~/.config/nvim/plug/customized/rnvimr.vim
 source ~/.config/nvim/plug/customized/markdown-preview/markdown-preview.vim
