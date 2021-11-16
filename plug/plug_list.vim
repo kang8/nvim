@@ -2,7 +2,10 @@
 " plug 插件管理工具
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.config/nvim/plug/.plugged') " 插件列表
-Plug 'wakatime/vim-wakatime'                           " 记录编码事件插件
+if g:is_work != "true\n"
+    Plug 'wakatime/vim-wakatime'                           " 记录编码事件插件
+endif
+
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' } " 支持异步的文件树
 else

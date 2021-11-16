@@ -71,3 +71,5 @@ if has('unnamedplus')
   " NOTE: in alacritty use <C-S-V> to paste
   set clipboard=unnamedplus
 endif
+
+let g:is_work = system("echo $is_work")
