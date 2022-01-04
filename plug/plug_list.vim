@@ -21,6 +21,7 @@ Plug 'jiangmiao/auto-pairs'                             " 自动补全括号
 Plug 'Yggdroot/indentLine'                              " 缩进线
 Plug 'p00f/nvim-ts-rainbow'                             " 彩虹括号 by treesitter
 Plug 'nvim-lua/plenary.nvim'                            " for git
+Plug 'tpope/vim-fugitive'                               " for git
 Plug 'lewis6991/gitsigns.nvim'                          " for git
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }     " fzf support
 Plug 'junegunn/fzf.vim'                                 " support fzf on vim
