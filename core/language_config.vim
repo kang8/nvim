@@ -22,6 +22,8 @@ func! ComplieOrRun()
         exec "! go run %"
     elseif &filetype == 'sh'
         exec "! chmod u+x ./% && ./%"
+    elseif &filetype == 'perl'
+        exec "! perl %"
     endif
 endfunc
 
