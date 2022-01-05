@@ -4,6 +4,8 @@
 call plug#begin('~/.config/nvim/plug/.plugged') " 插件列表
 if g:is_work != "true\n"
     Plug 'wakatime/vim-wakatime'                           " 记录编码事件插件
+    Plug 'p00f/nvim-ts-rainbow'                             " 彩虹括号 by treesitter
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 endif
 
 if has('nvim')
@@ -19,7 +21,6 @@ Plug 'hoob3rt/lualine.nvim'                             " 状态栏 support
 Plug 'ryanoasis/vim-devicons'                           " icon support
 Plug 'jiangmiao/auto-pairs'                             " 自动补全括号
 Plug 'Yggdroot/indentLine'                              " 缩进线
-Plug 'p00f/nvim-ts-rainbow'                             " 彩虹括号 by treesitter
 Plug 'nvim-lua/plenary.nvim'                            " for git
 Plug 'tpope/vim-fugitive'                               " for git
 Plug 'lewis6991/gitsigns.nvim'                          " for git
@@ -36,7 +37,6 @@ Plug 'tpope/vim-surround'                               " 为 vim 提供修改�
 Plug 'gcmt/wildfire.vim'                                " 使用 <ENTER> 来选中块
 Plug '907th/vim-auto-save'                              " 自动保存
 Plug 'storyn26383/vim-vue'                              " 为 vim 提供 vue 的支持
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'jelera/vim-javascript-syntax'                     " 为 vim 提供 js 语法支持
 Plug 'lambdalisue/suda.vim'                             " nvim 使用 sudo
 Plug 'junegunn/vim-easy-align'                          " 对齐
