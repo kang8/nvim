@@ -45,6 +45,7 @@ Plug 'cespare/vim-toml'                                 " syntax for TOML
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } " MarkDown 预览
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}         " ranger support
 Plug 'kang8/smartim',                                   " macos change inpout method
+Plug 'nathangrigg/vim-beancount',                       " Vim ftplugin for beancount
 call plug#end()
 
 source ~/.config/nvim/plug/customized/gutentags.vim
