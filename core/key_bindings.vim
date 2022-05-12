@@ -29,3 +29,25 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand("%:h").'/' : '%%'
 " 使用 <C-p> 和 <C-n> 在命令行模式下查找历史命令
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
+
+"----------------------------------------------------------------------
+" INSERT 模式下使用 EMACS 键位
+"----------------------------------------------------------------------
+inoremap <c-a> <home>
+inoremap <c-e> <end>
+inoremap <c-d> <del>
+inoremap <c-_> <c-k>
+
+"----------------------------------------------------------------------
+" 命令模式的快速移动
+"----------------------------------------------------------------------
+cnoremap <c-h> <left>
+cnoremap <c-j> <down>
+cnoremap <c-k> <up>
+cnoremap <c-l> <right>
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
+cnoremap <c-f> <c-d>
+cnoremap <c-b> <left>
+cnoremap <c-d> <del>
+cnoremap <c-_> <c-k>
