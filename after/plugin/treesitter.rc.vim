@@ -7,11 +7,10 @@ lua <<EOF
 require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
-    disable = {},
+    additional_vim_regex_highlighting = false, -- 禁用 vim 基于正则达式的语法高亮，太慢
   },
   indent = {
-    enable = false,
-    disable = {},
+    enable = true,
   },
   ensure_installed = {
     "toml",
@@ -22,13 +21,12 @@ require'nvim-treesitter.configs'.setup {
     "css",
     "javascript",
     "bash",
-    "vue",
     "vim",
     "python",
     "lua",
     "cpp",
     "c",
-    "scss"
+    "go",
   },
   rainbow = {
     enable = true,

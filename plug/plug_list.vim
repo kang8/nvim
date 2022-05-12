@@ -4,8 +4,6 @@
 call plug#begin('~/.config/nvim/plug/.plugged') " 插件列表
 if g:is_work != "true\n"
     Plug 'wakatime/vim-wakatime'                           " 记录编码事件插件
-    Plug 'p00f/nvim-ts-rainbow'                             " 彩虹括号 by treesitter
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 endif
 
 if has('nvim')
@@ -46,6 +44,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } " MarkD
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}         " ranger support
 Plug 'kang8/smartim',                                   " macos change inpout method
 Plug 'nathangrigg/vim-beancount',                       " Vim ftplugin for beancount
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'p00f/nvim-ts-rainbow'                             " 彩虹括号 by treesitter
 call plug#end()
 
 source ~/.config/nvim/plug/customized/gutentags.vim
