@@ -44,9 +44,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } " MarkD
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}         " ranger support
 Plug 'kang8/smartim',                                   " macos change inpout method
 Plug 'nathangrigg/vim-beancount',                       " Vim ftplugin for beancount
-
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'p00f/nvim-ts-rainbow'                             " 彩虹括号 by treesitter
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 source ~/.config/nvim/plug/customized/gutentags.vim
