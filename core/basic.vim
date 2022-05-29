@@ -12,7 +12,7 @@ set visualbell t_vb=
 set novisualbell
 
 set showcmd
-set showmode
+set noshowmode
 set ruler
 " 显示行号
 "set nu rnu
@@ -23,6 +23,7 @@ set ignorecase
 set smartcase
 set showmatch
 set matchtime=1
+set timeoutlen=500
 
 set scrolloff=3
 set backspace=indent,eol,start
@@ -33,7 +34,7 @@ set expandtab
 set smarttab autoindent smartindent
 set shiftwidth=4 tabstop=4 softtabstop=4
 
-set list listchars=eol:⏎,tab:>-,trail:·
+set list listchars=eol:⏎,tab:>-,trail:·,space:·
 
 set encoding=utf-8
 
