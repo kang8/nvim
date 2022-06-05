@@ -31,7 +31,7 @@ cnoremap <c-k> <up>
 cnoremap <c-l> <right>
 cnoremap <c-a> <home>
 cnoremap <c-e> <end>
-cnoremap <c-f> <c-d>
+" cnoremap <c-f> <c-d> " Do not use <c-d> override command mode, Because it will open command-line window. :h c_CTRL-F
 cnoremap <c-b> <left>
 " cnoremap <c-d> <del> " Do not use <c-d> override command mode, Because it will expand all match option
 cnoremap <c-_> <c-k>
