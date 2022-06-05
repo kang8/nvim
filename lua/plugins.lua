@@ -6,6 +6,7 @@ require("packer").startup({
     use 'gruvbox-community/gruvbox'
     --------------------- plugins -------------------------
     use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
+    use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
   end,
   config = {
     display = {
