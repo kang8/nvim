@@ -2,6 +2,8 @@ require("packer").startup({
   function(use)
     -- Packer can manage itself
     use "wbthomason/packer.nvim"
+    --------------------- colorschemes --------------------
+    use 'gruvbox-community/gruvbox'
   end,
   config = {
     display = {
