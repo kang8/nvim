@@ -6,7 +6,6 @@ if g:is_work != "true\n"
     Plug 'wakatime/vim-wakatime'                           " 记录编码事件插件
 endif
 
-Plug 'hoob3rt/lualine.nvim'                             " 状态栏 support
 Plug 'ryanoasis/vim-devicons'                           " icon support
 Plug 'jiangmiao/auto-pairs'                             " 自动补全括号
 Plug 'Yggdroot/indentLine'                              " 缩进线
