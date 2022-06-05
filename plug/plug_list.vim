@@ -6,15 +6,6 @@ if g:is_work != "true\n"
     Plug 'wakatime/vim-wakatime'                           " 记录编码事件插件
 endif
 
-if has('nvim')
-  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' } " 支持异步的文件树
-else
-  Plug 'Shougo/defx.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-Plug 'kristijanhusak/defx-icons'                        " defx 图标
-Plug 'kristijanhusak/defx-git'                          " defx git 支持
 Plug 'hoob3rt/lualine.nvim'                             " 状态栏 support
 Plug 'ryanoasis/vim-devicons'                           " icon support
 Plug 'jiangmiao/auto-pairs'                             " 自动补全括号

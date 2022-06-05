@@ -4,6 +4,8 @@ require("packer").startup({
     use "wbthomason/packer.nvim"
     --------------------- colorschemes --------------------
     use 'gruvbox-community/gruvbox'
+    --------------------- plugins -------------------------
+    use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
   end,
   config = {
     display = {
