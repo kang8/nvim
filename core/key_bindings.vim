@@ -3,7 +3,6 @@ let maplocalleader=" "
 
 inoremap kk <esc>A
 
-map <leader>k :nohl<CR>
 map <leader>n :call ToggleDisplayNumber()<CR>
 map <leader>l :call ToggleWrap()<CR>
 
