@@ -37,4 +37,9 @@ bufferline.setup({
       return s
     end,
   },
+  highlights = {
+    buffer_selected = {
+      guibg = "#0057B7"
+    }
+  }
 })
