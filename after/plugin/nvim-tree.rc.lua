@@ -8,7 +8,8 @@ end
 vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeToggle<CR>", {noremap = true, silent = true })
 
 nvim_tree.setup({
-  -- project plugin 需要这样设置
+  -- for project change
+  respect_buf_cwd = true,
   update_cwd = true,
   update_focused_file = {
     enable = true,

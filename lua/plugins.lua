@@ -14,6 +14,9 @@ require("packer").startup({
 
     use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' }
     use { 'LinArcX/telescope-env.nvim' }
+    use { 'ahmedkhalf/project.nvim' }
+
+    use { 'glepnir/dashboard-nvim' }
   end,
   config = {
     display = {
