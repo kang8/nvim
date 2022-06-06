@@ -12,8 +12,8 @@ Plug 'Yggdroot/indentLine'                              " 缩进线
 Plug 'nvim-lua/plenary.nvim'                            " for git
 Plug 'tpope/vim-fugitive'                               " for git
 Plug 'lewis6991/gitsigns.nvim'                          " for git
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }     " fzf support
-Plug 'junegunn/fzf.vim'                                 " support fzf on vim
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }     " fzf support
+" Plug 'junegunn/fzf.vim'                                 " support fzf on vim
 Plug 'airblade/vim-rooter'                              " Changes Vim working directory to project root.
 Plug 'preservim/nerdcommenter'                          " 注释
 Plug 'ludovicchabant/vim-gutentags'                     " 使用 ctags 管理 tag 文件（必须安装 ctags）
