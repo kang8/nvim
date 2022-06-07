@@ -17,6 +17,8 @@ require("packer").startup({
     use { 'ahmedkhalf/project.nvim' }
 
     use { 'glepnir/dashboard-nvim' }
+
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   end,
   config = {
     display = {
