@@ -19,6 +19,8 @@ require("packer").startup({
     use { 'glepnir/dashboard-nvim' }
 
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+
+    use { 'dstein64/vim-startuptime' }
   end,
   config = {
     display = {
