@@ -5,8 +5,6 @@ if not status then
   return
 end
 
-local lsp_installer = require("nvim-lsp-installer")
-
 -- { key: lsp lanuage server name ,value: config file }
 -- https://github.com/williamboman/nvim-lsp-installer#available-lsps
 local servers = {
