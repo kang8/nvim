@@ -5,7 +5,7 @@ if not status then
   return
 end
 
-vim.api.nvim_set_keymap("n", "gp", ":BufferLinePick<CR>", {noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>gp", ":BufferLinePick<CR>", {noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>cl", ":BufferLineCloseRight<CR>", {noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>ch", ":BufferLineCloseLeft<CR>", {noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>cp", ":BufferLinePickClose<CR>", {noremap = true, silent = true })

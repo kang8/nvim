@@ -38,6 +38,8 @@ require("packer").startup({
     use { 'hrsh7th/cmp-cmdline' }
     -- Common programming lanuage code snippet
     use { 'rafamadriz/friendly-snippets' }
+    -- ui
+    use { 'onsails/lspkind-nvim' }
   end,
   config = {
     display = {

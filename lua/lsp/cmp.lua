@@ -19,6 +19,7 @@ cmp.setup({
       { name = "path" }
   }),
   mapping = require("keybindings").cmp(cmp),
+  formatting = require('lsp.ui').formatting
 })
 
 cmp.setup.cmdline("/", {
