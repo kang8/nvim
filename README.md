@@ -1,15 +1,17 @@
-# Install
+# My neovim config
+
+## Requirement
+
+* git
+* rg
+* fd
+* lua
+* node
 
 ## use GitHub
 
 ```bash
 $ git clone git@github.com:kang8/.vimrc.git ~/.config/nvim
-```
-
-## use Gitee
-
-```bash
-$ git clone git@gitee.com:kang8/.vimrc.git ~/.config/nvim
 ```
 
 ## install python and node extension
