@@ -45,7 +45,8 @@ require('packer').startup({
     -- ui
     use({ 'onsails/lspkind-nvim' })
     -- lanuage
-    use({ 'b0o/schemastore.nvim' })
+    use({ 'b0o/schemastore.nvim' }) -- json
+    use({ 'simrat39/rust-tools.nvim' }) -- rust
   end,
   config = {
     display = {

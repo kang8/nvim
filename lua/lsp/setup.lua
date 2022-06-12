@@ -10,6 +10,7 @@ end
 local servers = {
   sumneko_lua = require('lsp.config.lua'), -- lua/lsp/config/lua.lua
   jsonls = require('lsp.config.json'),
+  rust_analyzer = require('lsp.config.rust'),
 }
 
 -- Auto install Language Servers

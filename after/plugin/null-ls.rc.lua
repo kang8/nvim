@@ -33,6 +33,8 @@ null_ls.setup({
       },
       prefer_local = 'node_modules/.bin',
     }),
+    -- for rust, install: `rustup component add rustfmt`
+    formatting.rustfmt,
   },
   on_attach = function(client)
     if client.resolved_capabilities.document_formatting then
