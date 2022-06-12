@@ -7,6 +7,7 @@
 * fd
 * lua
 * node
+* stylua
 
 ## use GitHub
 

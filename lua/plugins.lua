@@ -24,6 +24,8 @@ require("packer").startup({
 
     use { 'lukas-reineke/indent-blankline.nvim' }
 
+    use { 'jose-elias-alvarez/null-ls.nvim', requires = 'nvim-lua/plenary.nvim' }
+
     --------------------- LSP -----------------------------
     use { 'neovim/nvim-lspconfig' }
     use { 'williamboman/nvim-lsp-installer' }
