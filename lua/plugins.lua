@@ -28,6 +28,8 @@ require('packer').startup({
 
     use({ 'LunarWatcher/auto-pairs' })
 
+    use({ 'numToStr/Comment.nvim' })
+
     --------------------- LSP -----------------------------
     use({ 'neovim/nvim-lspconfig' })
     use({ 'williamboman/nvim-lsp-installer' })

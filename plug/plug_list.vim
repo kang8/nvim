@@ -9,7 +9,6 @@ endif
 Plug 'nvim-lua/plenary.nvim'                            " for git
 Plug 'tpope/vim-fugitive'                               " for git
 Plug 'lewis6991/gitsigns.nvim'                          " for git
-"Plug 'preservim/nerdcommenter'                          " 注释
 Plug 'itchyny/vim-cursorword'                           " 使用下划线显示同一个单词
 Plug 'tpope/vim-surround'                               " 为 vim 提供修改成对的环绕字符支持
 Plug '907th/vim-auto-save'                              " 自动保存
