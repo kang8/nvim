@@ -25,6 +25,19 @@ require("packer").startup({
     --------------------- LSP -----------------------------
     use { 'neovim/nvim-lspconfig' }
     use { 'williamboman/nvim-lsp-installer' }
+
+    --------------------- cmp -> code complete ------------
+    use { 'hrsh7th/nvim-cmp' }
+    -- snippet
+    use { 'hrsh7th/vim-vsnip' }
+    -- source
+    use { 'hrsh7th/cmp-vsnip' }
+    use { 'hrsh7th/cmp-nvim-lsp' }
+    use { 'hrsh7th/cmp-buffer' }
+    use { 'hrsh7th/cmp-path' }
+    use { 'hrsh7th/cmp-cmdline' }
+    -- Common programming lanuage code snippet
+    use { 'rafamadriz/friendly-snippets' }
   end,
   config = {
     display = {

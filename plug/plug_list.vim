@@ -14,10 +14,7 @@ Plug 'tpope/vim-fugitive'                               " for git
 Plug 'lewis6991/gitsigns.nvim'                          " for git
 "Plug 'airblade/vim-rooter'                              " Changes Vim working directory to project root.
 "Plug 'preservim/nerdcommenter'                          " 注释
-"Plug 'ludovicchabant/vim-gutentags'                     " 使用 ctags 管理 tag 文件（必须安装 ctags）
-"Plug 'majutsushi/tagbar'                                " 在一个窗口展示 tags
 Plug 'itchyny/vim-cursorword'                           " 使用下划线显示同一个单词
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}         " 使 vim 支持 nodejs，并支持 lsp
 Plug 'tpope/vim-surround'                               " 为 vim 提供修改成对的环绕字符支持
 Plug '907th/vim-auto-save'                              " 自动保存
 "Plug 'storyn26383/vim-vue'                              " 为 vim 提供 vue 的支持
@@ -32,6 +29,5 @@ Plug 'kang8/smartim',                                   " macos change inpout me
 "Plug 'rust-lang/rust.vim'
 call plug#end()
 
-"source ~/.config/nvim/plug/customized/gutentags.vim
 "source ~/.config/nvim/plug/customized/rnvimr.vim
 source ~/.config/nvim/plug/customized/markdown-preview/markdown-preview.vim
