@@ -22,6 +22,8 @@ require("packer").startup({
 
     use { 'dstein64/vim-startuptime' }
 
+    use { 'lukas-reineke/indent-blankline.nvim' }
+
     --------------------- LSP -----------------------------
     use { 'neovim/nvim-lspconfig' }
     use { 'williamboman/nvim-lsp-installer' }

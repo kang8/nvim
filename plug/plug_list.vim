@@ -8,7 +8,6 @@ endif
 
 "Plug 'ryanoasis/vim-devicons'                           " icon support
 Plug 'jiangmiao/auto-pairs'                             " 自动补全括号
-"Plug 'Yggdroot/indentLine'                              " 缩进线
 Plug 'nvim-lua/plenary.nvim'                            " for git
 Plug 'tpope/vim-fugitive'                               " for git
 Plug 'lewis6991/gitsigns.nvim'                          " for git
