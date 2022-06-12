@@ -1,11 +1,11 @@
-local status, nvim_tree = pcall(require, "nvim-tree")
+local status, nvim_tree = pcall(require, 'nvim-tree')
 
 if not status then
-  vim.notify("Not found nvim-tree")
+  vim.notify('Not found nvim-tree')
   return
 end
 
-vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeToggle<CR>", {noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
 nvim_tree.setup({
   -- for project change

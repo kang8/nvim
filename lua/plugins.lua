@@ -26,9 +26,14 @@ require('packer').startup({
 
     use({ 'jose-elias-alvarez/null-ls.nvim', requires = 'nvim-lua/plenary.nvim' })
 
+    use({ 'LunarWatcher/auto-pairs' })
+
     --------------------- LSP -----------------------------
     use({ 'neovim/nvim-lspconfig' })
     use({ 'williamboman/nvim-lsp-installer' })
+    -- lanuage
+    use({ 'b0o/schemastore.nvim' }) -- json
+    use({ 'simrat39/rust-tools.nvim' }) -- rust
 
     --------------------- cmp -> code complete ------------
     use({ 'hrsh7th/nvim-cmp' })
@@ -44,9 +49,6 @@ require('packer').startup({
     use({ 'rafamadriz/friendly-snippets' })
     -- ui
     use({ 'onsails/lspkind-nvim' })
-    -- lanuage
-    use({ 'b0o/schemastore.nvim' }) -- json
-    use({ 'simrat39/rust-tools.nvim' }) -- rust
   end,
   config = {
     display = {

@@ -6,7 +6,6 @@ if g:is_work != "true\n"
     Plug 'wakatime/vim-wakatime'                           " 记录编码事件插件
 endif
 
-Plug 'jiangmiao/auto-pairs'                             " 自动补全括号
 Plug 'nvim-lua/plenary.nvim'                            " for git
 Plug 'tpope/vim-fugitive'                               " for git
 Plug 'lewis6991/gitsigns.nvim'                          " for git
