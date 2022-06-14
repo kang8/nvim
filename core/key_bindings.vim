@@ -1,12 +1,8 @@
 let mapleader=" "
 let maplocalleader=" "
 
-inoremap kk <esc>A
-
 map <leader>n :call ToggleDisplayNumber()<CR>
 map <leader>l :call ToggleWrap()<CR>
-
-map <Tab> :bn<CR>
 
 " %% 与 %:h 的一个按键映射。
 " 命令行模式输入 %% 后，会自动转换成当前缓冲区所在目录的路径。
