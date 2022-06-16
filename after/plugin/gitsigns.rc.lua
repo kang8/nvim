@@ -1,7 +1,10 @@
-local status, lualine = pcall(require, "gitsigns")
-if (not status) then return end
+local status, gitsigns = pcall(require, "gitsigns")
+if (not status) then
+  vim.notify('Not found gitsigns')
+  return
+end
 
-require('gitsigns').setup {
+gitsigns.setup {
   signs = {
     add          = {hl = 'GitSignsAdd'   , text = '▕▏', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
     change       = {hl = 'GitSignsChange', text = '▕▏', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},

@@ -1,7 +1,7 @@
 local status, null_ls = pcall(require, 'null-ls')
 
 if not status then
-  vim.notify('Not found lualnie.nvim')
+  vim.notify('Not found jose-elias-alvarez/null-ls.nvim')
   return
 end
 

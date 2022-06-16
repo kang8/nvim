@@ -1,7 +1,7 @@
 local status, cmp = pcall(require, "cmp")
 
 if not status then
-  vim.notify("Not found bufferline.nvim")
+  vim.notify("Not found hrsh7th/nvim-cmp")
   return
 end
 
@@ -22,18 +22,18 @@ cmp.setup({
   formatting = require('lsp.ui').formatting
 })
 
-cmp.setup.cmdline("/", {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = "buffer" },
-  },
-})
+-- cmp.setup.cmdline("/", {
+--   mapping = cmp.mapping.preset.cmdline(),
+--   sources = {
+--     { name = "buffer" },
+--   },
+-- })
 
-cmp.setup.cmdline(":", {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({
-    { name = "path" },
-  }, {
-    { name = "cmdline" },
-  }),
-})
+-- cmp.setup.cmdline(":", {
+--   mapping = cmp.mapping.preset.cmdline(),
+--   sources = cmp.config.sources({
+--     { name = "path" },
+--   }, {
+--     { name = "cmdline" },
+--   }),
+-- })

@@ -1,7 +1,7 @@
 local status, lualine = pcall(require, "lualine")
 
 if not status then
-  vim.notify("Not found lualnie.nvim")
+  vim.notify("Not found nvim-lualine/lualine.nvim")
   return
 end
 
