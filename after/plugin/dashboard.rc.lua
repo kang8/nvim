@@ -20,6 +20,12 @@ dashboard.custom_header = {
 
 dashboard.custom_center = {
   {
+    icon = '  ',
+    desc = 'Recently files                    ',
+    shortcut = 'SPC f o',
+    action = 'Telescope oldfiles',
+  },
+  {
     icon = '  ',
     desc = 'New file                            ',
     shortcut = ':enew',
@@ -30,12 +36,6 @@ dashboard.custom_center = {
     desc = 'Projects                          ',
     shortcut = 'SPC f p',
     action = 'Telescope projects',
-  },
-  {
-    icon = '  ',
-    desc = 'Recently files                    ',
-    shortcut = 'SPC f o',
-    action = 'Telescope oldfiles',
   },
   {
     icon = '  ',
