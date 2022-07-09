@@ -15,7 +15,6 @@ require('packer').startup({
     use({ 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' })
     use({ 'LinArcX/telescope-env.nvim' })
     use({ 'ahmedkhalf/project.nvim' })
-
     use({ 'glepnir/dashboard-nvim' })
 
     use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
@@ -29,6 +28,22 @@ require('packer').startup({
     use({ 'windwp/nvim-autopairs' })
 
     use({ 'numToStr/Comment.nvim' })
+
+    use({ '907th/vim-auto-save' }) -- 自动保存
+    use({ 'kang8/smartim' }) -- macos 自动切换输入法
+    use({ 'junegunn/vim-easy-align' }) -- 对齐
+    use({ 'lambdalisue/suda.vim' }) -- 提供 sudo
+    use({ 'tpope/vim-surround' }) -- 在 vim 中对括号/引号等环绕字符非常简单快速的修改
+    use({ 'itchyny/vim-cursorword' }) -- 使用下划线显示同一单词
+    use({
+      'iamcco/markdown-preview.nvim',
+      run = function()
+        vim.fn['mkdp#util#install']()
+      end,
+    })
+
+    --------------------- Git -----------------------------
+    use({ 'lewis6991/gitsigns.nvim' })
 
     --------------------- LSP -----------------------------
     use({ 'neovim/nvim-lspconfig' })
