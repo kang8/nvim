@@ -78,3 +78,9 @@ vnoremap <c-j> :move '>+1<CR>gv
 vnoremap <c-k> :move '<-2<CR>gv
 " 在 visual 模式里粘贴不要复制
 vnoremap p "_dP
+
+"----------------------------------------------------------------------
+" For buffer move
+"----------------------------------------------------------------------
+nnoremap <silent> <c-j> :bn<CR>
+nnoremap <silent> <c-k> :bp<CR>
