@@ -9,17 +9,17 @@
 * node
 * stylua
 
-## use GitHub
+## Setup
 
 ```bash
-$ git clone git@github.com:kang8/.vimrc.git ~/.config/nvim
+git clone git@github.com:kang8/.vimrc.git ~/.config/nvim
 ```
 
-## install python and node extension
+### Install python and node extension
 
 ```bash
 # python
-$ pip install neovim
+pip install neovim
 # node
-$ npm install -g neovim
+npm install -g neovim
 ```
