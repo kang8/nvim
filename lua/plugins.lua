@@ -55,6 +55,7 @@ require('packer').startup({
       end,
     })
     use({ 'svban/YankAssassin.vim', event = { 'BufRead', 'BufNewFile' } }) -- yank 时不移动光标
+    use({ 'andymass/vim-matchup', event = { 'BufRead', 'BufNewFile' } }) -- 增强 %
 
     --------------------- Git -----------------------------
     use({ 'lewis6991/gitsigns.nvim' })
@@ -82,7 +83,7 @@ require('packer').startup({
     -- ui
     use({ 'onsails/lspkind-nvim' })
 
-    if packer_bootstrap then -- {{{
+    if packer_bootstrap then
       require('packer').sync()
     end
   end,
