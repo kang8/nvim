@@ -57,7 +57,7 @@ require('packer').startup({
 
     --------------------- Git -----------------------------
     use({ 'lewis6991/gitsigns.nvim' })
-    use({ 'tpope/vim-fugitive' })
+    use({ 'tpope/vim-fugitive', require = { 'tpope/vim-git', 'tpope/vim-rhubarb' } })
 
     --------------------- LSP -----------------------------
     use({ 'neovim/nvim-lspconfig' })
