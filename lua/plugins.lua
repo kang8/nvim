@@ -48,12 +48,13 @@ require('packer').startup({
     use({ 'lambdalisue/suda.vim' }) -- 提供 sudo
     use({ 'tpope/vim-surround' }) -- 在 vim 中对括号/引号等环绕字符非常简单快速的修改
     use({ 'itchyny/vim-cursorword' }) -- 使用下划线显示同一单词
-    use({
+    use({ -- 使用浏览器预览 markdown
       'iamcco/markdown-preview.nvim',
       run = function()
         vim.fn['mkdp#util#install']()
       end,
     })
+    use({ 'svban/YankAssassin.vim', event = { 'BufRead', 'BufNewFile' } }) -- yank 时不移动光标
 
     --------------------- Git -----------------------------
     use({ 'lewis6991/gitsigns.nvim' })
