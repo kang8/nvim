@@ -1,3 +1,16 @@
+-- Packer setup {{{3
+-- stylua: ignore start
+local packer_bootstrap = false
+local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+  packer_bootstrap = vim.fn.system({
+    "git", "clone", "--depth", "1",
+    "https://github.com/wbthomason/packer.nvim",
+    install_path,
+  })
+end
+-- stylua: ignore end
+
 require('packer').startup({
   function(use)
     -- Packer can manage itself
@@ -67,6 +80,10 @@ require('packer').startup({
     use({ 'rafamadriz/friendly-snippets' })
     -- ui
     use({ 'onsails/lspkind-nvim' })
+
+    if packer_bootstrap then -- {{{
+      require('packer').sync()
+    end
   end,
   config = {
     display = {
