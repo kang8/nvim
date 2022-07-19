@@ -14,7 +14,7 @@ end
 require('packer').startup({
   function(use)
     -- Packer can manage itself
-    use('wbthomason/packer.nvim')
+    use({ 'wbthomason/packer.nvim', events = 'VimEnter' })
     --------------------- colorschemes --------------------
     use('gruvbox-community/gruvbox')
     --------------------- plugins -------------------------
