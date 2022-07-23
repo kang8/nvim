@@ -56,6 +56,7 @@ require('packer').startup({
     })
     use({ 'svban/YankAssassin.vim', event = { 'BufRead', 'BufNewFile' } }) -- yank 时不移动光标
     use({ 'andymass/vim-matchup', event = { 'BufRead', 'BufNewFile' } }) -- 增强 %
+    use({ 'fladson/vim-kitty' }) -- syntax highlighting for Kitty config files
 
     --------------------- Git -----------------------------
     use({ 'lewis6991/gitsigns.nvim' })
