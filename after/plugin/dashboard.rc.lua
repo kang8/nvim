@@ -56,3 +56,10 @@ dashboard.custom_center = {
     action = 'qa!',
   },
 }
+
+vim.cmd([[
+  augroup dashboard_enter
+    au!
+    autocmd FileType dashboard nnoremap <buffer> q <cmd>qa<CR>
+  augroup END
+]])
