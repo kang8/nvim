@@ -17,3 +17,11 @@ fun! ToggleWrap()
         set wrap
     endif
 endfun
+
+fun! ToggleSpell()
+    if (&spell == 1)
+        set nospell
+    else
+        set spell
+    endif
+endfun
