@@ -13,9 +13,11 @@ vim.api.nvim_set_keymap("n", "<C-c>", ":BufferLineCloseRight<CR> :BufferLineClos
 
 bufferline.setup({
   options = {
+    always_show_bufferline = false,
     -- don't show close icons, because I not use mouse in vim
     show_buffer_close_icons = false,
     show_close_icon = false,
+
     -- 左侧让出 nvim-tree 的位置，显示文字 File Explorer
     offsets = {
       {
@@ -28,7 +30,7 @@ bufferline.setup({
   },
   highlights = {
     buffer_selected = {
-      guibg = "#0057B7"
+      bg = "#0057B7"
     }
   }
 })
