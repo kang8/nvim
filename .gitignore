@@ -3,3 +3,5 @@ autoload/
 .plugged/
 /plugin/
 tags*
+
+spell/en.utf-8.add.spl
