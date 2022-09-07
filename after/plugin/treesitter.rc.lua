@@ -23,6 +23,7 @@ treesitter.setup({
     'scss',
     'javascript',
     'typescript',
+    'tsx',
     'bash',
     'vim',
     'vue',
@@ -46,6 +47,9 @@ treesitter.setup({
       scope_incremental = '<TAB>',
     },
   },
+  autotag = {
+    enable = true
+  }
 })
 
 vim.opt.foldmethod = 'expr'

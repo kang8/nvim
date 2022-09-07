@@ -39,6 +39,7 @@ require('packer').startup({
     use({ 'jose-elias-alvarez/null-ls.nvim', requires = 'nvim-lua/plenary.nvim' })
 
     use({ 'windwp/nvim-autopairs' })
+    use({ 'windwp/nvim-ts-autotag' })
 
     use({ 'numToStr/Comment.nvim' })
 
@@ -58,6 +59,7 @@ require('packer').startup({
     use({ 'andymass/vim-matchup', event = { 'BufRead', 'BufNewFile' } }) -- 增强 %
     use({ 'fladson/vim-kitty' }) -- syntax highlighting for Kitty config files
     use({ 'unblevable/quick-scope' })
+    use({ 'lewis6991/spellsitter.nvim' }) -- spell check
 
     --------------------- Git -----------------------------
     use({ 'lewis6991/gitsigns.nvim' })
@@ -70,11 +72,13 @@ require('packer').startup({
     -- lanuage
     use({ 'b0o/schemastore.nvim' }) -- json
     use({ 'simrat39/rust-tools.nvim' }) -- rust
+    -- ui
+    use({ 'glepnir/lspsaga.nvim' })
 
     --------------------- cmp -> code complete ------------
     use({ 'hrsh7th/nvim-cmp' })
     -- snippet
-    use({ 'hrsh7th/vim-vsnip' })
+    use({ 'L3MON4D3/LuaSnip' })
     -- source
     use({ 'hrsh7th/cmp-vsnip' })
     use({ 'hrsh7th/cmp-nvim-lsp' })
