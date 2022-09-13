@@ -23,7 +23,7 @@ require('packer').startup({
     use({ 'akinsho/bufferline.nvim', tag = 'v2.*', requires = 'kyazdani42/nvim-web-devicons' })
 
     use({ 'nvim-lualine/lualine.nvim', requires = 'kyazdani42/nvim-web-devicons' })
-    use({ 'arkav/lualine-lsp-progress' })
+    use({ 'WhoIsSethDaniel/lualine-lsp-progress' })
 
     use({ 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' })
     use({ 'LinArcX/telescope-env.nvim' })
