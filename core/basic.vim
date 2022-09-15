@@ -26,6 +26,11 @@ set matchtime=1
 set timeoutlen=500
 set nospell
 
+augroup spell_checking_in_commit_editmsg
+    au!
+    au BufEnter COMMIT_EDITMSG set spell
+augroup END
+
 set scrolloff=3
 set backspace=indent,eol,start
 " set runtimepath=$VIMRUNTIME
