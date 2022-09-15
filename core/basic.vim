@@ -24,7 +24,7 @@ set smartcase
 set showmatch
 set matchtime=1
 set timeoutlen=500
-set spell
+set nospell
 
 set scrolloff=3
 set backspace=indent,eol,start
