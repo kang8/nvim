@@ -16,7 +16,7 @@ require('packer').startup({
     -- Packer can manage itself
     use({ 'wbthomason/packer.nvim', events = 'VimEnter' })
     --------------------- colorschemes --------------------
-    use('gruvbox-community/gruvbox')
+    use('folke/tokyonight.nvim')
     --------------------- plugins -------------------------
     use({ 'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons' })
 
