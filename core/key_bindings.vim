@@ -83,5 +83,5 @@ vnoremap p "_dP
 "----------------------------------------------------------------------
 " For buffer move
 "----------------------------------------------------------------------
-nnoremap <silent> <c-j> :bn<CR>
-nnoremap <silent> <c-k> :bp<CR>
+nnoremap <silent> <Tab> :bnext<CR>
+nnoremap <silent> <S-Tab> :bprevious<CR>
