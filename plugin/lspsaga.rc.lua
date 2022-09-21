@@ -21,3 +21,6 @@ vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 vim.keymap.set('n', 'gp', '<Cmd>Lspsaga preview_definition<CR>', opts)
 vim.keymap.set('n', '<leader>rn', '<Cmd>Lspsaga rename<CR>', opts)
+
+vim.keymap.set('n', '<F14>', '<Cmd>Lspsaga open_floaterm<CR>', opts)
+vim.keymap.set('t', '<F14>', [[<C-\><C-n><Cmd>Lspsaga close_floaterm<CR>]], opts)
