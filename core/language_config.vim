@@ -24,6 +24,10 @@ func! ComplieOrRun()
         exec "! chmod u+x ./% && ./%"
     elseif &filetype == 'perl'
         exec "! perl %"
+    elseif &filetype == 'zsh'
+        exec "! zsh %"
+    else
+        echo "Not support this file type!"
     endif
 endfunc
 
