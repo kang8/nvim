@@ -4,12 +4,12 @@
 
 " %  => 代表整个文件名。 e.g. Hello.java
 " %< => 只代表文件名，不加后缀。 e.g. Hello
-func! ComplieOrRun()
+func! CompileOrRunSingleFile()
     exec "w"
     if &filetype == 'c'
-        exec "! gcc % -o /tmp/%<.out && /tmp/%<.out"
+        exec "! gcc % -o /tmp/a.out && /tmp/a.out"
     elseif &filetype == 'cpp'
-        exec "! g++ % -o /tmp/%<.out && /tmp/%<.out"
+        exec "! g++ % -o /tmp/a.out && /tmp/a.out"
     elseif &filetype == 'python'
         exec "! python3 %"
     elseif &filetype == 'php'
@@ -31,9 +31,26 @@ func! ComplieOrRun()
     endif
 endfunc
 
-" use :Run to exec ComplieOrRun method
-:command Run exec ComplieOrRun()
-map <F5> :call ComplieOrRun()<CR>
+func! CompileSingleFile()
+    exec "w"
+    if &filetype == 'c'
+        exec "! gcc % -o /tmp/a.out"
+    elseif &filetype == 'cpp'
+        exec "! g++ % -o /tmp/a.out"
+    elseif &filetype == 'java'
+        exec "! javac -d /tmp %"
+    else
+        echo "Not support this file type!"
+    endif
+endfunc
+
+" use `:Run` to exec CompileOrRunSingleFile method
+:command Run exec CompileOrRunSingleFile()
+map <F5> :call CompileOrRunSingleFile()<CR>
+
+" use `:Compile` to exec ComplieSingleFile method
+:command Compile exec ComplieSingleFile()
+map <F6> :call CompileSingleFile()<CR>
 
 " 执行 mbedtls 用的命令
 :command Mbed exec "! gcc -lmbedtls -lmbedcrypto -lmbedx509 % -o /tmp/%<.out && /tmp/%<.out"
