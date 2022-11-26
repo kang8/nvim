@@ -28,9 +28,4 @@ bufferline.setup({
       },
     },
   },
-  highlights = {
-    buffer_selected = {
-      bg = "#0057B7"
-    }
-  }
 })
