@@ -6,10 +6,8 @@ if not status then
 end
 
 vim.api.nvim_set_keymap("n", "<leader>gp", ":BufferLinePick<CR>", {noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>cl", ":BufferLineCloseRight<CR>", {noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>ch", ":BufferLineCloseLeft<CR>", {noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>cp", ":BufferLinePickClose<CR>", {noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-c>", ":BufferLineCloseRight<CR> :BufferLineCloseLeft<CR>", {noremap = true, silent = true })
+-- https://stackoverflow.com/questions/4545275/vim-close-all-buffers-but-this-one
+vim.api.nvim_set_keymap("n", "<C-c>", "<cmd>%bd | e# | bd# <CR>", {noremap = true, silent = true })
 
 bufferline.setup({
   options = {
