@@ -21,4 +21,11 @@ nvim_tree.setup({
       quit_on_open = true,
     },
   },
+  view = {
+    mappings = {
+      list = {
+        { key = "x", action = "close_node" }
+      }
+    }
+  }
 })
