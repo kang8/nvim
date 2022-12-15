@@ -7,21 +7,26 @@ end
 
 mason.setup()
 require('mason-lspconfig').setup({
-  ensure_installed = { 'sumneko_lua', 'clangd' }
+  ensure_installed = { 'sumneko_lua', 'clangd' },
 })
 
 local nvim_lsp = require('lspconfig')
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- Language TypeScript
 nvim_lsp.tsserver.setup({
   filetypes = { 'typescript', 'typescriptreact', 'typescript.tsx' },
   cmd = { 'typescript-language-server', '--stdio' },
+  capabilities = capabilities,
 })
 
 -- Language Lua
 nvim_lsp.sumneko_lua.setup({
   settings = {
     Lua = {
+      runtime = {
+        version = 'LuaJIT',
+      },
       diagnostics = {
         -- Get the language server to recognize the 'vim' global
         globals = { 'vim' },
@@ -29,11 +34,32 @@ nvim_lsp.sumneko_lua.setup({
 
       workspaces = {
         -- Make the serve aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file('', true),
+        library = {
+          vim.fn.stdpath('data') .. '/site/pack/packer/opt/emmylua-nvim',
+          vim.fn.stdpath('config'),
+        },
+        maxPreload = 2000,
+        preloadFileSize = 50000,
       },
     },
   },
+  capabilities = capabilities,
 })
 
 -- Language C
-nvim_lsp.clangd.setup({})
+nvim_lsp.clangd.setup({
+  capabilities = capabilities,
+})
+
+-- vim-language-server
+nvim_lsp.vimls.setup({
+  flags = {
+    debounce_text_changes = 500,
+  },
+  capabilities = capabilities,
+})
+
+-- bash-language-server
+nvim_lsp.bashls.setup({
+  capabilities = capabilities,
+})

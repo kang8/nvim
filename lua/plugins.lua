@@ -60,6 +60,7 @@ require('packer').startup({
     use({ 'fladson/vim-kitty' }) -- syntax highlighting for Kitty config files
     use({ 'unblevable/quick-scope' })
     use({ 'lewis6991/spellsitter.nvim' }) -- spell check
+    use({ 'ii14/emmylua-nvim', ft = 'lua' }) -- lua completion
 
     --------------------- Git -----------------------------
     use({ 'lewis6991/gitsigns.nvim' })
