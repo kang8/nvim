@@ -10,7 +10,6 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   })
 end
 -- stylua: ignore end
-
 require('packer').startup({
   function(use)
     -- Packer can manage itself
@@ -78,8 +77,8 @@ require('packer').startup({
     use({ 'hrsh7th/nvim-cmp' })
     -- snippet
     use({ 'L3MON4D3/LuaSnip' })
-    -- source
     use({ 'saadparwaiz1/cmp_luasnip' })
+    -- source
     use({ 'hrsh7th/cmp-nvim-lsp' })
     use({ 'hrsh7th/cmp-buffer' })
     use({ 'hrsh7th/cmp-path' })
