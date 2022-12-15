@@ -6,7 +6,7 @@ if not status then
 end
 
 local formatting = null_ls.builtins.formatting
-local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
+local augroup = vim.api.nvim_create_augroup('Format', {})
 
 null_ls.setup({
   sources = {
@@ -39,17 +39,11 @@ null_ls.setup({
   },
   on_attach = function(client, bufnr)
     if client.supports_method('textDocument/formatting') then
-      vim.api.nvim_buf_create_user_command(bufnr, 'LspFormatting', function()
+      vim.api.nvim_buf_create_user_command(bufnr, 'Format', function()
         vim.lsp.buf.format({ bufnr = bufnr })
       end, {})
 
       vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-
-      vim.api.nvim_create_autocmd('BufWritePre', {
-        group = augroup,
-        buffer = bufnr,
-        command = 'undojoin | LspFormatting',
-      })
     end
   end,
 })
