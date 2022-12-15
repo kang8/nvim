@@ -68,10 +68,8 @@ require('packer').startup({
 
     --------------------- LSP -----------------------------
     use({ 'neovim/nvim-lspconfig' })
-    use({ 'williamboman/nvim-lsp-installer' })
-    -- lanuage
-    use({ 'b0o/schemastore.nvim' }) -- json
-    use({ 'simrat39/rust-tools.nvim' }) -- rust
+    use({ 'williamboman/mason.nvim' })
+    use({ 'williamboman/mason-lspconfig.nvim' })
     -- ui
     use({ 'glepnir/lspsaga.nvim' })
 
