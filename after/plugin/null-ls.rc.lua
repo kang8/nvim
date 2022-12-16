@@ -35,7 +35,6 @@ null_ls.setup({
     }),
     -- for rust, install: `rustup component add rustfmt`
     formatting.rustfmt,
-    formatting.clang_format,
   },
   on_attach = function(client, bufnr)
     if client.supports_method('textDocument/formatting') then
