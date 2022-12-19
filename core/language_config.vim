@@ -7,7 +7,9 @@
 func! CompileOrRunSingleFile()
     exec "w"
     if &filetype == 'c'
-        exec "! gcc % -o /tmp/a.out && /tmp/a.out"
+        exec "belowright split | terminal gcc % -o /tmp/a.out && /tmp/a.out"
+        " enter insert mode when entering :terminal. https://vi.stackexchange.com/questions/3670/how-to-enter-insert-mode-when-entering-neovim-terminal-pane
+        exec "startinsert"
     elseif &filetype == 'cpp'
         exec "! g++ % -o /tmp/a.out && /tmp/a.out"
     elseif &filetype == 'python'
