@@ -48,8 +48,8 @@ treesitter.setup({
     },
   },
   autotag = {
-    enable = true
-  }
+    enable = true,
+  },
 })
 
 vim.opt.foldmethod = 'expr'

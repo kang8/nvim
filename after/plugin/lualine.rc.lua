@@ -1,40 +1,40 @@
-local status, lualine = pcall(require, "lualine")
+local status, lualine = pcall(require, 'lualine')
 
 if not status then
-  vim.notify("Not found nvim-lualine/lualine.nvim")
+  vim.notify('Not found nvim-lualine/lualine.nvim')
   return
 end
 
-lualine.setup {
+lualine.setup({
   options = {
     section_separators = {},
-    component_separators = {'', '|'},
+    component_separators = { '', '|' },
   },
   sections = {
     lualine_c = {
       {
         'filename',
         file_status = true,
-        path = 3
+        path = 3,
       },
       {
-        "lsp_progress",
-        spinner_symbols = { " ", " ", " ", " ", " ", " " },
+        'lsp_progress',
+        spinner_symbols = { ' ', ' ', ' ', ' ', ' ', ' ' },
       },
     },
     lualine_x = {
       'filesize',
       {
-        "fileformat",
+        'fileformat',
         symbols = {
-          unix = "LF",
-          dos = "CRLF",
-          mac = "CR",
+          unix = 'LF',
+          dos = 'CRLF',
+          mac = 'CR',
         },
       },
       'encoding',
       'filetype',
     },
   },
-  extensions = { "nvim-tree", "toggleterm" }
-}
+  extensions = { 'nvim-tree', 'toggleterm' },
+})
