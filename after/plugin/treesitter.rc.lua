@@ -10,9 +10,7 @@ treesitter.setup({
     enable = true,
     additional_vim_regex_highlighting = false, -- 禁用 vim 基于正则达式的语法高亮，太慢
   },
-  indent = {
-    enable = true,
-  },
+  indent = { enable = true },
   ensure_installed = {
     'toml',
     'php',
@@ -47,13 +45,5 @@ treesitter.setup({
       scope_incremental = '<TAB>',
     },
   },
-  autotag = {
-    enable = true,
-  },
+  autotag = { enable = true },
 })
-
-vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-
--- 默认不要折叠
-vim.opt.foldlevel = 99
