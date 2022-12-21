@@ -63,3 +63,7 @@ nvim_lsp.vimls.setup({
 nvim_lsp.bashls.setup({
   capabilities = capabilities,
 })
+
+nvim_lsp.phpactor.setup({
+  capabilities = capabilities,
+})
