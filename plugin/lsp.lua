@@ -6,9 +6,12 @@ if not status then
 end
 
 mason.setup()
+
 require('mason-lspconfig').setup({
   ensure_installed = { 'sumneko_lua', 'clangd' },
 })
+
+require('neodev').setup({})
 
 local nvim_lsp = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -31,7 +34,9 @@ nvim_lsp.sumneko_lua.setup({
         -- Get the language server to recognize the 'vim' global
         globals = { 'vim' },
       },
-
+      workspace = {
+        checkThirdParty = false,
+      },
       workspaces = {
         -- Make the serve aware of Neovim runtime files
         library = {

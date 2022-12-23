@@ -76,6 +76,8 @@ require('packer').startup({
     use({ 'williamboman/mason-lspconfig.nvim' })
     -- ui
     use({ 'glepnir/lspsaga.nvim' })
+    -- other
+    use({ 'folke/neodev.nvim' })
 
     --------------------- cmp -> code complete ------------
     use({ 'hrsh7th/nvim-cmp' })
