@@ -15,6 +15,6 @@ illuminate.configure({
     'fugitive',
     'NvimTree',
     'packer',
-    'dashboard'
+    'dashboard',
   },
 })
