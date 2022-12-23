@@ -21,6 +21,17 @@ require('packer').startup({
     --------------------- colorschemes --------------------
     use('folke/tokyonight.nvim')
     --------------------- plugins -------------------------
+
+    --------------------- treesitter ----------------------
+    use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
+    use({ 'nvim-treesitter/playground' })
+    use({ 'nvim-treesitter/nvim-treesitter-textobjects' })
+
+    --------------------- telescope -----------------------
+    use({ 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' })
+    use({ 'LinArcX/telescope-env.nvim' })
+    use({ 'debugloop/telescope-undo.nvim' })
+
     use({ 'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons' })
 
     use({ 'akinsho/bufferline.nvim', tag = 'v2.*', requires = 'kyazdani42/nvim-web-devicons' })
@@ -28,16 +39,8 @@ require('packer').startup({
     use({ 'nvim-lualine/lualine.nvim', requires = 'kyazdani42/nvim-web-devicons' })
     use({ 'WhoIsSethDaniel/lualine-lsp-progress' })
 
-    use({ 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' })
-    use({ 'LinArcX/telescope-env.nvim' })
-    use({ 'debugloop/telescope-undo.nvim' })
-
     use({ 'ahmedkhalf/project.nvim' })
     use({ 'glepnir/dashboard-nvim' })
-
-    use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
-    use({ 'nvim-treesitter/playground' })
-    use({ 'nvim-treesitter/nvim-treesitter-textobjects' })
 
     use({ 'dstein64/vim-startuptime' })
 
@@ -55,7 +58,7 @@ require('packer').startup({
     use({ 'junegunn/vim-easy-align' }) -- 对齐
     use({ 'lambdalisue/suda.vim' }) -- 提供 sudo
     use({ 'tpope/vim-surround' }) -- 在 vim 中对括号/引号等环绕字符非常简单快速的修改
-    use({ 'itchyny/vim-cursorword' }) -- 使用下划线显示同一单词
+    use({ 'RRethy/vim-illuminate' })
     use({ -- 使用浏览器预览 markdown
       'iamcco/markdown-preview.nvim',
       run = function()
