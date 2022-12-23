@@ -25,6 +25,7 @@ set showmatch
 set matchtime=1
 set timeoutlen=500
 set nospell
+set laststatus=3
 
 augroup spell_checking_in_commit_editmsg
     au!
