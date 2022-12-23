@@ -78,6 +78,7 @@ require('packer').startup({
     use({ 'glepnir/lspsaga.nvim' })
     -- other
     use({ 'folke/neodev.nvim' })
+    use({ 'b0o/schemastore.nvim' })
 
     --------------------- cmp -> code complete ------------
     use({ 'hrsh7th/nvim-cmp' })
