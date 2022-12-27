@@ -44,8 +44,6 @@ require('packer').startup({
 
     use({ 'dstein64/vim-startuptime' })
 
-    use({ 'lukas-reineke/indent-blankline.nvim' })
-
     use({ 'jose-elias-alvarez/null-ls.nvim', requires = 'nvim-lua/plenary.nvim' })
 
     use({ 'windwp/nvim-autopairs' })
@@ -71,6 +69,7 @@ require('packer').startup({
     use({ 'unblevable/quick-scope' })
     use({ 'lewis6991/spellsitter.nvim' }) -- spell check
     use({ 'ii14/emmylua-nvim', ft = 'lua' }) -- lua completion
+    use({ 'echasnovski/mini.nvim' })
 
     --------------------- Git -----------------------------
     use({ 'lewis6991/gitsigns.nvim' })
