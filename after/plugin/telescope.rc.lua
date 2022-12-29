@@ -19,7 +19,21 @@ vim.api.nvim_set_keymap('n', '<leader>fu', '<cmd>Telescope undo<CR>', { noremap 
 vim.api.nvim_set_keymap('n', '<leader>fo', '<cmd>Telescope oldfiles<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fp', '<cmd>Telescope projects<CR>', { noremap = true, silent = true })
 
-telescope.setup({})
+local telescopeConfig = require('telescope.config')
+local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
+
+table.insert(vimgrep_arguments, '--hidden')
+
+telescope.setup({
+  defaults = {
+    vimgrep_arguments = vimgrep_arguments,
+  },
+  pickers = {
+    find_files = {
+      find_command = { 'rg', '--files', '--hidden', '--glob', '!**/.git/*' },
+    },
+  },
+})
 
 -- telescope extensions
 telescope.load_extension('env')
