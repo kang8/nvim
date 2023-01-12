@@ -72,11 +72,6 @@ nvim_lsp.bashls.setup({
   capabilities = capabilities,
 })
 
--- php
-nvim_lsp.phpactor.setup({
-  capabilities = capabilities,
-})
-
 -- json
 nvim_lsp.jsonls.setup({
   capabilities = capabilities,
