@@ -17,10 +17,6 @@ lualine.setup({
         file_status = true,
         path = 3,
       },
-      {
-        'lsp_progress',
-        spinner_symbols = { ' ', ' ', ' ', ' ', ' ', ' ' },
-      },
     },
     lualine_x = {
       'filesize',

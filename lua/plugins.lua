@@ -70,6 +70,7 @@ require('packer').startup({
     use({ 'lewis6991/spellsitter.nvim' }) -- spell check
     use({ 'ii14/emmylua-nvim', ft = 'lua' }) -- lua completion
     use({ 'echasnovski/mini.nvim' })
+    use({ 'folke/noice.nvim', requires = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' } })
 
     --------------------- Git -----------------------------
     use({ 'lewis6991/gitsigns.nvim' })
