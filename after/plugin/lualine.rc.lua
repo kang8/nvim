@@ -19,16 +19,6 @@ lualine.setup({
       },
     },
     lualine_x = {
-      'filesize',
-      {
-        'fileformat',
-        symbols = {
-          unix = 'LF',
-          dos = 'CRLF',
-          mac = 'CR',
-        },
-      },
-      'encoding',
       'filetype',
     },
   },

@@ -37,7 +37,6 @@ require('packer').startup({
     use({ 'akinsho/bufferline.nvim', tag = 'v2.*', requires = 'kyazdani42/nvim-web-devicons' })
 
     use({ 'nvim-lualine/lualine.nvim', requires = 'kyazdani42/nvim-web-devicons' })
-    use({ 'WhoIsSethDaniel/lualine-lsp-progress' })
 
     use({ 'ahmedkhalf/project.nvim' })
     use({ 'glepnir/dashboard-nvim' })
