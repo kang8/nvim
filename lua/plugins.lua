@@ -32,6 +32,7 @@ require('packer').startup({
     use({ 'LinArcX/telescope-env.nvim' })
     use({ 'debugloop/telescope-undo.nvim' })
 
+    --------------------- other -----------------------
     use({ 'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons' })
 
     use({ 'akinsho/bufferline.nvim', tag = 'v2.*', requires = 'kyazdani42/nvim-web-devicons' })
