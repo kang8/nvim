@@ -70,6 +70,7 @@ require('packer').startup({
     use({ 'echasnovski/mini.nvim' })
     use({ 'folke/noice.nvim', requires = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' } })
     use({ 'simrat39/symbols-outline.nvim' })
+    use({ 'nacro90/numb.nvim' })
 
     --------------------- Git -----------------------------
     use({ 'lewis6991/gitsigns.nvim' })
