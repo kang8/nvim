@@ -35,8 +35,6 @@ require('packer').startup({
     --------------------- other -----------------------
     use({ 'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons' })
 
-    use({ 'akinsho/bufferline.nvim', tag = 'v2.*', requires = 'kyazdani42/nvim-web-devicons' })
-
     use({ 'nvim-lualine/lualine.nvim', requires = 'kyazdani42/nvim-web-devicons' })
 
     use({ 'ahmedkhalf/project.nvim' })
