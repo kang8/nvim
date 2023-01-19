@@ -20,12 +20,12 @@ require('packer').startup({
     use({ 'wbthomason/packer.nvim', events = 'VimEnter' })
     --------------------- colorschemes --------------------
     use('folke/tokyonight.nvim')
-    --------------------- plugins -------------------------
 
     --------------------- treesitter ----------------------
     use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
     use({ 'nvim-treesitter/playground' })
     use({ 'nvim-treesitter/nvim-treesitter-textobjects' })
+    use({ 'nvim-treesitter/nvim-treesitter-context' })
 
     --------------------- telescope -----------------------
     use({ 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' })
