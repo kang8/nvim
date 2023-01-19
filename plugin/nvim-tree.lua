@@ -1,7 +1,7 @@
 local status, nvim_tree = pcall(require, 'nvim-tree')
 
 if not status then
-  vim.notify('Not found nvim-tree')
+  vim.notify('Not found nvim-tree', vim.log.levels.WARN)
   return
 end
 
@@ -29,3 +29,6 @@ nvim_tree.setup({
     },
   },
 })
+
+vim.g.loaded_netrw = 1;
+vim.g.loaded_netrwPlugin = 1;
