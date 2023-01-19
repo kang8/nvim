@@ -69,6 +69,7 @@ require('packer').startup({
     use({ 'ii14/emmylua-nvim', ft = 'lua' }) -- lua completion
     use({ 'echasnovski/mini.nvim' })
     use({ 'folke/noice.nvim', requires = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' } })
+    use({ 'simrat39/symbols-outline.nvim' })
 
     --------------------- Git -----------------------------
     use({ 'lewis6991/gitsigns.nvim' })
