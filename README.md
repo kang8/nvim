@@ -15,10 +15,7 @@
 
 ## Setup
 
-```bash
-cp -R ~/.config/nvim ~/.config/nvim_bak
-git clone git@github.com:kang8/.vimrc.git ~/.config/nvim
-```
+TODO
 
 
 ### Setup pre-commit
