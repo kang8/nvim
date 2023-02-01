@@ -1,1 +1,1 @@
-print('hello')
+require('config.lazy')
