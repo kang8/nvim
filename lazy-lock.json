@@ -1,4 +1,13 @@
 {
+  "YankAssassin.vim": { "branch": "main", "commit": "55ce478a08333c086bcccdf087453085f85854d4" },
   "lazy.nvim": { "branch": "main", "commit": "3d2dcb2d5ef99106c5ff412da88c6f59a9f8a693" },
-  "tokyonight.nvim": { "branch": "main", "commit": "affb21a81e6d7de073378eb86d02864c594104d9" }
+  "mini.nvim": { "branch": "main", "commit": "8e007cf3ae8db59bd926a9fbaf7f0d25a7fe67ca" },
+  "numb.nvim": { "branch": "master", "commit": "d95b7ea62e320b02ca1aa9df3635471a88d6f3b1" },
+  "smartim": { "branch": "master", "commit": "e5e821b7f64f5824c4ca535f4f1781a81e0bb09a" },
+  "suda.vim": { "branch": "master", "commit": "08abd39dfe1cee681b8ce3e7321da5fa03e045c1" },
+  "tokyonight.nvim": { "branch": "main", "commit": "affb21a81e6d7de073378eb86d02864c594104d9" },
+  "vim-auto-save": { "branch": "master", "commit": "2e3e54ea4c0fc946c21b0a4ee4c1c295ba736ee8" },
+  "vim-illuminate": { "branch": "master", "commit": "d6ca7f77eeaf61b3e6ce9f0e5a978d606df44298" },
+  "vim-matchup": { "branch": "master", "commit": "959e0e79ea240cdee29efbdd0d2e2e718931ccec" },
+  "vim-sanegx": { "branch": "master", "commit": "e97c10401d781199ba1aecd07790d0771314f3f5" }
 }

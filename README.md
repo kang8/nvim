@@ -32,3 +32,13 @@ pip install neovim
 # node
 npm install -g neovim
 ```
+
+
+## Detail configuration
+
+### keymaps
+
+* `<C-c>`, Close other buffers
+vim-illuminate
+* `[[`, Next reference
+* `]]`, Prev reference
