@@ -61,6 +61,7 @@ return {
           end,
         },
       },
+      extensions = { 'nvim-tree' },
     },
   },
   { 'nvim-tree/nvim-web-devicons', lazy = true },

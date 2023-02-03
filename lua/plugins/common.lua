@@ -59,7 +59,13 @@ return {
   {
     'RRethy/vim-illuminate',
     event = 'BufReadPost',
-    opts = { delay = 200 },
+    opts = {
+      delay = 200,
+      filetypes_denylist = {
+        'NvimTree',
+        'lazy',
+      },
+    },
     config = function(_, opts)
       require('illuminate').configure(opts)
     end,
