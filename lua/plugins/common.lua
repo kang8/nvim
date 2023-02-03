@@ -1,6 +1,6 @@
 return {
   {
-    'echasnovski/mini.nvim',
+    'echasnovski/mini.basics',
     event = 'VeryLazy',
     config = function()
       require('mini.basics').setup({
@@ -11,27 +11,20 @@ return {
           basic = false,
         },
       })
-
+    end,
+  },
+  {
+    'echasnovski/mini.pairs',
+    event = 'VeryLazy',
+    config = function()
       require('mini.pairs').setup()
-
+    end,
+  },
+  {
+    'echasnovski/mini.comment',
+    event = 'VeryLazy',
+    config = function()
       require('mini.comment').setup()
-
-      vim.api.nvim_create_autocmd('FileType', {
-        pattern = { 'help', 'lazy' },
-        callback = function()
-          vim.b.miniindentscope_disable = true
-        end,
-      })
-      require('mini.indentscope').setup({
-        symbol = '│',
-        options = { try_as_border = true },
-      })
-
-      require('mini.trailspace').setup()
-
-      require('mini.tabline').setup()
-      -- https://stackoverflow.com/questions/4545275/vim-close-all-buffers-but-this-one
-      vim.api.nvim_set_keymap('n', '<C-c>', '<cmd>%bd | e# | bd# <CR>', { silent = true, desc = 'Close other buffers' })
     end,
   },
   {
