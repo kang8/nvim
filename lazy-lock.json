@@ -1,6 +1,7 @@
 {
   "YankAssassin.vim": { "branch": "main", "commit": "55ce478a08333c086bcccdf087453085f85854d4" },
   "lazy.nvim": { "branch": "main", "commit": "3d2dcb2d5ef99106c5ff412da88c6f59a9f8a693" },
+  "lualine.nvim": { "branch": "master", "commit": "0050b308552e45f7128f399886c86afefc3eb988" },
   "mini.basics": { "branch": "main", "commit": "0bdaa51d305488245ec98c718a5cfa36cfe3d463" },
   "mini.comment": { "branch": "main", "commit": "137cf43aaaed41c733a8e0087fab6ee08bb45293" },
   "mini.indentscope": { "branch": "main", "commit": "3a517f11aa9d1434c4cdba1a807df4e5ca42d3ea" },
@@ -8,6 +9,7 @@
   "mini.tabline": { "branch": "main", "commit": "f1a383d4201a056b9900d3eeb4c08e441f277a43" },
   "mini.trailspace": { "branch": "main", "commit": "83ba64296a2b3486e2fd2b1f57378f4837b765e2" },
   "numb.nvim": { "branch": "master", "commit": "d95b7ea62e320b02ca1aa9df3635471a88d6f3b1" },
+  "nvim-web-devicons": { "branch": "master", "commit": "a421d183ef37dfa13f51a5805bed2381aebf9080" },
   "smartim": { "branch": "master", "commit": "e5e821b7f64f5824c4ca535f4f1781a81e0bb09a" },
   "suda.vim": { "branch": "master", "commit": "08abd39dfe1cee681b8ce3e7321da5fa03e045c1" },
   "tokyonight.nvim": { "branch": "main", "commit": "affb21a81e6d7de073378eb86d02864c594104d9" },
