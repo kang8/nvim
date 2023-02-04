@@ -12,7 +12,7 @@ require('lazy').setup({
   defaults = {
     version = false, -- always use the latest git commit
   },
-  install = { colorscheme = { 'tokyonight', 'habamax' } },
+  install = { colorscheme = { 'tokyonight-day', 'habamax' } },
   change_detection = {
     enabled = false,
   },
