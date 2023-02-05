@@ -39,6 +39,7 @@
   "vim-gh-line": { "branch": "master", "commit": "fbf368bdfad7e5478009a6dc62559e6b2c72d603" },
   "vim-git": { "branch": "master", "commit": "5143bea9ed17bc32163dbe3ca706344d79507b9d" },
   "vim-illuminate": { "branch": "master", "commit": "d6ca7f77eeaf61b3e6ce9f0e5a978d606df44298" },
+  "vim-kitty": { "branch": "main", "commit": "d4c60f096b751c1462c80cbf42550e29c8cd2983" },
   "vim-matchup": { "branch": "master", "commit": "959e0e79ea240cdee29efbdd0d2e2e718931ccec" },
   "vim-sanegx": { "branch": "master", "commit": "e97c10401d781199ba1aecd07790d0771314f3f5" }
 }
