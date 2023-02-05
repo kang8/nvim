@@ -8,3 +8,14 @@ vim.api.nvim_create_autocmd('BufReadPost', {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd('BufEnter', {
+  pattern = 'COMMIT_EDITMSG',
+  callback = function()
+    vim.cmd([[
+      set spell
+      syntax match diffComment /^#.*/  contains=@Spell
+    ]])
+  end,
+  group = vim.api.nvim_create_augroup('SpellCheck', { clear = true }),
+})
