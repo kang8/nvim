@@ -13,7 +13,7 @@ require('lazy').setup({
   defaults = {
     version = false, -- always use the latest git commit
   },
-  install = { colorscheme = { 'tokyonight-day', 'habamax' } },
+  install = { colorscheme = { 'catppuccin' } },
   change_detection = {
     enabled = false,
   },

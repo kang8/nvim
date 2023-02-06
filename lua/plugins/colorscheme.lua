@@ -1,9 +1,9 @@
 return {
   {
-    'folke/tokyonight.nvim',
-    lazy = false,
-    config = function()
-      vim.cmd([[colorscheme tokyonight-day]])
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    init = function()
+      vim.cmd.colorscheme('catppuccin-latte')
     end,
   },
 }
