@@ -10,6 +10,23 @@ return {
         delay = 200,
       },
     },
+    keys = {
+      {
+        [[\g]],
+        function()
+          require('gitsigns.actions').toggle_linehl()
+          require('gitsigns.actions').toggle_word_diff()
+          local is_set = require('gitsigns.actions').toggle_deleted()
+
+          if is_set then
+            print('  git diff')
+          else
+            print('nogit diff')
+          end
+        end,
+        'Toggle git diff',
+      },
+    },
   },
   {
     'tpope/vim-fugitive',
