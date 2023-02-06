@@ -95,4 +95,33 @@ return {
     'felipec/vim-sanegx',
     event = 'VeryLazy',
   },
+  {
+    'akinsho/toggleterm.nvim',
+    event = 'BufReadPost',
+    keys = {
+      { '<Esc>', [[<C-\><C-n>]], mode = { 'n', 'i' } },
+      { '<F14>', '<cmd>ToggleTerm direction=float<cr>', mode = { 'n', 't' } },
+      {
+        '<leader>lg',
+        function()
+          local lazygit = require('toggleterm.terminal').Terminal:new({
+            cmd = 'lazygit --use-config-file=${HOME}/.config/lazygit/config.yml',
+            hidden = true,
+            direction = 'float',
+            float_opts = {
+              border = 'none',
+            },
+            on_open = function(_)
+              vim.cmd('startinsert!')
+            end,
+            on_close = function(_) end,
+            count = 99,
+          })
+
+          lazygit:toggle()
+        end,
+      },
+    },
+    config = true,
+  },
 }
