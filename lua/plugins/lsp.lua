@@ -13,8 +13,13 @@ return {
       { 'folke/neodev.nvim', opts = { experimental = { pathStrict = true } } },
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
+      { 'hrsh7th/cmp-nvim-lsp' },
       {
-        'hrsh7th/cmp-nvim-lsp',
+        'j-hui/fidget.nvim',
+        config = function()
+          require('fidget').setup({})
+          vim.api.nvim_del_user_command('FidgetClose')
+        end,
       },
     },
     keys = {
