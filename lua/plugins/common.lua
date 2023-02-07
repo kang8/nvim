@@ -17,14 +17,14 @@ return {
     'echasnovski/mini.pairs',
     event = 'VeryLazy',
     config = function()
-      require('mini.pairs').setup()
+      require('mini.pairs').setup({})
     end,
   },
   {
     'echasnovski/mini.comment',
     event = 'VeryLazy',
     config = function()
-      require('mini.comment').setup()
+      require('mini.comment').setup({})
     end,
   },
   {
