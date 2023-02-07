@@ -8,12 +8,8 @@ return {
     keys = {
       { '<leader>,', '<cmd>Telescope buffers show_all_buffers=true<cr>', desc = 'Switch Buffer' },
       { '<leader>:', '<cmd>Telescope command_history<cr>', desc = 'Command History' },
-
       { '<leader>/', '<cmd>Telescope live_grep<cr>', desc = 'Find in Files (Grep)' },
-      { '<C-S-f>', '<cmd>Telescope live_grep<cr>', desc = 'Find in Files (Grep)' },
-
       { '<leader><space>', '<cmd>Telescope find_files<cr>', desc = 'Find Files (root dir)' },
-      { '<F15>', '<cmd>Telescope find_files<cr>', desc = 'Find Files (root dir)' }, -- <command-p>
       -- search
       { '<leader>sa', '<cmd>Telescope autocommands<cr>', desc = 'Auto Commands' },
       { '<leader>sb', '<cmd>Telescope current_buffer_fuzzy_find<cr>', desc = 'Buffer' },
@@ -27,7 +23,12 @@ return {
       { '<leader>sm', '<cmd>Telescope marks<cr>', desc = 'Jump to Mark' },
       { '<leader>so', '<cmd>Telescope vim_options<cr>', desc = 'Options' },
       { '<leader>sr', '<cmd>Telescope oldfiles<cr>', desc = 'Recent' },
+      { '<leader>sp', '<cmd>Telescope projects<cr>', desc = 'Porject' },
       { '<leader>su', '<cmd>Telescope undo<cr>', desc = 'Undo' },
+      -- personal preference
+      { '<C-S-f>', '<cmd>Telescope live_grep<cr>', desc = 'Find in Files (Grep)' },
+      { '<F15>', '<cmd>Telescope find_files<cr>', desc = 'Find Files (root dir)' }, -- <command-p>
+      { '<C-S-o>', '<cmd>Telescope projects<cr>', desc = 'Porject' },
     },
     opts = {
       defaults = {
@@ -42,6 +43,7 @@ return {
     config = function(_, opts)
       require('telescope').setup(opts)
       require('telescope').load_extension('undo')
+      require('telescope').load_extension('projects')
     end,
   },
 }
