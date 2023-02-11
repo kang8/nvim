@@ -41,7 +41,20 @@ return {
       },
     },
     config = function(_, opts)
-      require('telescope').setup(opts)
+      local vimgrep_arguments = { unpack(require('telescope.config').values.vimgrep_arguments) }
+
+      table.insert(vimgrep_arguments, '--hidden')
+
+      require('telescope').setup(vim.tbl_deep_extend('force', {
+        defaults = {
+          vimgrep_arguments = vimgrep_arguments,
+        },
+        pickers = {
+          find_files = {
+            find_command = { 'fd', '--type', 'f', '--hidden', '--follow', '--exclude', '.git' },
+          },
+        },
+      }, opts or {}))
       require('telescope').load_extension('undo')
       require('telescope').load_extension('projects')
     end,
