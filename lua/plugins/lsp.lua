@@ -37,6 +37,8 @@ return {
       { '<c-k>', vim.diagnostic.goto_prev, desc = 'Prev Diagnostic' },
       { '<leader>ca', vim.lsp.buf.code_action, desc = 'Code Action', mode = { 'n', 'v' } },
       { '<leader>cr', vim.lsp.buf.rename, desc = 'Rename' },
+      -- personal preference
+      { '<F2>', vim.lsp.buf.rename, desc = 'Rename' },
     },
     opts = {
       servers = {
