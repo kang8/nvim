@@ -3,7 +3,7 @@ return {
     'echasnovski/mini.tabline',
     event = 'BufReadPost',
     config = function()
-      require('mini.tabline').setup()
+      require('mini.tabline').setup({})
       -- https://stackoverflow.com/questions/4545275/vim-close-all-buffers-but-this-one
       vim.api.nvim_set_keymap('n', '<C-c>', '<cmd>%bd | e# | bd# <CR>', { silent = true, desc = 'Close other buffers' })
     end,
@@ -29,7 +29,7 @@ return {
     'echasnovski/mini.trailspace',
     event = 'BufReadPost',
     config = function()
-      require('mini.trailspace').setup()
+      require('mini.trailspace').setup({})
     end,
   },
   {

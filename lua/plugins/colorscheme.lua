@@ -5,5 +5,11 @@ return {
     init = function()
       vim.cmd.colorscheme('catppuccin-latte')
     end,
+    opts = {
+      integrations = {
+        mini = true,
+        illuminate = true,
+      },
+    },
   },
 }
