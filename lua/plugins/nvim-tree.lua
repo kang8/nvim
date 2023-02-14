@@ -63,5 +63,8 @@ return {
         remove = false,
       },
     },
+    git = {
+      ignore = false,
+    },
   },
 }
