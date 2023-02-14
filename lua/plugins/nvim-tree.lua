@@ -1,6 +1,7 @@
 return {
   'kyazdani42/nvim-tree.lua',
   cmd = 'NvimTreeToggle',
+  commit = '02fdc262eba188198a7deb2117b3b996e6763d65',
   keys = {
     { '<leader>e', '<cmd>NvimTreeToggle<cr>', desc = 'File Explorer' },
   },
