@@ -4,8 +4,17 @@ return {
     event = 'BufReadPost',
     config = function()
       require('mini.tabline').setup({})
-      -- https://stackoverflow.com/questions/4545275/vim-close-all-buffers-but-this-one
-      vim.api.nvim_set_keymap('n', '<C-c>', '<cmd>%bd | e# | bd# <CR>', { silent = true, desc = 'Close other buffers' })
+      vim.keymap.set('n', '<C-c>', function()
+        local cur_buf = vim.api.nvim_get_current_buf()
+
+        for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+          if buf ~= cur_buf then
+            vim.api.nvim_buf_delete(buf, { force = true })
+          end
+        end
+
+        vim.cmd('redrawtabline') -- Delete other buffers does not automatically redraw tabline, so do this manually.
+      end, { desc = 'Close other buffers' })
     end,
   },
   {
