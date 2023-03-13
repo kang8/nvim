@@ -92,8 +92,11 @@ return {
     config = true,
   },
   {
-    'felipec/vim-sanegx',
+    'tyru/open-browser.vim',
     event = 'VeryLazy',
+    config = function()
+      vim.cmd([[ nmap gx <Plug>(openbrowser-open) ]])
+    end,
   },
   {
     'akinsho/toggleterm.nvim',
