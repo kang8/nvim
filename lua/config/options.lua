@@ -10,3 +10,4 @@ vim.opt.clipboard = 'unnamedplus'
 vim.opt.scrolloff = 3
 vim.opt.sidescrolloff = 6
 vim.opt.wildmode = { 'list:longest', 'full' }
+vim.opt.listchars = { tab = '>·', nbsp = '+', trail = '·', extends = '→', precedes = '←' }
