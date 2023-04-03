@@ -17,3 +17,6 @@ vim.keymap.set('n', 'L', '$')
 vim.opt.scrolloff = 15 -- no more need for HML keys
 vim.keymap.set('n', 'M', 'J') -- mnemonic: [M]erge
 vim.keymap.set('n', '<leader>h', 'K') -- mnemonic: [h]over
+
+-- spell
+vim.keymap.set('n', 'za', '1z=') -- fix word under cursor
