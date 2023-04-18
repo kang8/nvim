@@ -20,3 +20,6 @@ vim.keymap.set('n', '<leader>h', 'K') -- mnemonic: [h]over
 
 -- spell
 vim.keymap.set('n', 'za', '1z=') -- fix word under cursor
+
+-- unset default keymap
+vim.keymap.set('n', '<F1>', '<Nop>')
