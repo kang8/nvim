@@ -1,5 +1,5 @@
 return {
-  'kyazdani42/nvim-tree.lua',
+  'nvim-tree/nvim-tree.lua',
   cmd = 'NvimTreeToggle',
   keys = {
     { '<leader>e', '<cmd>NvimTreeToggle<cr>', desc = 'File Explorer' },
