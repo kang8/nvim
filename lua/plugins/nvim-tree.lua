@@ -50,13 +50,17 @@ return {
         quit_on_open = true,
       },
     },
-    view = {
-      mappings = {
-        list = {
-          { key = 'x', action = 'close_node' },
-        },
-      },
-    },
+    on_attach = function(bufnr)
+      local api = require('nvim-tree.api')
+
+      local function opts(desc)
+        return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+      end
+
+      api.config.mappings.default_on_attach(bufnr)
+
+      vim.keymap.set('n', 'x', api.node.navigate.parent_close, opts('Close Directory'))
+    end,
     ui = {
       confirm = {
         remove = false,
