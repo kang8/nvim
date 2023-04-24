@@ -76,10 +76,6 @@ return {
     },
   },
   {
-    'svban/YankAssassin.vim',
-    event = 'VeryLazy',
-  },
-  {
     'andymass/vim-matchup',
     event = 'BufReadPost',
     config = function()
