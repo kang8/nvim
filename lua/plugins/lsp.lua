@@ -40,8 +40,9 @@ return {
       -- personal preference
       { '<F2>', vim.lsp.buf.rename, desc = 'Rename' },
     },
-    opts = {
-      servers = {
+    config = function()
+      local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+      local servers = {
         lua_ls = {
           settings = {
             Lua = {
@@ -54,13 +55,15 @@ return {
             },
           },
         },
-        tsserver = {},
+        tsserver = {
+          single_file_support = false,
+          root_dir = require('lspconfig').util.root_pattern('package.json'),
+        },
+        denols = {
+          root_dir = require('lspconfig').util.root_pattern('deno.json', 'deno.jsonc'),
+        },
         clangd = {},
-      },
-    },
-    config = function(_, opts)
-      local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-      local servers = opts.servers
+      }
 
       local function setup(server)
         local server_opts = servers[server] or {}
