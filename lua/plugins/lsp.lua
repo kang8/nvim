@@ -25,7 +25,7 @@ return {
     keys = {
       { '<leader>cd', vim.diagnostic.open_float, desc = 'Line Diagnostics' },
       { '<leader>cl', '<cmd>LspInfo<cr>', desc = 'Lsp Info' },
-      { 'gd', '<cmd>Telescope lsp_definitions<cr>', desc = 'Goto Definition' },
+      { 'gd', vim.lsp.buf.definition, desc = 'Goto Definition' },
       { 'gr', '<cmd>Telescope lsp_references<cr>', desc = 'References' },
       { 'gD', vim.lsp.buf.declaration, desc = 'Goto Declaration' },
       { 'gI', '<cmd>Telescope lsp_implementations<cr>', desc = 'Goto Implementation' },
