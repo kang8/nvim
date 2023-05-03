@@ -30,6 +30,7 @@
   "nvim-treesitter": { "branch": "master", "commit": "b4d2640eab4b1f6373e1ded84ab9f6db0c02c756" },
   "nvim-treesitter-context": { "branch": "master", "commit": "bf8e96b1d8f2f6c5680b120a3ea455960c50f439" },
   "nvim-web-devicons": { "branch": "master", "commit": "b34362b20a4942b3245f958e73ebe1b09b020ad1" },
+  "open-browser-github.vim": { "branch": "master", "commit": "ac7c034e300f36d591ef234dcd5eb5cd5c07c74f" },
   "open-browser.vim": { "branch": "master", "commit": "7d4c1d8198e889d513a030b5a83faa07606bac27" },
   "plenary.nvim": { "branch": "master", "commit": "9ac3e9541bbabd9d73663d757e4fe48a675bb054" },
   "project.nvim": { "branch": "main", "commit": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb" },
