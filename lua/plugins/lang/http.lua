@@ -1,6 +1,7 @@
 return {
   {
     'nvim-treesitter/nvim-treesitter',
+    ft = 'http',
     opts = function(_, opts)
       if type(opts.ensure_installed) == 'table' then
         vim.list_extend(opts.ensure_installed, { 'json', 'http' })
@@ -9,6 +10,7 @@ return {
   },
   {
     'rest-nvim/rest.nvim',
+    ft = 'http',
     opts = function()
       vim.keymap.set('n', '<leader>rh', '<Plug>RestNvim', { desc = 'http-rest: [R]equest [H]TTP' })
       vim.keymap.set('n', '<leader>rp', '<Plug>RestNvimPreview', { desc = 'http-rest: [R]equest HTTP [P]review' })
