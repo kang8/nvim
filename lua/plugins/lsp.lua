@@ -63,6 +63,13 @@ return {
           root_dir = require('lspconfig').util.root_pattern('deno.json', 'deno.jsonc'),
         },
         clangd = {},
+        yamlls = {
+          settings = {
+            yaml = {
+              keyOrdering = false,
+            },
+          },
+        },
       }
 
       local function setup(server)
