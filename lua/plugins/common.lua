@@ -143,4 +143,18 @@ return {
       { "[t", function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },
     },
   },
+  {
+    'phaazon/hop.nvim',
+    lazy = true,
+    branch = 'v2',
+    event = 'BufReadPost',
+    keys = {
+      { '<leader>w', '<cmd>HopWord<cr>', mode = { 'n' }, desc = 'jump: Goto word' },
+      { '<leader>j', '<cmd>HopLine<cr>', mode = { 'n' }, desc = 'jump: Goto line' },
+      { '<leader>k', '<cmd>HopLine<cr>', mode = { 'n' }, desc = 'jump: Goto line' },
+      { '<leader>c', '<cmd>HopChar1<cr>', mode = { 'n' }, desc = 'jump: Goto one char' },
+      { '<leader>cc', '<cmd>HopChar2<cr>', mode = { 'n' }, desc = 'jump: Goto two char' },
+    },
+    config = true,
+  },
 }
