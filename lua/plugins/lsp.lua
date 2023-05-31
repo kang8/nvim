@@ -106,6 +106,7 @@ return {
         sources = {
           nls.builtins.formatting.stylua,
           nls.builtins.formatting.deno_fmt,
+          nls.builtins.formatting.clang_format,
         },
         on_attach = function(client, bufnr)
           if client.supports_method('textDocument/formatting') then
@@ -127,6 +128,7 @@ return {
         'stylua',
         'shellcheck',
         'shfmt',
+        'clang-format',
       },
     },
     config = function(_, opts)
