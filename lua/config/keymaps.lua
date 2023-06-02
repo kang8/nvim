@@ -23,3 +23,6 @@ vim.keymap.set('n', 'za', '1z=') -- fix word under cursor
 
 -- unset default keymap
 vim.keymap.set('n', '<F1>', '<Nop>')
+
+-- Toggle casing
+vim.keymap.set('n', '<leader>u', 'mzlblgueh~`z')
