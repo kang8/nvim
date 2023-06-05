@@ -51,7 +51,7 @@ return {
   },
   {
     'lambdalisue/suda.vim',
-    event = 'VeryLazy',
+    cmd = {}, -- Unset 'suda.vim' command
     config = function()
       vim.cmd([[ cnoreabbrev sw w suda://% ]])
     end,
