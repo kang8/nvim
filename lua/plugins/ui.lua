@@ -74,4 +74,66 @@ return {
     },
   },
   { 'nvim-tree/nvim-web-devicons', lazy = true },
+  {
+    'Bekaboo/dropbar.nvim',
+    lazy = false,
+    -- stylua: ignore
+    keys = {
+      { '<leader>mp', function() require('dropbar.api').pick() end, mode = { 'n' }, desc = 'breadcrumb: [M]enu [P]ick', },
+    },
+    opts = {
+      menu = {
+        keymaps = {
+          ['q'] = function()
+            local menu = require('dropbar.api').get_current_dropbar_menu()
+
+            if not menu then
+              return
+            end
+
+            local parent_menu = menu.parent_menu
+            local root_menu = nil
+
+            while parent_menu do
+              root_menu = parent_menu
+              parent_menu = parent_menu.parent_menu
+            end
+
+            if root_menu then
+              root_menu:close()
+            else
+              menu:close()
+            end
+          end,
+          ['h'] = '<C-w>c',
+          ['l'] = function()
+            local menu = require('dropbar.api').get_current_dropbar_menu()
+
+            if not menu then
+              return
+            end
+
+            local cursor = vim.api.nvim_win_get_cursor(menu.win)
+            local component = menu.entries[cursor[1]]:first_clickable(cursor[2])
+
+            if component then
+              menu:click_on(component, nil, 1, 'l')
+            end
+          end,
+        },
+      },
+      icons = {
+        ui = {
+          menu = {
+            indicator = '',
+          },
+        },
+      },
+      bar = {
+        pick = {
+          pivots = 'asdfghjklzxcvbnm,./qwertyuiop',
+        },
+      },
+    },
+  },
 }

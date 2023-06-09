@@ -64,6 +64,7 @@ return {
       filetypes_denylist = {
         'NvimTree',
         'lazy',
+        'dropbar_menu',
       },
     },
     config = function(_, opts)
