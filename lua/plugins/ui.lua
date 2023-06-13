@@ -83,6 +83,7 @@ return {
     },
     opts = {
       menu = {
+        preview = false,
         keymaps = {
           ['q'] = function()
             local menu = require('dropbar.api').get_current_dropbar_menu()
@@ -91,12 +92,12 @@ return {
               return
             end
 
-            local parent_menu = menu.parent_menu
+            local prev_menu = menu.prev_menu
             local root_menu = nil
 
-            while parent_menu do
-              root_menu = parent_menu
-              parent_menu = parent_menu.parent_menu
+            while prev_menu do
+              root_menu = prev_menu
+              prev_menu = prev_menu.prev_menu
             end
 
             if root_menu then
