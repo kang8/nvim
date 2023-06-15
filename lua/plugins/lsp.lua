@@ -1,6 +1,8 @@
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function()
-    vim.cmd([[ command! Rename :lua vim.lsp.buf.rename() ]])
+    vim.api.nvim_create_user_command('Rename', function()
+      vim.lsp.buf.rename()
+    end, {})
   end,
 })
 
