@@ -2,11 +2,6 @@ return {
   {
     'nvim-treesitter/nvim-treesitter',
     ft = 'json',
-    init = function()
-      vim.o.foldlevel = 5
-      vim.o.foldmethod = 'expr'
-      vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
-    end,
     opts = function(_, opts)
       if type(opts.ensure_installed) == 'table' then
         vim.list_extend(opts.ensure_installed, { 'json', 'json5', 'jsonc' })
