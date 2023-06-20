@@ -8,9 +8,11 @@
 * node - for neovim extension
 * python - for neovim extension
 * [stylua] - format lua file
+* [luacheck] - A tool for linting and static analysis of Lua code
 * [pre-commit] - static analysis before commit
 
 [stylua]: https://github.com/JohnnyMorganz/StyLua
+[luacheck]: https://github.com/lunarmodules/luacheck
 [pre-commit]: https://github.com/pre-commit/pre-commit
 
 ## Setup
