@@ -30,6 +30,7 @@ return {
         'tsx',
         'typescript',
         'vim',
+        'go',
       },
       incremental_selection = {
         enable = true,

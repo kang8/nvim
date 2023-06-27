@@ -82,6 +82,7 @@ return {
             },
           },
         },
+        gopls = {},
       }
 
       local function setup(server)
