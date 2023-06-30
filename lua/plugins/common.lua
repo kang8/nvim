@@ -158,4 +158,12 @@ return {
     },
     config = true,
   },
+  {
+    'Pocco81/true-zen.nvim',
+    cmd = 'TZFocus',
+    keys = {
+      { '<leader>zf', '<cmd>TZFocus<CR>', mode = { 'n' }, desc = 'Toggle focus mode' },
+    },
+    config = true,
+  },
 }
