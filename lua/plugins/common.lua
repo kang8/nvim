@@ -166,4 +166,9 @@ return {
     },
     config = true,
   },
+  {
+    'tzachar/highlight-undo.nvim',
+    event = 'BufReadPost',
+    config = true,
+  },
 }
