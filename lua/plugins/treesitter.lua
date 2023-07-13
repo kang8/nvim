@@ -31,6 +31,7 @@ return {
         'typescript',
         'vim',
         'go',
+        'terraform',
       },
       incremental_selection = {
         enable = true,
