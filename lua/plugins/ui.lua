@@ -137,4 +137,15 @@ return {
       },
     },
   },
+  {
+    'p#0057B7etertriho/nvim-scrollbar',
+    opts = {
+      handlers = {
+        gitsigns = true,
+      },
+      handle = {
+        color = '#9ca0b0',
+      },
+    },
+  },
 }
