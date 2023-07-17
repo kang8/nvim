@@ -138,13 +138,16 @@ return {
     },
   },
   {
-    'p#0057B7etertriho/nvim-scrollbar',
+    'petertriho/nvim-scrollbar',
     opts = {
       handlers = {
         gitsigns = true,
       },
       handle = {
         color = '#9ca0b0',
+      },
+      excluded_filetypes = {
+        'NvimTree',
       },
     },
   },
