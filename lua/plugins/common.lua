@@ -28,19 +28,22 @@ return {
     end,
   },
   {
-    '907th/vim-auto-save',
-    event = 'VeryLazy',
-    config = function()
-      vim.g.auto_save = true
-      vim.g.auto_save_silent = true
+    {
+      'okuuva/auto-save.nvim',
+      cmd = { '' },
+      event = { 'InsertLeave', 'TextChanged' },
+      opts = {
+        debounce_delay = 500,
+        condition = function(buf)
+          local utils = require('auto-save.utils.data')
 
-      vim.cmd([[
-        augroup no_auto_save_file
-            au!
-            au BufEnter COMMIT_EDITMSG let b:auto_save = 0
-        augroup END
-      ]])
-    end,
+          if utils.not_in(vim.fn.getbufvar(buf, '&filetype'), { 'COMMIT_EDITMSG' }) then
+            return true
+          end
+          return false
+        end,
+      },
+    },
   },
   {
     'kang8/smartim',
