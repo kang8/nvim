@@ -24,7 +24,7 @@ return {
             print('nogit diff')
           end
         end,
-        'Toggle git diff',
+        'git: Toggle git diff',
       },
     },
   },
@@ -33,6 +33,22 @@ return {
     dependencies = {
       'tpope/vim-git',
     },
+    config = function()
+      vim.keymap.set('n', '<F18>', function() -- <F18> is cmd + G
+        local left_win = vim.fn.winnr() - 1
+
+        if 'fugitiveblame' == vim.api.nvim_get_option_value('filetype', { win = vim.api.nvim_get_current_win() }) then
+          vim.api.nvim_win_close(vim.api.nvim_get_current_win(), true)
+        elseif
+          left_win > 0
+          and 'fugitiveblame' == vim.api.nvim_get_option_value('filetype', { win = vim.fn.win_getid(left_win) })
+        then
+          vim.api.nvim_win_close(vim.fn.win_getid(left_win), true)
+        else
+          vim.cmd('Git blame')
+        end
+      end, { desc = 'git: Toggle git blame' })
+    end,
   },
   {
     'ruanyl/vim-gh-line',
