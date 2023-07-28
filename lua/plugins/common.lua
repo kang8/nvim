@@ -103,7 +103,7 @@ return {
     event = 'BufReadPost',
     keys = {
       { '<Esc>', [[<C-\><C-n>]], mode = { 'n', 'i' } },
-      { '<F14>', '<cmd>ToggleTerm direction=float<cr>', mode = { 'n', 't' } },
+      { '<D-j>', '<cmd>ToggleTerm direction=float<cr>', mode = { 'n', 't' } },
       {
         '<leader>lg',
         function()

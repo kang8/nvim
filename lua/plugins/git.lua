@@ -34,9 +34,8 @@ return {
       'tpope/vim-git',
     },
     config = function()
-      vim.keymap.set('n', '<F18>', function() -- <F18> is cmd + G
+      vim.keymap.set('n', '<D-g>', function()
         local left_win = vim.fn.winnr() - 1
-
         if 'fugitiveblame' == vim.bo.filetype then
           vim.api.nvim_win_close(vim.api.nvim_get_current_win(), true)
         elseif

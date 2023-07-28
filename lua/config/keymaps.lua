@@ -5,8 +5,8 @@ vim.keymap.set('i', '<C-f>', '<Right>')
 vim.keymap.set({ 'i', 'c' }, '<C-d>', '<Del>')
 vim.keymap.set({ 'i', 'c' }, '<C-b>', '<Left>')
 
-vim.keymap.set('n', '<F16>', '<cmd>bnext<cr>') -- command + ]
-vim.keymap.set('n', '<F17>', '<cmd>bprevious<cr>') -- command + [
+vim.keymap.set('n', '<D-]>', '<cmd>bnext<cr>')
+vim.keymap.set('n', '<D-[>', '<cmd>bprevious<cr>')
 
 -- HL as amplified versions of hl
 vim.keymap.set('n', 'H', '^')
