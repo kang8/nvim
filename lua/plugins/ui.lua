@@ -148,6 +148,10 @@ return {
       },
       excluded_filetypes = {
         'NvimTree',
+        'cmp_menu',
+        'cmp_docs',
+        'fugitiveblame',
+        'dropbar_menu',
       },
     },
   },
