@@ -159,4 +159,8 @@ return {
     'NvChad/nvim-colorizer.lua',
     config = true,
   },
+  {
+    'tamton-aquib/keys.nvim',
+    config = true,
+  }
 }
