@@ -174,4 +174,7 @@ return {
     event = 'BufReadPost',
     config = true,
   },
+  {
+    'nathom/filetype.nvim',
+  },
 }
