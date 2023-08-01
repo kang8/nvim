@@ -18,21 +18,26 @@ return {
     end,
   },
   {
-    'echasnovski/mini.indentscope',
-    event = 'VeryLazy',
-    config = function()
-      vim.api.nvim_create_autocmd('FileType', {
-        pattern = { 'help', 'lazy' },
-        callback = function()
-          vim.b.miniindentscope_disable = true
-        end,
-      })
-
-      require('mini.indentscope').setup({
-        symbol = '│',
-        options = { try_as_border = true },
-      })
-    end,
+    'shellRaining/hlchunk.nvim',
+    event = { 'UIEnter' },
+    opts = {
+      chunk = {
+        support_filetypes = {
+          '*.lua',
+          '*.js',
+          '*.tsx',
+        },
+      },
+      line_num = {
+        enable = false,
+      },
+      indent = {
+        enable = false,
+      },
+      blank = {
+        enable = false,
+      },
+    },
   },
   {
     'echasnovski/mini.trailspace',
