@@ -21,13 +21,6 @@ return {
     'shellRaining/hlchunk.nvim',
     event = { 'UIEnter' },
     opts = {
-      chunk = {
-        support_filetypes = {
-          '*.lua',
-          '*.js',
-          '*.tsx',
-        },
-      },
       line_num = {
         enable = false,
       },
