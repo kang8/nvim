@@ -44,6 +44,8 @@ return {
           vim.api.nvim_win_close(vim.fn.win_getid(left_win), true)
         else
           vim.cmd('Git blame')
+
+          vim.wo.winbar = 'FugitiveBlame'
         end
       end, { desc = 'git: Toggle git blame' })
     end,
