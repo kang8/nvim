@@ -9,6 +9,7 @@ return {
       integrations = {
         mini = true,
         illuminate = true,
+        dropbar = { enabled = true, color_mode = true },
       },
     },
   },
