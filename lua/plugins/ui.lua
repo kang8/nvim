@@ -21,6 +21,13 @@ return {
     'shellRaining/hlchunk.nvim',
     event = { 'UIEnter' },
     opts = {
+      chunk = {
+        exclude_filetypes = {
+          fugitiveblame = true,
+          git = true,
+          sql = true,
+        },
+      },
       line_num = {
         enable = false,
       },
