@@ -32,6 +32,7 @@ return {
         'vim',
         'go',
         'terraform',
+        'sql',
       },
       incremental_selection = {
         enable = true,
