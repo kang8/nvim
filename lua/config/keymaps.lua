@@ -22,3 +22,19 @@ vim.keymap.set('n', '<F1>', '<Nop>')
 
 -- Toggle casing
 vim.keymap.set('n', '<leader>u', 'mzlblgueh~`z')
+
+-- Fast finger fixes
+vim.cmd([[
+cabbrev Q  quit
+cabbrev W  update
+cabbrev WQ exit
+cabbrev Wq exit
+cabbrev QA quitall
+cabbrev Qa quitall
+cabbrev Q!  quit!
+cabbrev W!  update!
+cabbrev WQ! exit!
+cabbrev Wq! exit!
+cabbrev QA! quitall!
+cabbrev Qa! quitall!
+]])
