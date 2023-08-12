@@ -33,6 +33,7 @@ return {
         'go',
         'terraform',
         'sql',
+        'make', -- makefile
       },
       incremental_selection = {
         enable = true,
