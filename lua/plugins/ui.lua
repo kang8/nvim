@@ -5,11 +5,10 @@ return {
     config = function()
       require('mini.tabline').setup({})
       vim.keymap.set('n', '<C-c>', function()
-        local cur_buf = vim.api.nvim_get_current_buf()
-
-        for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-          if buf ~= cur_buf then
-            vim.api.nvim_buf_delete(buf, { force = true })
+        for _, bufinfo in ipairs(vim.fn.getbufinfo({ buflisted = 1 })) do
+          if bufinfo.bufnr ~= vim.fn.bufnr() then
+            vim.print(bufinfo.bufnr)
+            vim.api.nvim_buf_delete(bufinfo.bufnr, { force = true })
           end
         end
 
