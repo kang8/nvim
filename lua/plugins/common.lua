@@ -174,14 +174,4 @@ return {
     event = 'BufReadPost',
     config = true,
   },
-  {
-    'nathom/filetype.nvim',
-    enabled = function()
-      if vim.fn.expand('%:e') == 'sql' then
-        return false
-      end
-
-      return true
-    end,
-  },
 }
