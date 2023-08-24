@@ -2,7 +2,7 @@ return {
   'nvim-tree/nvim-tree.lua',
   cmd = 'NvimTreeToggle',
   keys = {
-    { '<leader>e', '<cmd>NvimTreeToggle<cr>', desc = 'File Explorer' },
+    { '<leader>e', '<cmd>NvimTreeToggle<cr>', desc = 'Open file tree' },
   },
   init = function()
     vim.api.nvim_create_autocmd('BufEnter', {
@@ -69,6 +69,9 @@ return {
       api.config.mappings.default_on_attach(bufnr)
 
       vim.keymap.set('n', 'x', api.node.navigate.parent_close, opts('Close Directory'))
+      vim.keymap.set('n', '<C-l>', '<cmd>NvimTreeResize +20<cr>', opts('Increase File Tree'))
+      vim.keymap.set('n', '<C-h>', '<cmd>NvimTreeResize -20<cr>', opts('Decrease File Tree'))
+      -- PERF: <leader>ta, Resize nvim-tree window maximize, how to store status
     end,
     ui = {
       confirm = {
