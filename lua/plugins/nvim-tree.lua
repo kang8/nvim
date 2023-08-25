@@ -14,6 +14,12 @@ return {
       end,
     })
 
+    vim.api.nvim_create_autocmd({ 'QuitPre' }, {
+      callback = function()
+        vim.cmd('NvimTreeClose')
+      end,
+    })
+
     if vim.fn.argc() ~= 1 then
       return
     end
