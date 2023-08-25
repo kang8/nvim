@@ -78,12 +78,12 @@ return {
       vim.keymap.set('n', '<C-l>', '<cmd>NvimTreeResize +20<cr>', opts('Increase File Tree'))
       vim.keymap.set('n', '<C-h>', '<cmd>NvimTreeResize -20<cr>', opts('Decrease File Tree'))
       vim.keymap.set('n', 'A', function()
-        if vim.g.nvim_tree_width == nil then
-          vim.g.nvim_tree_width = vim.api.nvim_win_get_width(0)
+        if vim.w.nvim_tree_width == nil then
+          vim.w.nvim_tree_width = vim.api.nvim_win_get_width(0)
           vim.cmd(':wincmd |')
         else
-          vim.api.nvim_win_set_width(0, vim.g.nvim_tree_width)
-          vim.g.nvim_tree_width = nil
+          vim.api.nvim_win_set_width(0, vim.w.nvim_tree_width)
+          vim.w.nvim_tree_width = nil
         end
       end, opts('Toggle Tree Window Maximize/Minimize'))
     end,
