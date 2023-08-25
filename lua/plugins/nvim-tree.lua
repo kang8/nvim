@@ -87,5 +87,8 @@ return {
     git = {
       ignore = false,
     },
+    live_filter = {
+      always_show_folders = false,
+    },
   },
 }
