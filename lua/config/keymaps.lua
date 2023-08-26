@@ -23,6 +23,10 @@ vim.keymap.set('n', '<F1>', '<Nop>')
 -- Toggle casing
 vim.keymap.set('n', '<leader>u', 'mzlblgueh~`z')
 
+-- Keep emacs key in cmdline, and replace <C-f> as <C-l>
+vim.keymap.set('c', '<C-l>', '<C-f>')
+vim.keymap.set('c', '<C-f>', '<Right>')
+
 -- Fast finger fixes
 vim.cmd([[
 cabbrev Q  quit
