@@ -2,9 +2,9 @@
 vim.keymap.set({ 'i', 'c' }, '<C-a>', '<Home>')
 vim.keymap.set('i', '<C-e>', '<End>')
 vim.keymap.set('i', '<C-f>', '<Right>')
-vim.keymap.set({ 'i', 'c' }, '<C-d>', '<Del>')
 vim.keymap.set({ 'i', 'c' }, '<C-b>', '<Left>')
 
+-- Quick move buffers
 vim.keymap.set('n', '<D-]>', '<cmd>bnext<cr>')
 vim.keymap.set('n', '<D-[>', '<cmd>bprevious<cr>')
 
