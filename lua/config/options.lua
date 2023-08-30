@@ -10,6 +10,7 @@ vim.opt.clipboard:append({ 'unnamedplus' })
 vim.opt.sidescrolloff = 6
 vim.opt.wildmode = { 'list:longest', 'full' }
 vim.opt.listchars = { tab = '>·', nbsp = '+', trail = '·', extends = '→', precedes = '←' }
+vim.opt.mousescroll = { 'ver:1', 'hor:0' }
 
 -- full file path & vim mode in window title
 vim.opt.title = true
