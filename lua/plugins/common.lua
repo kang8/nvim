@@ -174,4 +174,9 @@ return {
     event = 'BufReadPost',
     config = true,
   },
+  {
+    'Aasim-A/scrollEOF.nvim',
+    event = 'CursorMoved',
+    opts = true,
+  },
 }

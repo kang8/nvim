@@ -41,6 +41,7 @@
   "plenary.nvim": { "branch": "master", "commit": "a56bf0071bf63d35274fdc4738bb1e8821cfd2ea" },
   "project.nvim": { "branch": "main", "commit": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb" },
   "rest.nvim": { "branch": "main", "commit": "22673c848768ff25517154a5aebfebc0c77d0b4f" },
+  "scrollEOF.nvim": { "branch": "master", "commit": "158f1302b06af2e17a2b713dc330947d790b08f8" },
   "smartim": { "branch": "master", "commit": "37249fc0873522da69ebbf99e5863ef0a761e2c5" },
   "suda.vim": { "branch": "master", "commit": "8b0fc3711760195aba104e2d190cff9af8267052" },
   "telescope-undo.nvim": { "branch": "main", "commit": "3dec002ea3e7952071d26fbb5d01e2038a58a554" },
