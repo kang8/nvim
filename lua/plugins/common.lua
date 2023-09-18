@@ -179,4 +179,20 @@ return {
     event = 'CursorMoved',
     opts = true,
   },
+  {
+    'yorickpeterse/nvim-window',
+    keys = {
+      {
+        '<c-t>',
+        function()
+          require('nvim-window').pick()
+        end,
+        mode = { 'n' },
+        desc = 'windown: pick window',
+      },
+    },
+    opts = {
+      chars = { 'h', 'j', 'k', 'l', 'g', 's', 'a', 'd' },
+    },
+  },
 }
