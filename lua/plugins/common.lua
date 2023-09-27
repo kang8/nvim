@@ -195,4 +195,19 @@ return {
       chars = { 'h', 'j', 'k', 'l', 'g', 's', 'a', 'd' },
     },
   },
+  {
+    'mrjones2014/smart-splits.nvim',
+    build = './kitty/install-kittens.bash',
+    -- stylua: ignore
+    keys = {
+      { '<A-j>', function() require('smart-splits').move_cursor_down() end, mode = { 'n' }, desc = 'window: Move cursor to DOWN window' },
+      { '<A-k>', function() require('smart-splits').move_cursor_up() end, mode = { 'n' }, desc = 'window: Move cursor to UP window' },
+      { '<A-h>', function() require('smart-splits').move_cursor_right() end, mode = { 'n' }, desc = 'window: Move cursor to RIGHT window' },
+      { '<A-l>', function() require('smart-splits').move_cursor_left() end, mode = { 'n' }, desc = 'window: Move cursor to LEFT window' },
+      { '<C-A-j>', function() require('smart-splits').resize_down() end, mode = { 'n' }, desc = 'window: Decrease current window height' },
+      { '<C-A-k>', function() require('smart-splits').resize_up() end, mode = { 'n' }, desc = 'window: Increase current window height' },
+      { '<C-A-h>', function() require('smart-splits').resize_left() end, mode = { 'n' }, desc = 'window: Increase current window width' },
+      { '<C-A-l>', function() require('smart-splits').resize_right() end, mode = { 'n' }, desc = 'window: Decrease current window width' },
+    },
+  },
 }
