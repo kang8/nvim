@@ -37,6 +37,12 @@ return {
         enable = false,
       },
     },
+    config = function(_, opts)
+      require('hlchunk').setup(opts)
+
+      vim.api.nvim_del_user_command('EnableHL')
+      vim.api.nvim_del_user_command('EnableHLChunk')
+    end,
   },
   {
     'echasnovski/mini.trailspace',
