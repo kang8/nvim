@@ -46,6 +46,7 @@
   "smart-splits.nvim": { "branch": "master", "commit": "0beb14427dcf2a5d5d63e0064b45032a7bd3e763" },
   "smartim": { "branch": "master", "commit": "37249fc0873522da69ebbf99e5863ef0a761e2c5" },
   "suda.vim": { "branch": "master", "commit": "8b0fc3711760195aba104e2d190cff9af8267052" },
+  "symbol-usage.nvim": { "branch": "main", "commit": "b002e466db608195163b518f5e171aa8df49ed7d" },
   "telescope-undo.nvim": { "branch": "main", "commit": "3dec002ea3e7952071d26fbb5d01e2038a58a554" },
   "telescope.nvim": { "branch": "master", "commit": "18f10f28007cb8b4d50324217349c3f568684be2" },
   "todo-comments.nvim": { "branch": "main", "commit": "3094ead8edfa9040de2421deddec55d3762f64d1" },
