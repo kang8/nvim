@@ -210,4 +210,7 @@ return {
       { '<C-A-l>', function() require('smart-splits').resize_right() end, mode = { 'n' }, desc = 'window: Decrease current window width' },
     },
   },
+  {
+    'tpope/vim-sleuth',
+  },
 }
