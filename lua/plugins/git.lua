@@ -63,4 +63,8 @@ return {
       'tyru/open-browser.vim',
     },
   },
+  {
+    'sindrets/diffview.nvim',
+    opts = true,
+  },
 }
