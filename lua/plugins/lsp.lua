@@ -5,6 +5,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end, {})
 
     local client = vim.lsp.get_client_by_id(args.data.client_id)
+    assert(client) -- check client is not nil
     if client.server_capabilities.inlayHintProvider then
       vim.lsp.inlay_hint(args.buf, true)
     end
@@ -16,8 +17,6 @@ return {
     'neovim/nvim-lspconfig',
     event = 'BufReadPre',
     dependencies = {
-      { 'folke/neoconf.nvim', cmd = 'Neoconf', config = true },
-      { 'folke/neodev.nvim', opts = { experimental = { pathStrict = true } } },
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       { 'hrsh7th/cmp-nvim-lsp' },
@@ -54,8 +53,12 @@ return {
         lua_ls = {
           settings = {
             Lua = {
+              runtime = {
+                version = 'LuaJIT',
+              },
               workspace = {
                 checkThirdParty = false,
+                library = vim.api.nvim_get_runtime_file('', true),
               },
               completion = {
                 callSnippet = 'Replace',
