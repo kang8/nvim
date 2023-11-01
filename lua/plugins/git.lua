@@ -53,7 +53,7 @@ return {
   {
     'ruanyl/vim-gh-line',
     keys = {
-      { '<leader>gh' },
+      { '<leader>gh', mode = { 'n', 'x' } },
     },
   },
   {
