@@ -66,5 +66,21 @@ return {
   {
     'sindrets/diffview.nvim',
     opts = true,
+    cmd = {
+      'DiffviewFileHistory',
+    },
+    keys = {
+      { '<leader>gl', '<cmd>DiffviewFileHistory %<cr>', desc = 'git: [N] View git history on current file' },
+      {
+        '<leader>gl',
+        function()
+          local visual_range = { vim.fn.line('.'), vim.fn.line('v') }
+          table.sort(visual_range)
+          vim.cmd(('%d,%d'):format(unpack(visual_range)) .. 'DiffviewFileHistory')
+        end,
+        mode = 'x',
+        desc = 'git: [V] View git history on current file',
+      },
+    },
   },
 }
