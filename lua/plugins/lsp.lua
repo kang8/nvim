@@ -22,11 +22,8 @@ return {
       { 'hrsh7th/cmp-nvim-lsp' },
       {
         'j-hui/fidget.nvim',
-        branch = 'legacy',
-        config = function()
-          require('fidget').setup({})
-          vim.api.nvim_del_user_command('FidgetClose')
-        end,
+        event = 'LspAttach',
+        opts = {},
       },
     },
     keys = {
