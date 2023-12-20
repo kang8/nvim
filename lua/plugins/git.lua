@@ -68,6 +68,7 @@ return {
     opts = true,
     cmd = {
       'DiffviewFileHistory',
+      'DiffviewOpen',
     },
     keys = {
       { '<leader>gl', '<cmd>DiffviewFileHistory %<cr>', desc = 'git: [N] View git history on current file' },
