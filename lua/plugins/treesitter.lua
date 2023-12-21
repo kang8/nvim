@@ -3,10 +3,6 @@ return {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     event = 'BufReadPost',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-context',
-      config = true,
-    },
     keys = {
       { '<c-space>', desc = 'Increment selection' },
       { '<bs>', desc = 'Schrink selection', mode = 'x' },
@@ -48,5 +44,14 @@ return {
     config = function(_, opts)
       require('nvim-treesitter.configs').setup(opts)
     end,
+  },
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    opts = {
+      max_lines = 3,
+    },
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+    },
   },
 }
