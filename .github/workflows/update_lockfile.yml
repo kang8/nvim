@@ -1,0 +1,43 @@
+name: update lockfile
+on:
+  schedule:
+    - cron: '0 2 * * 1'  # At 02:00(UTC, It is 10:00 in Beijing) on every Monday.
+
+jobs:
+  update-lockfile:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: rhysd/action-setup-vim@v1
+        with:
+          neovim: true
+
+      - name: Run lockfile-autoupdate
+        timeout-minutes: 5
+        run: |
+          git clone https://github.com/kang8/nvim.git ~/.config/nvim
+          nvim --headless "+Lazy! update" +qa
+          cp -pv "${HOME}/.config/nvim/lazy-lock.json" .
+
+      - name: Commit and Create Pull Request
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [[ -n $(git status --porcelain) ]]; then
+            # Commit
+            git config push.autoSetupRemote true
+            git config user.name github-actions
+            git config user.email github-actions@github.com
+            git checkout -b chore/update-lockfile--$RANDOM
+            git commit --all --message="chore(lockfile): auto update lazy-lock.json"
+            git push
+
+            # Create pull request
+            gh pr create --base master --title 'Auto update lazy-lock.json' --body 'Created by Github Action'
+          else
+            echo "Not plugin update."
+          fi
