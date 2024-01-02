@@ -33,7 +33,7 @@ jobs:
             git config user.name github-actions[bot]
             git config user.email 41898282+github-actions[bot]@users.noreply.github.com
             git checkout -b chore/update-lockfile--$RANDOM
-            git commit --all --message="chore(lockfile): auto update lazy-lock.json"
+            git commit --all --message="chore(lockfile): auto update lazy-lock.json" # Note: `--all` option do not will commit untracked files
             git push
 
             # Create pull request
