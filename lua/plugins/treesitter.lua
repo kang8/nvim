@@ -33,6 +33,7 @@ return {
         'terraform',
         'sql',
         'make', -- makefile
+        'rust',
       },
       incremental_selection = {
         enable = true,

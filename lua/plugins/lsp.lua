@@ -110,6 +110,7 @@ return {
           },
         },
         gopls = {},
+        rust_analyzer = {},
       }
 
       local function setup(server)
