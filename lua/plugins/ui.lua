@@ -58,7 +58,6 @@ return {
       options = {
         theme = 'auto',
         globalstatus = true,
-        disabled_filetypes = { statusline = { 'lazy' } },
         section_separators = {},
         component_separators = { '', '|' },
       },
@@ -90,7 +89,7 @@ return {
           end,
         },
       },
-      extensions = { 'nvim-tree' },
+      extensions = { 'nvim-tree', 'man', 'mason', 'quickfix', 'lazy', 'toggleterm' },
     },
   },
   { 'nvim-tree/nvim-web-devicons', lazy = true },
