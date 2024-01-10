@@ -69,6 +69,16 @@ return {
         },
         lualine_x = {
           { 'filetype' },
+          {
+            function()
+              local style = vim.bo.expandtab and 'Spaces' or 'Tab Size'
+              local size = vim.bo.expandtab and vim.bo.tabstop or vim.bo.shiftwidth
+              return style .. ': ' .. size
+            end,
+            cond = function()
+              return vim.bo.filetype ~= ''
+            end,
+          },
         },
         lualine_y = {
           { 'progress', separator = '', padding = { left = 1, right = 0 } },
