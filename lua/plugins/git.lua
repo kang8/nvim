@@ -65,7 +65,6 @@ return {
   },
   {
     'sindrets/diffview.nvim',
-    opts = true,
     cmd = {
       'DiffviewFileHistory',
       'DiffviewOpen',
@@ -81,6 +80,15 @@ return {
         end,
         mode = 'x',
         desc = 'git: [V] View git history on current file',
+      },
+    },
+    opts = {
+      file_history_panel = {
+        log_options = {
+          git = {
+            no_merges = true,
+          },
+        },
       },
     },
   },
