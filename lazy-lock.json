@@ -62,4 +62,5 @@
   "vim-kitty": { "branch": "main", "commit": "891475671feebc4bf0f29f0a0987067913a81686" },
   "vim-matchup": { "branch": "master", "commit": "e2cca1747ab175b8d839a5d28679427564643a57" },
   "vim-sleuth": { "branch": "master", "commit": "1cc4557420f215d02c4d2645a748a816c220e99b" }
+  "visual-surround.nvim": { "branch": "main", "commit": "ab8b7087793366c000e3b8a7ead6f84bc564347d" }
 }
