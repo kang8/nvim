@@ -19,3 +19,11 @@ vim.api.nvim_create_autocmd('BufEnter', {
   end,
   group = vim.api.nvim_create_augroup('SpellCheck', { clear = true }),
 })
+
+-- When file suffix is `.cls` set filetype to `apex`
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = '*.cls',
+  callback = function()
+    vim.bo.filetype = 'apex'
+  end,
+})
