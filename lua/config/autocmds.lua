@@ -9,6 +9,7 @@ vim.api.nvim_create_autocmd('BufReadPost', {
   end,
 })
 
+-- Set spell check when using git to commit
 vim.api.nvim_create_autocmd('BufEnter', {
   pattern = 'COMMIT_EDITMSG',
   callback = function()
