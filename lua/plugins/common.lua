@@ -227,6 +227,10 @@ return {
           length = 3,
         },
       },
+      restricted_keys = {
+        ['j'] = {},
+        ['k'] = {},
+      },
     },
   },
   {
