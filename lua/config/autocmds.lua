@@ -25,8 +25,8 @@ vim.api.nvim_create_autocmd('BufEnter', {
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   pattern = { '*.cls', '*.trigger' },
   callback = function(args)
-    local absolut_file_path = args.match
-    if string.match(absolut_file_path, 'salesforce') then
+    local absolute_file_path = args.match
+    if string.match(absolute_file_path, 'salesforce') then
       vim.bo.filetype = 'apex'
     end
   end,

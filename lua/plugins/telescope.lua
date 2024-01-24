@@ -23,12 +23,12 @@ return {
       { '<leader>sm', '<cmd>Telescope marks<cr>', desc = 'Jump to Mark' },
       { '<leader>so', '<cmd>Telescope vim_options<cr>', desc = 'Options' },
       { '<leader>sr', '<cmd>Telescope oldfiles<cr>', desc = 'Recent' },
-      { '<leader>sp', '<cmd>Telescope projects<cr>', desc = 'Porject' },
+      { '<leader>sp', '<cmd>Telescope projects<cr>', desc = 'Project' },
       { '<leader>su', '<cmd>Telescope undo<cr>', desc = 'Undo' },
       -- personal preference
       { '<C-S-f>', '<cmd>Telescope live_grep<cr>', desc = 'Find in Files (Grep)' },
       { '<D-p>', '<cmd>Telescope find_files<cr>', desc = 'Find Files (root dir)' },
-      { '<C-S-o>', '<cmd>Telescope projects<cr>', desc = 'Porject' },
+      { '<C-S-o>', '<cmd>Telescope projects<cr>', desc = 'Project' },
     },
     opts = {
       defaults = {
