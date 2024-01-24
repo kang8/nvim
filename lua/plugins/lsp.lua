@@ -111,6 +111,7 @@ return {
         },
         gopls = {},
         rust_analyzer = {},
+        typos_lsp = {},
       }
 
       local function setup(server)
