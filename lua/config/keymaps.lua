@@ -42,3 +42,11 @@ cabbrev Wq! exit!
 cabbrev QA! quitall!
 cabbrev Qa! quitall!
 ]])
+
+-- smart dd, only yank the line if it's not empty
+vim.keymap.set('n', 'dd', function()
+  if vim.fn.getline(vim.fn.line('.')) == '' then
+    return '"_dd'
+  end
+  return 'dd'
+end, { expr = true })
