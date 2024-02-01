@@ -105,7 +105,7 @@ return {
         preview = false,
         keymaps = {
           ['q'] = function()
-            local menu = require('dropbar.api').get_current_dropbar_menu()
+            local menu = _G.dropbar.menus[vim.api.nvim_get_current_win()]
 
             if not menu then
               return
@@ -127,7 +127,7 @@ return {
           end,
           ['h'] = '<C-w>c',
           ['l'] = function()
-            local menu = require('dropbar.api').get_current_dropbar_menu()
+            local menu = _G.dropbar.menus[vim.api.nvim_get_current_win()]
 
             if not menu then
               return
