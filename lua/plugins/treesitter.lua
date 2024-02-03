@@ -34,6 +34,7 @@ return {
         'sql',
         'make', -- makefile
         'rust',
+        'beancount',
       },
       incremental_selection = {
         enable = true,
