@@ -237,4 +237,12 @@ return {
     'NStefan002/visual-surround.nvim',
     config = true,
   },
+  {
+    'junegunn/vim-easy-align',
+    event = 'VeryLazy',
+    config = function()
+      -- don't use keys property, because is will lazy do
+      vim.keymap.set({ 'n', 'x' }, 'ga', '<Plug>(EasyAlign)')
+    end,
+  },
 }
