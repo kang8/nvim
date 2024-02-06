@@ -157,14 +157,11 @@ return {
     },
   },
   {
-    'petertriho/nvim-scrollbar',
+    'dstein64/nvim-scrollview',
+    cmd = { 'ScrollViewEnable', 'ScrollViewToggle' },
+    event = { 'CursorMoved', 'CursorMovedI' },
     opts = {
-      handlers = {
-        gitsigns = true,
-      },
-      handle = {
-        color = '#9ca0b0',
-      },
+      scrollview_mode = 'virtual',
       excluded_filetypes = {
         'NvimTree',
         'cmp_menu',
@@ -172,7 +169,11 @@ return {
         'fugitiveblame',
         'dropbar_menu',
       },
+      signs_on_startup = { 'diagnostics', 'folds', 'marks', 'search', 'spell' },
     },
+    config = function()
+      require('scrollview.contrib.gitsigns').setup()
+    end,
   },
   {
     'NvChad/nvim-colorizer.lua',
