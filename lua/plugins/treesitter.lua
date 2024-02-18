@@ -35,6 +35,7 @@ return {
         'make', -- makefile
         'rust',
         'beancount',
+        'xml',
       },
       incremental_selection = {
         enable = true,
