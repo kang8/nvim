@@ -57,13 +57,6 @@ return {
     },
   },
   {
-    'tyru/open-browser-github.vim',
-    cmd = 'OpenGithubIssue',
-    dependencies = {
-      'tyru/open-browser.vim',
-    },
-  },
-  {
     'sindrets/diffview.nvim',
     cmd = {
       'DiffviewFileHistory',
