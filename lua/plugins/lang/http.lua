@@ -11,11 +11,11 @@ return {
   {
     'rest-nvim/rest.nvim',
     ft = 'http',
-    opts = function()
+    config = function()
       vim.keymap.set('n', '<leader>rh', '<Plug>RestNvim', { desc = 'http-rest: [R]equest [H]TTP' })
       vim.keymap.set('n', '<leader>rp', '<Plug>RestNvimPreview', { desc = 'http-rest: [R]equest HTTP [P]review' })
 
-      return {
+      require('rest-nvim').setup({
         -- Open request results in a horizontal split
         result_split_horizontal = false,
         -- Keep the http file buffer above|left when split horizontal|vertical
@@ -48,7 +48,7 @@ return {
         env_file = '.env',
         custom_dynamic_variables = {},
         yank_dry_run = true,
-      }
+      })
     end,
   },
 }
