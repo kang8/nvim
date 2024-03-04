@@ -111,7 +111,16 @@ return {
         },
         gopls = {},
         rust_analyzer = {},
-        typos_lsp = {},
+        typos_lsp = {
+          -- workaround of exclude_filetypes
+          on_attach = function(_, bufnr)
+            local exclude_filetypes = { 'help' }
+
+            if vim.tbl_contains(exclude_filetypes, vim.bo.filetype) then
+              vim.diagnostic.disable(bufnr)
+            end
+          end,
+        },
       }
 
       local function setup(server)
