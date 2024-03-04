@@ -8,6 +8,5 @@ return {
   ft = 'sql',
   keys = {
     { 'gd', '<cmd>DBTGoToDefinition<cr>', mode = { 'n' } },
-    { '<c-]>', '<cmd>DBTGoToDefinition<cr>', mode = { 'n' } },
   },
 }
