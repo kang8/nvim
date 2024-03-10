@@ -40,6 +40,13 @@ return {
       { '<c-j>', vim.diagnostic.goto_next, desc = 'Next Diagnostic' },
       { '<c-k>', vim.diagnostic.goto_prev, desc = 'Prev Diagnostic' },
       { '<leader>ca', vim.lsp.buf.code_action, desc = 'Code Action', mode = { 'n', 'v' } },
+      {
+        '<C-S-R>',
+        function()
+          require('telescope.builtin').lsp_document_symbols()
+        end,
+        desc = '[D]ocument [S]ymbols',
+      },
       { '<leader>cr', vim.lsp.buf.rename, desc = 'Rename' },
       -- personal preference
       { '<F2>', vim.lsp.buf.rename, desc = 'Rename' },
