@@ -71,6 +71,9 @@ return {
           single_file_support = false,
           root_dir = require('lspconfig').util.root_pattern('package.json'),
           settings = {
+            completions = {
+              completeFunctionCalls = true,
+            },
             typescript = {
               inlayHints = {
                 -- taken from https://github.com/typescript-language-server/typescript-language-server#workspacedidchangeconfiguration
