@@ -150,7 +150,6 @@ return {
       { '<leader>j', '<cmd>HopLineMW<cr>', mode = { 'n', 'x' }, desc = 'jump: Goto line' },
       { '<leader>k', '<cmd>HopLineMW<cr>', mode = { 'n', 'x' }, desc = 'jump: Goto line' },
       { '<leader>f', '<cmd>HopChar1MW<cr>', mode = { 'n', 'x' }, desc = 'jump: Goto one char' },
-      { '<leader>ff', '<cmd>HopChar2MW<cr>', mode = { 'n', 'x' }, desc = 'jump: Goto two char' },
     },
     config = true,
   },
