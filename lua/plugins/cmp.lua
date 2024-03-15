@@ -9,6 +9,8 @@ return {
       'saadparwaiz1/cmp_luasnip',
     },
     opts = function()
+      -- make CmpGhostText and Comment highlight more visualization
+      vim.api.nvim_set_hl(0, 'CmpGhostText', { link = 'Whitespace', default = true })
       local cmp = require('cmp')
 
       return {
@@ -82,7 +84,7 @@ return {
         },
         experimental = {
           ghost_text = {
-            hl_group = 'LspCodeLens',
+            hl_group = 'CmpGhostText',
           },
         },
       }
