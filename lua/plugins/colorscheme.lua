@@ -14,6 +14,9 @@ return {
       custom_highlights = {
         Comment = { fg = '#949494' },
         GitSignsCurrentLineBlame = { fg = '#b7b7b7' },
+        MiniTablineCurrent = { link = 'lualine_a_normal' },
+        TabLineSel = { link = 'lualine_a_normal' }, -- MiniTablineCurrent default link to TabLineSel
+        MiniTablineModifiedCurrent = { link = 'lualine_a_normal' },
       },
     },
   },
