@@ -10,6 +10,7 @@ return {
   },
   {
     'rest-nvim/rest.nvim',
+    commit = '1ce984c694345f3801bc656072f9a8dd51286a04', -- v1.2.1
     ft = 'http',
     config = function()
       vim.keymap.set('n', '<leader>rh', '<Plug>RestNvim', { desc = 'http-rest: [R]equest [H]TTP' })
