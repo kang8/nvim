@@ -6,7 +6,8 @@ return {
     'rcarriga/nvim-notify',
   },
   ft = 'sql',
-  keys = {
-    { 'gd', '<cmd>DBTGoToDefinition<cr>', mode = { 'n' } },
-  },
+  config = function()
+    vim.keymap.set('n', 'gd', '<cmd>DBTGoToDefinition<cr>', { desc = 'DBT [G]oto [D]efinition' })
+    vim.keymap.set('n', '<c-]>', '<cmd>DBTGoToDefinition<cr>', { desc = 'DBT [G]oto [D]efinition' })
+  end,
 }
