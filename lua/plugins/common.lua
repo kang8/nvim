@@ -237,4 +237,11 @@ return {
       vim.keymap.set({ 'n', 'x' }, 'ga', '<Plug>(EasyAlign)')
     end,
   },
+  {
+    'cbochs/portal.nvim',
+    keys = {
+      { '<leader>i', '<cmd>Portal jumplist forward<cr>', desc = 'Portal: Jump Forward' },
+      { '<leader>o', '<cmd>Portal jumplist backward<cr>', desc = 'Portal: Jump Backward' },
+    },
+  },
 }
