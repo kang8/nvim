@@ -1,5 +1,6 @@
 name: update lockfile
 on:
+  workflow_dispatch: # allow manual triggering
   schedule:
     - cron: '0 2 * * 1'  # At 02:00(UTC, It is 10:00 in Beijing) on every Monday.
 
