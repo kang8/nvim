@@ -17,6 +17,9 @@ vim.api.nvim_create_autocmd('BufEnter', {
       set spell
       syntax match diffComment /^#.*/  contains=@Spell
     ]])
+
+    -- When writing commit message, cursor remains at the top of the line
+    vim.cmd([[normal gg]])
   end,
   group = vim.api.nvim_create_augroup('SpellCheck', { clear = true }),
 })
