@@ -46,6 +46,7 @@
   "plenary.nvim": { "branch": "master", "commit": "8aad4396840be7fc42896e3011751b7609ca4119" },
   "portal.nvim": { "branch": "main", "commit": "94ff1d57537e2cdb939a359bf7a7467b21a1defe" },
   "project.nvim": { "branch": "main", "commit": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb" },
+  "reactive.nvim": { "branch": "main", "commit": "228386e8437470b01f3edda2988f7165f0b7bc5f" },
   "rest.nvim": { "branch": "main", "commit": "1ce984c694345f3801bc656072f9a8dd51286a04" },
   "scrollEOF.nvim": { "branch": "master", "commit": "38fd5880021e90c15dc61fa325f714bd8077f0a6" },
   "smart-splits.nvim": { "branch": "master", "commit": "50f52146e4504a3fc0f0d5830c8560a16a95dd08" },

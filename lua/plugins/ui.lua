@@ -200,4 +200,10 @@ return {
       })
     end,
   },
+  {
+    'rasulomaroff/reactive.nvim',
+    opts = {
+      load = { 'catppuccin-latte-cursor', 'catppuccin-latte-cursorline' },
+    },
+  },
 }
