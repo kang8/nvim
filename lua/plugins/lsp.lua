@@ -156,30 +156,6 @@ return {
     end,
   },
   {
-    'jose-elias-alvarez/null-ls.nvim',
-    event = 'BufReadPre',
-    dependencies = { 'williamboman/mason.nvim' },
-    opts = function()
-      local nls = require('null-ls')
-      return {
-        sources = {
-          nls.builtins.formatting.stylua,
-          nls.builtins.formatting.deno_fmt,
-          nls.builtins.formatting.clang_format,
-        },
-        on_attach = function(client, bufnr)
-          if client.supports_method('textDocument/formatting') then
-            vim.api.nvim_buf_create_user_command(bufnr, 'Format', function()
-              vim.lsp.buf.format({ bufnr = bufnr, async = true })
-            end, {})
-
-            vim.api.nvim_clear_autocmds({ group = vim.api.nvim_create_augroup('Format', {}), buffer = bufnr })
-          end
-        end,
-      }
-    end,
-  },
-  {
     'williamboman/mason.nvim',
     cmd = 'Mason',
     opts = {
@@ -188,6 +164,7 @@ return {
         'shellcheck',
         'shfmt',
         'clang-format',
+        'yamlfmt',
       },
     },
     config = function(_, opts)
@@ -207,5 +184,29 @@ return {
     opts = {
       vt_position = 'end_of_line',
     },
+  },
+  {
+    'stevearc/conform.nvim',
+    event = { 'BufReadPre', 'BufNewFile' },
+    opts = {
+      formatters_by_ft = {
+        lua = { 'stylua' },
+      },
+    },
+    config = function(_, opts)
+      require('conform').setup(opts)
+
+      vim.api.nvim_create_user_command('Format', function(args)
+        local range = nil
+        if args.count ~= -1 then
+          local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
+          range = {
+            start = { args.line1, 0 },
+            ['end'] = { args.line2, end_line:len() },
+          }
+        end
+        require('conform').format({ async = true, lsp_fallback = true, range = range })
+      end, { range = true })
+    end,
   },
 }

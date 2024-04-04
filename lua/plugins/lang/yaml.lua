@@ -18,12 +18,11 @@ return {
     },
   },
   {
-    'jose-elias-alvarez/null-ls.nvim',
+    'stevearc/conform.nvim',
     ft = 'yaml',
     opts = function(_, opts)
-      local nls = require('null-ls')
-      if type(opts.sources) == 'table' then
-        vim.list_extend(opts.sources, { nls.builtins.formatting.yamlfmt })
+      if type(opts.formatters_by_ft) == 'table' then
+        opts.formatters_by_ft['yaml'] = { 'yamlfmt' }
       end
     end,
   },
