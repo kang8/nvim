@@ -206,4 +206,16 @@ return {
       load = { 'catppuccin-latte-cursor', 'catppuccin-latte-cursorline' },
     },
   },
+  {
+    'folke/which-key.nvim',
+    event = 'VeryLazy',
+    init = function()
+      vim.o.timeoutlen = 500
+    end,
+    opts = {
+      icons = {
+        separator = '>', -- symbol used between a key and it's label
+      },
+    },
+  },
 }
