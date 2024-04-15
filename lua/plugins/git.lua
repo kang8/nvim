@@ -53,7 +53,7 @@ return {
   {
     'ruanyl/vim-gh-line',
     keys = {
-      { '<leader>gh', mode = { 'n', 'x' } },
+      { '<leader>gh', mode = { 'n', 'x' }, desc = 'git: Open in browser with remote link' },
     },
   },
   {
