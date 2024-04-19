@@ -21,13 +21,6 @@ return {
     end,
   },
   {
-    'echasnovski/mini.comment',
-    event = 'VeryLazy',
-    config = function()
-      require('mini.comment').setup({})
-    end,
-  },
-  {
     {
       'okuuva/auto-save.nvim',
       cmd = { '' },
