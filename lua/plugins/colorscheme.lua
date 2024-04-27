@@ -16,6 +16,7 @@ return {
         MiniTablineCurrent = { link = 'lualine_a_normal' },
         TabLineSel = { link = 'lualine_a_normal' }, -- MiniTablineCurrent default link to TabLineSel
         MiniTablineModifiedCurrent = { link = 'lualine_a_normal' },
+        MiniTablineVisible = { link = 'lualine_a_inactive' },
       },
     },
   },
