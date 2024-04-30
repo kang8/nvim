@@ -145,8 +145,11 @@ return {
       },
       icons = {
         ui = {
+          bar = {
+            separator = ' 󰅂 ',
+          },
           menu = {
-            indicator = '',
+            indicator = '󰅂',
           },
         },
       },
