@@ -15,6 +15,7 @@ return {
     config = function()
       vim.keymap.set('n', '<leader>rh', '<Plug>RestNvim', { desc = 'http-rest: [R]equest [H]TTP' })
       vim.keymap.set('n', '<leader>rp', '<Plug>RestNvimPreview', { desc = 'http-rest: [R]equest HTTP [P]review' })
+      vim.keymap.set('n', '<leader>rl', '<Plug>RestNvimLast', { desc = 'http-rest: [R]equest [L]ast HTTP' })
 
       require('rest-nvim').setup({
         -- Open request results in a horizontal split
