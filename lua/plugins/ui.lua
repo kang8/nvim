@@ -218,6 +218,7 @@ return {
   },
   {
     'rasulomaroff/reactive.nvim',
+    branch = 'master',
     opts = {
       load = { 'catppuccin-latte-cursor', 'catppuccin-latte-cursorline' },
     },
