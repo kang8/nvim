@@ -37,6 +37,7 @@ return {
         'rust',
         'beancount',
         'xml',
+        'diff',
       },
       incremental_selection = {
         enable = true,
