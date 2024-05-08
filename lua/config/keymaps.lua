@@ -21,7 +21,7 @@ vim.keymap.set('n', 'za', '1z=') -- fix word under cursor
 vim.keymap.set('n', '<F1>', '<Nop>')
 
 -- Toggle casing
-vim.keymap.set('n', '<leader>u', 'mzlblgueh~`z')
+vim.keymap.set('n', '<leader>u', 'mzlblgueh~`z', { desc = 'Toggle the case of the first char' })
 
 -- Keep emacs key in cmdline, and replace <C-f> as <C-l>
 vim.keymap.set('c', '<C-l>', '<C-f>')
