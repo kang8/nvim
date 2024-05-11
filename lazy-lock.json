@@ -45,6 +45,7 @@
   "nvim-window": { "branch": "main", "commit": "fad0dc96de265b0bdcb21d1071329e5ab1deb4af" },
   "plenary.nvim": { "branch": "master", "commit": "08e301982b9a057110ede7a735dd1b5285eb341f" },
   "portal.nvim": { "branch": "main", "commit": "77d9d53fec945bfa407d5fd7120f1b4f117450ed" },
+  "precognition.nvim": { "branch": "main", "commit": "ba2147d7425153a75568c2e529d82f192b0a5d91" },
   "project.nvim": { "branch": "main", "commit": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb" },
   "reactive.nvim": { "branch": "master", "commit": "a81b12322a2343d5f6530bebf3a844141d378550" },
   "rest.nvim": { "branch": "main", "commit": "1ce984c694345f3801bc656072f9a8dd51286a04" },

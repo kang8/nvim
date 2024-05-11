@@ -235,4 +235,25 @@ return {
       },
     },
   },
+  {
+    'tris203/precognition.nvim',
+    keys = {
+      {
+        '<leader>pp',
+        function()
+          require('precognition').peek()
+        end,
+        mode = { 'n' },
+        desc = 'precognition: [P]recognition [P]eek',
+      },
+      {
+        '<leader>pt',
+        function()
+          require('precognition').toggle()
+        end,
+        mode = { 'n' },
+        desc = 'precognition: [P]recognition [T]oggle',
+      },
+    },
+  },
 }
