@@ -22,27 +22,16 @@ return {
     event = { 'UIEnter' },
     opts = {
       chunk = {
+        enable = true,
         exclude_filetypes = {
           fugitiveblame = true,
           git = true,
           sql = true,
         },
       },
-      line_num = {
-        enable = false,
-      },
-      indent = {
-        enable = false,
-      },
-      blank = {
-        enable = false,
-      },
     },
     config = function(_, opts)
       require('hlchunk').setup(opts)
-
-      vim.api.nvim_del_user_command('EnableHL')
-      vim.api.nvim_del_user_command('EnableHLChunk')
     end,
   },
   {
