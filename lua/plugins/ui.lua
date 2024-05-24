@@ -79,7 +79,7 @@ return {
           end,
         },
       },
-      extensions = { 'nvim-tree', 'man', 'mason', 'quickfix', 'lazy', 'toggleterm' },
+      extensions = { 'nvim-tree', 'man', 'mason', 'quickfix', 'lazy', 'toggleterm', 'fugitive' },
     },
   },
   { 'nvim-tree/nvim-web-devicons', lazy = true },
