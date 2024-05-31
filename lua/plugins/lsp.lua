@@ -124,7 +124,7 @@ return {
             local exclude_filetypes = { 'help' }
 
             if vim.tbl_contains(exclude_filetypes, vim.bo.filetype) then
-              vim.diagnostic.disable(bufnr)
+              vim.diagnostic.enable(false, { bufnr = bufnr })
             end
           end,
         },
