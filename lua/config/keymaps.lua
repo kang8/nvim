@@ -50,3 +50,6 @@ vim.keymap.set('n', 'dd', function()
   end
   return 'dd'
 end, { expr = true })
+
+-- Search within last selection
+vim.keymap.set({ 'n', 'v' }, '<A-/>', '<Esc>/\\%V', { desc = 'Search within last selection' })
