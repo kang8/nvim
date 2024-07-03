@@ -106,7 +106,7 @@ return {
           },
         },
         denols = {
-          single_file_support = true,
+          single_file_support = vim.fs.root(0, { 'deno.json', 'deno.jsonc', 'package.json' }) == nil,
           root_dir = require('lspconfig').util.root_pattern('deno.json', 'deno.jsonc'),
         },
         clangd = {},
