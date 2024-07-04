@@ -18,3 +18,6 @@ vim.opt.mousescroll = { 'ver:1', 'hor:0' }
 vim.opt.title = true
 vim.opt.titlelen = 0
 vim.opt.titlestring = '%{expand("%:p")} [%{mode()}]'
+
+-- Search and Replace
+vim.opt.inccommand = 'split' -- "for incsearch while sub
