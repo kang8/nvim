@@ -39,6 +39,7 @@ return {
         'beancount',
         'xml',
         'diff',
+        'gotmpl',
       },
       incremental_selection = {
         enable = true,
