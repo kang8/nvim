@@ -40,6 +40,7 @@ return {
         'xml',
         'diff',
         'gotmpl',
+        'helm',
       },
       incremental_selection = {
         enable = true,
