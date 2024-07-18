@@ -41,6 +41,11 @@ return {
         'diff',
         'gotmpl',
         'helm',
+        'git_config',
+        'gitcommit',
+        'git_rebase',
+        'gitignore',
+        'gitattributes',
       },
       incremental_selection = {
         enable = true,
