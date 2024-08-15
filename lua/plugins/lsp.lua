@@ -119,6 +119,7 @@ return {
         },
         gopls = {},
         rust_analyzer = {},
+        pyright = {},
         typos_lsp = {
           -- workaround of exclude_filetypes
           on_attach = function(_, bufnr)
