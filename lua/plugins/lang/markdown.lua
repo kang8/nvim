@@ -6,4 +6,9 @@ return {
       vim.fn['mkdp#util#install']()
     end,
   },
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    ft = 'markdown',
+    opts = {},
+  },
 }
