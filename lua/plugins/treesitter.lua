@@ -46,6 +46,7 @@ return {
         'git_rebase',
         'gitignore',
         'gitattributes',
+        'editorconfig',
       },
       incremental_selection = {
         enable = true,
