@@ -53,3 +53,6 @@ end, { expr = true })
 
 -- Search within last selection
 vim.keymap.set({ 'n', 'v' }, '<A-/>', '<Esc>/\\%V', { desc = 'Search within last selection' })
+
+-- Delete the current buffer(like another editor)
+vim.api.nvim_set_keymap('n', '<D-w>', ':bd<CR>', { noremap = true, silent = true, desc = 'Delete the current buffer' })
