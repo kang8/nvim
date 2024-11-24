@@ -175,6 +175,10 @@ return {
   {
     'mrjones2014/smart-splits.nvim',
     build = './kitty/install-kittens.bash',
+    lazy = false,
+    opts = {
+      at_edge = 'stop',
+    },
     -- stylua: ignore
     keys = {
       { '<A-j>', function() require('smart-splits').move_cursor_down() end, mode = { 'n' }, desc = 'window: Move cursor to DOWN window' },
