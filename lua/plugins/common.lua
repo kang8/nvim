@@ -179,17 +179,20 @@ return {
     opts = {
       at_edge = 'stop',
     },
-    -- stylua: ignore
-    keys = {
-      { '<A-j>', function() require('smart-splits').move_cursor_down() end, mode = { 'n' }, desc = 'window: Move cursor to DOWN window' },
-      { '<A-k>', function() require('smart-splits').move_cursor_up() end, mode = { 'n' }, desc = 'window: Move cursor to UP window' },
-      { '<A-h>', function() require('smart-splits').move_cursor_right() end, mode = { 'n' }, desc = 'window: Move cursor to RIGHT window' },
-      { '<A-l>', function() require('smart-splits').move_cursor_left() end, mode = { 'n' }, desc = 'window: Move cursor to LEFT window' },
-      { '<C-A-j>', function() require('smart-splits').resize_down() end, mode = { 'n' }, desc = 'window: Decrease current window height' },
-      { '<C-A-k>', function() require('smart-splits').resize_up() end, mode = { 'n' }, desc = 'window: Increase current window height' },
-      { '<C-A-h>', function() require('smart-splits').resize_left() end, mode = { 'n' }, desc = 'window: Increase current window width' },
-      { '<C-A-l>', function() require('smart-splits').resize_right() end, mode = { 'n' }, desc = 'window: Decrease current window width' },
-    },
+    config = function(_, opts)
+      require('smart-splits').setup(opts)
+
+      -- stylua: ignore start
+      vim.keymap.set('n', '<A-j>', require('smart-splits').move_cursor_down, { desc = 'window: Move cursor to the DOWN adjacent window' })
+      vim.keymap.set('n', '<A-k>', require('smart-splits').move_cursor_up, { desc = 'window: Move cursor to the UP adjacent window' })
+      vim.keymap.set('n', '<A-l>', require('smart-splits').move_cursor_right, { desc = 'window: Move cursor to the RIGHT adjacent window' })
+      vim.keymap.set('n', '<A-h>', require('smart-splits').move_cursor_left, { desc = 'window: Move cursor to the LEFT adjacent window' })
+      vim.keymap.set('n', '<C-A-j>', require('smart-splits').resize_down, { desc = 'window: Resize current window DOWN' })
+      vim.keymap.set('n', '<C-A-k>', require('smart-splits').resize_up, { desc = 'window: Resize current window UP' })
+      vim.keymap.set('n', '<C-A-h>', require('smart-splits').resize_left, { desc = 'window: Resize current window LEFT' })
+      vim.keymap.set('n', '<C-A-l>', require('smart-splits').resize_right, { desc = 'window: Resize current window RIGHT' })
+      -- stylua: ignore end
+    end,
   },
   {
     'tpope/vim-sleuth',
