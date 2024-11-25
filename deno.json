@@ -1,0 +1,9 @@
+{
+  "fmt": {
+    "useTabs": false,
+    "singleQuote": true,
+    "indentWidth": 2,
+    "semiColons": true,
+    "exclude": ["lazy-lock.json"]
+  }
+}
