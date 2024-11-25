@@ -44,7 +44,7 @@ return {
         function()
           require('telescope.builtin').lsp_document_symbols()
         end,
-        desc = '[D]ocument [S]ymbols',
+        desc = 'Document Symbols',
       },
       { '<leader>cr', vim.lsp.buf.rename, desc = 'Rename' },
       -- personal preference
