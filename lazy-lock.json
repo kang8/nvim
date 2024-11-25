@@ -48,7 +48,6 @@
   "precognition.nvim": { "branch": "main", "commit": "0189e8d6f96275a079b2805d68d49414871885cd" },
   "reactive.nvim": { "branch": "master", "commit": "a81b12322a2343d5f6530bebf3a844141d378550" },
   "render-markdown.nvim": { "branch": "main", "commit": "e1879e0ea3d5cee295b48335fc90e76ae8a63081" },
-  "rest.nvim": { "branch": "main", "commit": "1ce984c694345f3801bc656072f9a8dd51286a04" },
   "scrollEOF.nvim": { "branch": "master", "commit": "f0ce8b853b15edacc5380855fbfe9e606788df69" },
   "smart-splits.nvim": { "branch": "master", "commit": "d8b0e772a0244169534b1fd57c1660c9bf323d26" },
   "smartim": { "branch": "master", "commit": "37249fc0873522da69ebbf99e5863ef0a761e2c5" },
