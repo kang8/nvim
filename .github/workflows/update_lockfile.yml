@@ -2,7 +2,7 @@ name: update lockfile
 on:
   workflow_dispatch: # allow manual triggering
   schedule:
-    - cron: '0 2 * * 1'  # At 02:00(UTC, It is 10:00 in Beijing) on every Monday.
+    - cron: '0 2 * * 1' # At 02:00(UTC, It is 10:00 in Beijing) on every Monday.
 
 jobs:
   update-lockfile:
@@ -26,7 +26,7 @@ jobs:
 
       - name: Commit and Create Pull Request
         env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           if [[ -n $(git status --porcelain) ]]; then
             # Commit

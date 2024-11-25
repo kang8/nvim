@@ -2,14 +2,14 @@
 
 ## Requirement
 
-* git - clone this repo and clone plugins
-* rg - for search file contents
-* fd - for search files or directories
-* node - for neovim extension
-* python - for neovim extension
-* [stylua] - format lua file
-* [luacheck] - A tool for linting and static analysis of Lua code
-* [pre-commit] - static analysis before commit
+- git - clone this repo and clone plugins
+- rg - for search file contents
+- fd - for search files or directories
+- node - for neovim extension
+- python - for neovim extension
+- [stylua] - format lua file
+- [luacheck] - A tool for linting and static analysis of Lua code
+- [pre-commit] - static analysis before commit
 
 [stylua]: https://github.com/JohnnyMorganz/StyLua
 [luacheck]: https://github.com/lunarmodules/luacheck
@@ -18,7 +18,6 @@
 ## Setup
 
 TODO
-
 
 ### Setup pre-commit
 
@@ -35,12 +34,13 @@ pip install neovim
 npm install -g neovim
 ```
 
-
 ## Detail configuration
 
 ### keymaps
 
-* `<C-c>`, Close other buffers
-vim-illuminate
-* `[[`, Next reference
-* `]]`, Prev reference
+- `<C-c>`, Close other buffers.
+
+vim-illuminate:
+
+- `[[`, Next reference
+- `]]`, Prev reference

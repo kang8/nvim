@@ -12,5 +12,13 @@ repos:
         name: Luacheck
         language: system
         entry: luacheck
-        args: [--std, luajit, --globals, vim, --max-line-length, "150", --no-config]
+        args: [
+          --std,
+          luajit,
+          --globals,
+          vim,
+          --max-line-length,
+          '150',
+          --no-config,
+        ]
         types: [lua]
