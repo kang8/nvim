@@ -47,6 +47,7 @@ return {
         'gitignore',
         'gitattributes',
         'editorconfig',
+        'apex',
       },
       incremental_selection = {
         enable = true,
