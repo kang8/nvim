@@ -12,7 +12,7 @@ vim.keymap.set('n', '<D-[>', '<cmd>bprevious<cr>')
 vim.keymap.set('n', 'H', '^')
 vim.keymap.set('n', 'L', '$')
 
-vim.opt.scrolloff = 15 -- no more need for HML keys
+vim.opt.scrolloff = 3 -- no more need for HML keys
 
 -- spell
 vim.keymap.set('n', 'za', '1z=') -- fix word under cursor
