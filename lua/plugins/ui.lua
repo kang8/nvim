@@ -249,4 +249,7 @@ return {
     'OXY2DEV/helpview.nvim',
     lazy = false,
   },
+  {
+    'henrik/vim-indexed-search',
+  },
 }
