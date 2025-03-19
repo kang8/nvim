@@ -1,6 +1,5 @@
 return {
   {
-
     'echasnovski/mini.tabline',
     event = 'BufReadPost',
     config = function()
@@ -39,6 +38,10 @@ return {
     event = 'BufReadPost',
     config = function()
       require('mini.trailspace').setup({})
+
+      vim.api.nvim_create_user_command('TrimTrailspace', function()
+        require('mini.trailspace').trim()
+      end, {})
     end,
   },
   {
