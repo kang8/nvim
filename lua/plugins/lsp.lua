@@ -130,6 +130,7 @@ return {
             end
           end,
         },
+        harper_ls = {},
       }
 
       local function setup(server)
