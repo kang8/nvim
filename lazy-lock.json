@@ -69,7 +69,6 @@
   "vim-indexed-search": { "branch": "master", "commit": "763fdd0eb818ad441433aa04d00eabfda579476c" },
   "vim-kitty": { "branch": "main", "commit": "cb2ecc9a08638c20f22dade37683a3e8e1ba657b" },
   "vim-matchup": { "branch": "master", "commit": "aca23ce53ebfe34e02c4fe07e29e9133a2026481" },
-  "vim-sleuth": { "branch": "master", "commit": "be69bff86754b1aa5adcbb527d7fcd1635a84080" },
   "vim-terraform": { "branch": "master", "commit": "8912ca1be3025a1c9fab193618f3b99517e01973" },
   "visual-surround.nvim": { "branch": "main", "commit": "48288830c085f744bf8f5de818d23966245587c8" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" }
