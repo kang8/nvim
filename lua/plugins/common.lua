@@ -196,6 +196,10 @@ return {
   },
   {
     'tpope/vim-sleuth',
+    enabled = function()
+      local filename = vim.fn.fnamemodify(vim.fn.expand('%'), ':t')
+      return filename ~= 'COMMIT_EDITMSG'
+    end,
   },
   {
     'm4xshen/hardtime.nvim',
