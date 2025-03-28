@@ -21,3 +21,11 @@ vim.opt.titlestring = '%{expand("%:p")} [%{mode()}]'
 
 -- Search and Replace
 vim.opt.inccommand = 'split' -- "for incsearch while sub
+
+vim.diagnostic.config({
+  virtual_text = true,
+  virtual_lines = {
+    -- Only show virtual line diagnostics for the current cursor line
+    current_line = true,
+  },
+})
