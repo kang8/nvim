@@ -18,6 +18,7 @@ return {
         MiniTablineModifiedCurrent = { link = 'lualine_a_normal' },
         MiniTablineVisible = { link = 'lualine_a_inactive' },
         NonText = { fg = '#d20f3a' },
+        GitSignsChangeLn = { link = 'GitSignsAddLn' },
       },
     },
   },

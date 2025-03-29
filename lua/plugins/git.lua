@@ -14,9 +14,9 @@ return {
       {
         [[\g]],
         function()
-          require('gitsigns.actions').toggle_linehl()
-          require('gitsigns.actions').toggle_word_diff()
-          local is_set = require('gitsigns.actions').toggle_deleted()
+          require('gitsigns').toggle_linehl()
+          require('gitsigns').toggle_word_diff()
+          local is_set = require('gitsigns').toggle_deleted()
 
           if is_set then
             print('  git diff')
