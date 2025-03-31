@@ -241,4 +241,9 @@ return {
       { 'b', "<cmd>lua require('spider').motion('b')<CR>", mode = { 'n', 'o', 'x' } },
     },
   },
+  {
+    'kylechui/nvim-surround',
+    event = 'VeryLazy',
+    opts = true,
+  },
 }
