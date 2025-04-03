@@ -19,3 +19,5 @@ kafka
 webhook
 glab
 crontab
+zsh
+cd
