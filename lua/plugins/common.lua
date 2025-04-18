@@ -246,4 +246,19 @@ return {
     event = 'VeryLazy',
     opts = true,
   },
+  {
+    'chrisgrieser/nvim-origami',
+    event = 'VeryLazy',
+    opts = true,
+  },
+  {
+    'kevinhwang91/nvim-ufo',
+    dependencies = 'kevinhwang91/promise-async',
+    config = function()
+      vim.o.statuscolumn =
+        '%=%l%#FoldColumn#%{foldlevel(v:lnum) > foldlevel(v:lnum - 1) ? (foldclosed(v:lnum) == -1 ? "▾" : "▸") : " " }%*'
+
+      require('ufo').setup()
+    end,
+  },
 }
