@@ -79,6 +79,7 @@ return {
           { 'location', padding = { left = 0, right = 1 } },
         },
         lualine_z = {
+          { 'searchcount', padding = { left = 1, right = 0 } },
           function()
             return ' ' .. os.date('%R')
           end,
@@ -252,8 +253,5 @@ return {
   {
     'OXY2DEV/helpview.nvim',
     lazy = false,
-  },
-  {
-    'henrik/vim-indexed-search',
   },
 }
