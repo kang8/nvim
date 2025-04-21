@@ -73,34 +73,41 @@ return {
             },
           },
         },
-        ts_ls = {
-          single_file_support = false,
-          root_dir = require('lspconfig').util.root_pattern('package.json'),
+        vtsls = {
+          -- explicitly add default filetypes, so that we can extend
+          -- them in related extras
+          filetypes = {
+            'javascript',
+            'javascriptreact',
+            'javascript.jsx',
+            'typescript',
+            'typescriptreact',
+            'typescript.tsx',
+          },
           settings = {
-            completions = {
-              completeFunctionCalls = true,
-            },
-            typescript = {
-              inlayHints = {
-                -- taken from https://github.com/typescript-language-server/typescript-language-server#workspacedidchangeconfiguration
-                includeInlayParameterNameHints = 'literal',
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = false,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
+            complete_function_calls = true,
+            vtsls = {
+              enableMoveToFileCodeAction = true,
+              autoUseWorkspaceTsdk = true,
+              experimental = {
+                maxInlayHintLength = 30,
+                completion = {
+                  enableServerSideFuzzyMatch = true,
+                },
               },
             },
-            javascript = {
+            typescript = {
+              updateImportsOnFileMove = { enabled = 'always' },
+              suggest = {
+                completeFunctionCalls = true,
+              },
               inlayHints = {
-                includeInlayParameterNameHints = 'all',
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
+                enumMemberValues = { enabled = true },
+                functionLikeReturnTypes = { enabled = true },
+                parameterNames = { enabled = 'literals' },
+                parameterTypes = { enabled = true },
+                propertyDeclarationTypes = { enabled = true },
+                variableTypes = { enabled = false },
               },
             },
           },
