@@ -60,7 +60,9 @@ return {
           { 'filename', path = 1 },
         },
         lualine_x = {
+          { 'lsp_status', color = 'StatusLineNC' },
           { 'filetype' },
+          { 'encoding' },
           {
             function()
               local style = vim.bo.expandtab and 'Spaces' or 'Tab Size'
