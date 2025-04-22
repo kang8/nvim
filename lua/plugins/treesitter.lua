@@ -48,6 +48,7 @@ return {
         'gitattributes',
         'editorconfig',
         'apex',
+        'toml',
       },
       incremental_selection = {
         enable = true,
