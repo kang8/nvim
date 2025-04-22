@@ -44,10 +44,19 @@ return {
           vim.api.nvim_win_close(vim.fn.win_getid(left_win), true)
         else
           vim.cmd('Git blame')
-
-          vim.wo.winbar = 'FugitiveBlame'
         end
       end, { desc = 'git: Toggle git blame' })
+
+      vim.api.nvim_create_autocmd('FileType', {
+        desc = 'Set buffer-local options for fugitive blame buffers.',
+        group = vim.api.nvim_create_augroup('FugitiveSettings', {}),
+        pattern = 'fugitiveblame',
+        callback = function()
+          local win_alt = vim.fn.win_getid(vim.fn.winnr('#')) -- last accessed window
+          vim.opt_local.winbar = vim.api.nvim_win_is_valid(win_alt) and vim.wo[win_alt].winbar ~= '' and 'FugitiveBlame'
+            or ''
+        end,
+      })
     end,
   },
   {
