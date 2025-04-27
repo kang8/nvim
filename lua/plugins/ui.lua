@@ -18,6 +18,9 @@ return {
   },
   {
     'shellRaining/hlchunk.nvim',
+    cond = function()
+      return not vim.g.vscode
+    end,
     event = { 'UIEnter' },
     opts = {
       chunk = {
@@ -46,6 +49,9 @@ return {
   },
   {
     'nvim-lualine/lualine.nvim',
+    cond = function()
+      return not vim.g.vscode
+    end,
     event = 'VeryLazy',
     opts = {
       options = {
