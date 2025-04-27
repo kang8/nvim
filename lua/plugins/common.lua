@@ -263,6 +263,16 @@ return {
       vim.o.foldenable = true
 
       require('ufo').setup()
+
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = { 'gitcommit' },
+        callback = function()
+          require('ufo').detach()
+          vim.opt_local.foldenable = false
+          vim.opt_local.foldcolumn = '0'
+          -- vim.o.foldenable = true
+        end,
+      })
     end,
   },
 }
