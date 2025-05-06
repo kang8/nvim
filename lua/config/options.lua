@@ -23,9 +23,6 @@ vim.opt.titlestring = '%{expand("%:p")} [%{mode()}]'
 vim.opt.inccommand = 'split' -- "for incsearch while sub
 
 vim.diagnostic.config({
-  virtual_text = true,
-  virtual_lines = {
-    -- Only show virtual line diagnostics for the current cursor line
-    current_line = true,
-  },
+  virtual_text = { current_line = false },
+  virtual_lines = { current_line = true },
 })
