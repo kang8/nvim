@@ -26,3 +26,7 @@ vim.diagnostic.config({
   virtual_text = { current_line = false },
   virtual_lines = { current_line = true },
 })
+
+if vim.fn.has('nvim-0.12') == 1 then
+  require('vim._extui').enable({})
+end
