@@ -249,7 +249,9 @@ return {
   {
     'chrisgrieser/nvim-origami',
     event = 'VeryLazy',
-    opts = true,
+    opts = {
+      keepFoldsAcrossSessions = false,
+    },
   },
   {
     'kevinhwang91/nvim-ufo',
