@@ -9,6 +9,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     if client.server_capabilities.inlayHintProvider then
       vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
     end
+
+    vim.lsp.document_color.enable(true, args.buf, { style = 'virtual' })
   end,
 })
 
