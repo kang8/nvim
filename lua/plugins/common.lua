@@ -74,6 +74,9 @@ return {
   },
   {
     'andymass/vim-matchup',
+    cond = function()
+      return not vim.g.vscode
+    end,
     event = 'BufReadPost',
     config = function()
       vim.g.matchup_matchparen_offscreen = { method = 'popup' }
