@@ -214,6 +214,7 @@ return {
       restricted_keys = {
         ['j'] = {},
         ['k'] = {},
+        ['l'] = {},
       },
     },
   },
