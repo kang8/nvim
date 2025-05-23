@@ -35,4 +35,23 @@ return {
       },
     },
   },
+  {
+    'neovim/nvim-lspconfig',
+    ft = 'yaml',
+    dependencies = {
+      'b0o/SchemaStore.nvim',
+    },
+    opts = {
+      servers = {
+        yamlls = {
+          settings = {
+            yaml = {
+              keyOrdering = false,
+              schemas = require('schemastore').yaml.schemas(),
+            },
+          },
+        },
+      },
+    },
+  },
 }
