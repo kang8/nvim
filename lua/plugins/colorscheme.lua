@@ -12,6 +12,7 @@ return {
         illuminate = true,
         dropbar = { enabled = true, color_mode = true },
       },
+      transparent_background = true,
       custom_highlights = {
         MiniTablineCurrent = { link = 'lualine_a_normal' },
         TabLineSel = { link = 'lualine_a_normal' }, -- MiniTablineCurrent default link to TabLineSel
