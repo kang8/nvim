@@ -27,6 +27,6 @@ vim.diagnostic.config({
   virtual_lines = { current_line = true },
 })
 
-if vim.fn.has('nvim-0.12') == 1 then
+if vim.fn.has('nvim-0.12') == 1 and not vim.g.vscode then
   require('vim._extui').enable({})
 end
