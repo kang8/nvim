@@ -176,8 +176,9 @@ return {
       },
       signs_on_startup = { 'diagnostics', 'folds', 'marks', 'search', 'spell' },
     },
-    config = function()
+    config = function(_, opts)
       require('scrollview.contrib.gitsigns').setup()
+      require('scrollview').setup(opts)
     end,
   },
   {
