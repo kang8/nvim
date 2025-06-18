@@ -8,6 +8,9 @@ return {
   },
   {
     'MeanderingProgrammer/render-markdown.nvim',
+    cond = function()
+      return not vim.g.vscode
+    end,
     ft = 'markdown',
     opts = {
       heading = {
