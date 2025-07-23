@@ -32,17 +32,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
       '<cmd>Telescope lsp_type_definitions<cr>',
       vim.tbl_extend('force', opts, { desc = 'Goto Type Definition' })
     )
-    vim.keymap.set('n', 'gK', vim.lsp.buf.signature_help, vim.tbl_extend('force', opts, { desc = 'Signature Help' }))
 
     -- Diagnostics
-    vim.keymap.set(
-      'n',
-      '<leader>cd',
-      vim.diagnostic.open_float,
-      vim.tbl_extend('force', opts, { desc = 'Line Diagnostics' })
-    )
-    vim.keymap.set('n', '<c-j>', vim.diagnostic.goto_next, vim.tbl_extend('force', opts, { desc = 'Next Diagnostic' }))
-    vim.keymap.set('n', '<c-k>', vim.diagnostic.goto_prev, vim.tbl_extend('force', opts, { desc = 'Prev Diagnostic' }))
+    vim.keymap.set('n', '<c-j>', function()
+      vim.diagnostic.jump({ count = vim.v.count1 })
+    end, vim.tbl_extend('force', opts, { desc = 'Next Diagnostic' }))
+    vim.keymap.set('n', '<c-k>', function()
+      vim.diagnostic.jump({ count = -vim.v.count1 })
+    end, vim.tbl_extend('force', opts, { desc = 'Prev Diagnostic' }))
 
     -- Code actions
     vim.keymap.set(
@@ -53,6 +50,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     )
     vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, vim.tbl_extend('force', opts, { desc = 'Rename' }))
     vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, vim.tbl_extend('force', opts, { desc = 'Rename' }))
+    vim.api.nvim_create_user_command('Rename', function()
+      vim.lsp.buf.rename()
+    end, {})
 
     -- Document symbols
     vim.keymap.set('n', '<C-S-R>', function()
@@ -61,16 +61,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     -- Signature help in insert mode
     vim.keymap.set('i', '<c-k>', vim.lsp.buf.signature_help, vim.tbl_extend('force', opts, { desc = 'Signature Help' }))
-
-    -- LSP info
-    vim.keymap.set('n', '<leader>cl', function()
-      vim.notify(vim.inspect(vim.lsp.get_clients({ bufnr = 0 })))
-    end, vim.tbl_extend('force', opts, { desc = 'LSP Info' }))
-
-    -- User command for rename
-    vim.api.nvim_create_user_command('Rename', function()
-      vim.lsp.buf.rename()
-    end, {})
 
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     assert(client) -- check client is not nil
@@ -98,7 +88,7 @@ return {
   },
   {
     'Wansmer/symbol-usage.nvim',
-    event = 'BufReadPre', -- need run before LspAttach if you use nvim 0.9. On 0.10 use 'LspAttach'
+    event = 'BufReadPre', -- Need run before LspAttach if you use nvim 0.9. On 0.10 use 'LspAttach'
     opts = {
       vt_position = 'end_of_line',
     },
