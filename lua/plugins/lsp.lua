@@ -11,56 +11,40 @@ vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
     local opts = { buffer = args.buf }
 
+    local function map(mode, lhs, rhs, desc)
+      vim.keymap.set(mode, lhs, rhs, vim.tbl_extend('force', opts, { desc = desc }))
+    end
+
     -- Navigation
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, vim.tbl_extend('force', opts, { desc = 'Goto Definition' }))
-    vim.keymap.set(
-      'n',
-      'gr',
-      '<cmd>Telescope lsp_references<cr>',
-      vim.tbl_extend('force', opts, { desc = 'References' })
-    )
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, vim.tbl_extend('force', opts, { desc = 'Goto Declaration' }))
-    vim.keymap.set(
-      'n',
-      'gI',
-      '<cmd>Telescope lsp_implementations<cr>',
-      vim.tbl_extend('force', opts, { desc = 'Goto Implementation' })
-    )
-    vim.keymap.set(
-      'n',
-      'gt',
-      '<cmd>Telescope lsp_type_definitions<cr>',
-      vim.tbl_extend('force', opts, { desc = 'Goto Type Definition' })
-    )
+    map('n', 'gd', vim.lsp.buf.definition, 'Goto Definition')
+    map('n', 'gr', '<cmd>Telescope lsp_references<cr>', 'References')
+    map('n', 'gD', vim.lsp.buf.declaration, 'Goto Declaration')
+    map('n', 'gI', '<cmd>Telescope lsp_implementations<cr>', 'Goto Implementation')
+    map('n', 'gt', '<cmd>Telescope lsp_type_definitions<cr>', 'Goto Type Definition')
 
     -- Diagnostics
-    vim.keymap.set('n', '<c-j>', function()
+    map('n', '<c-j>', function()
       vim.diagnostic.jump({ count = vim.v.count1 })
-    end, vim.tbl_extend('force', opts, { desc = 'Next Diagnostic' }))
-    vim.keymap.set('n', '<c-k>', function()
+    end, 'Next Diagnostic')
+    map('n', '<c-k>', function()
       vim.diagnostic.jump({ count = -vim.v.count1 })
-    end, vim.tbl_extend('force', opts, { desc = 'Prev Diagnostic' }))
+    end, 'Prev Diagnostic')
 
     -- Code actions
-    vim.keymap.set(
-      { 'n', 'v' },
-      '<leader>ca',
-      vim.lsp.buf.code_action,
-      vim.tbl_extend('force', opts, { desc = 'Code Action' })
-    )
-    vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, vim.tbl_extend('force', opts, { desc = 'Rename' }))
-    vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, vim.tbl_extend('force', opts, { desc = 'Rename' }))
+    map({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, 'Code Action')
+    map('n', '<leader>cr', vim.lsp.buf.rename, 'Rename')
+    map('n', '<F2>', vim.lsp.buf.rename, 'Rename')
     vim.api.nvim_create_user_command('Rename', function()
       vim.lsp.buf.rename()
     end, {})
 
     -- Document symbols
-    vim.keymap.set('n', '<C-S-R>', function()
+    map('n', '<C-S-R>', function()
       require('telescope.builtin').lsp_document_symbols()
-    end, vim.tbl_extend('force', opts, { desc = 'Document Symbols' }))
+    end, 'Document Symbols')
 
     -- Signature help in insert mode
-    vim.keymap.set('i', '<c-k>', vim.lsp.buf.signature_help, vim.tbl_extend('force', opts, { desc = 'Signature Help' }))
+    map('i', '<c-k>', vim.lsp.buf.signature_help, 'Signature Help')
 
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     assert(client) -- check client is not nil
