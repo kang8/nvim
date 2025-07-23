@@ -1,3 +1,12 @@
+-- Enable all LSP configurations from lsp/*.lua
+local servers = {}
+for _, config_path in ipairs(vim.api.nvim_get_runtime_file('lsp/*.lua', true)) do
+  local server_name = vim.fn.fnamemodify(config_path, ':t:r')
+  table.insert(servers, server_name)
+end
+
+vim.lsp.enable(servers)
+
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
     local opts = { buffer = args.buf }
@@ -83,7 +92,9 @@ return {
     dependencies = {
       'mason-org/mason.nvim',
     },
-    opts = {},
+    opts = {
+      ensure_installed = servers,
+    },
   },
   {
     'Wansmer/symbol-usage.nvim',
