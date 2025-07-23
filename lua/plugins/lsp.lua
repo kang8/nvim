@@ -1,5 +1,64 @@
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
+    local opts = { buffer = args.buf }
+
+    -- Navigation
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, vim.tbl_extend('force', opts, { desc = 'Goto Definition' }))
+    vim.keymap.set(
+      'n',
+      'gr',
+      '<cmd>Telescope lsp_references<cr>',
+      vim.tbl_extend('force', opts, { desc = 'References' })
+    )
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, vim.tbl_extend('force', opts, { desc = 'Goto Declaration' }))
+    vim.keymap.set(
+      'n',
+      'gI',
+      '<cmd>Telescope lsp_implementations<cr>',
+      vim.tbl_extend('force', opts, { desc = 'Goto Implementation' })
+    )
+    vim.keymap.set(
+      'n',
+      'gt',
+      '<cmd>Telescope lsp_type_definitions<cr>',
+      vim.tbl_extend('force', opts, { desc = 'Goto Type Definition' })
+    )
+    vim.keymap.set('n', 'gK', vim.lsp.buf.signature_help, vim.tbl_extend('force', opts, { desc = 'Signature Help' }))
+
+    -- Diagnostics
+    vim.keymap.set(
+      'n',
+      '<leader>cd',
+      vim.diagnostic.open_float,
+      vim.tbl_extend('force', opts, { desc = 'Line Diagnostics' })
+    )
+    vim.keymap.set('n', '<c-j>', vim.diagnostic.goto_next, vim.tbl_extend('force', opts, { desc = 'Next Diagnostic' }))
+    vim.keymap.set('n', '<c-k>', vim.diagnostic.goto_prev, vim.tbl_extend('force', opts, { desc = 'Prev Diagnostic' }))
+
+    -- Code actions
+    vim.keymap.set(
+      { 'n', 'v' },
+      '<leader>ca',
+      vim.lsp.buf.code_action,
+      vim.tbl_extend('force', opts, { desc = 'Code Action' })
+    )
+    vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, vim.tbl_extend('force', opts, { desc = 'Rename' }))
+    vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, vim.tbl_extend('force', opts, { desc = 'Rename' }))
+
+    -- Document symbols
+    vim.keymap.set('n', '<C-S-R>', function()
+      require('telescope.builtin').lsp_document_symbols()
+    end, vim.tbl_extend('force', opts, { desc = 'Document Symbols' }))
+
+    -- Signature help in insert mode
+    vim.keymap.set('i', '<c-k>', vim.lsp.buf.signature_help, vim.tbl_extend('force', opts, { desc = 'Signature Help' }))
+
+    -- LSP info
+    vim.keymap.set('n', '<leader>cl', function()
+      vim.notify(vim.inspect(vim.lsp.get_clients({ bufnr = 0 })))
+    end, vim.tbl_extend('force', opts, { desc = 'LSP Info' }))
+
+    -- User command for rename
     vim.api.nvim_create_user_command('Rename', function()
       vim.lsp.buf.rename()
     end, {})
@@ -16,175 +75,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 return {
   {
-    'neovim/nvim-lspconfig',
-    cond = function()
-      return not vim.g.vscode
-    end,
-    event = 'BufReadPre',
-    dependencies = {
-      'mason-org/mason.nvim',
-      { 'mason-org/mason-lspconfig.nvim', version = '^1.0.0' },
-      { 'hrsh7th/cmp-nvim-lsp' },
-      {
-        'j-hui/fidget.nvim',
-        event = 'LspAttach',
-        opts = {},
-      },
-    },
-    keys = {
-      { '<leader>cd', vim.diagnostic.open_float, desc = 'Line Diagnostics' },
-      { '<leader>cl', '<cmd>LspInfo<cr>', desc = 'Lsp Info' },
-      { 'gd', vim.lsp.buf.definition, desc = 'Goto Definition' },
-      { 'gr', '<cmd>Telescope lsp_references<cr>', desc = 'References' },
-      { 'gD', vim.lsp.buf.declaration, desc = 'Goto Declaration' },
-      { 'gI', '<cmd>Telescope lsp_implementations<cr>', desc = 'Goto Implementation' },
-      { 'gt', '<cmd>Telescope lsp_type_definitions<cr>', desc = 'Goto Type Definition' },
-      { 'gK', vim.lsp.buf.signature_help, desc = 'Signature Help' },
-      { '<c-k>', vim.lsp.buf.signature_help, mode = 'i', desc = 'Signature Help' },
-      { '<c-j>', vim.diagnostic.goto_next, desc = 'Next Diagnostic' },
-      { '<c-k>', vim.diagnostic.goto_prev, desc = 'Prev Diagnostic' },
-      { '<leader>ca', vim.lsp.buf.code_action, desc = 'Code Action', mode = { 'n', 'v' } },
-      {
-        '<C-S-R>',
-        function()
-          require('telescope.builtin').lsp_document_symbols()
-        end,
-        desc = 'Document Symbols',
-      },
-      { '<leader>cr', vim.lsp.buf.rename, desc = 'Rename' },
-      -- personal preference
-      { '<F2>', vim.lsp.buf.rename, desc = 'Rename' },
-    },
-    config = function()
-      local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-      local servers = {
-        lua_ls = {
-          settings = {
-            Lua = {
-              runtime = {
-                version = 'LuaJIT',
-              },
-              workspace = {
-                checkThirdParty = false,
-                library = vim.api.nvim_get_runtime_file('', true),
-              },
-              completion = {
-                callSnippet = 'Replace',
-              },
-              hint = {
-                enable = true,
-                arrayIndex = 'Disable',
-              },
-            },
-          },
-        },
-        vtsls = {
-          -- explicitly add default filetypes, so that we can extend
-          -- them in related extras
-          filetypes = {
-            'javascript',
-            'javascriptreact',
-            'javascript.jsx',
-            'typescript',
-            'typescriptreact',
-            'typescript.tsx',
-          },
-          settings = {
-            complete_function_calls = true,
-            vtsls = {
-              enableMoveToFileCodeAction = true,
-              autoUseWorkspaceTsdk = true,
-              experimental = {
-                maxInlayHintLength = 30,
-                completion = {
-                  enableServerSideFuzzyMatch = true,
-                },
-              },
-            },
-            typescript = {
-              updateImportsOnFileMove = { enabled = 'always' },
-              suggest = {
-                completeFunctionCalls = true,
-              },
-              inlayHints = {
-                enumMemberValues = { enabled = true },
-                functionLikeReturnTypes = { enabled = true },
-                parameterNames = { enabled = 'literals' },
-                parameterTypes = { enabled = true },
-                propertyDeclarationTypes = { enabled = true },
-                variableTypes = { enabled = false },
-              },
-            },
-          },
-        },
-        denols = {
-          single_file_support = vim.fs.root(0, { 'deno.json', 'deno.jsonc', 'package.json' }) == nil,
-          root_dir = require('lspconfig').util.root_pattern('deno.json', 'deno.jsonc'),
-        },
-        clangd = {},
-        gopls = {},
-        rust_analyzer = {},
-        pyright = {},
-        typos_lsp = {
-          -- workaround of exclude_filetypes
-          on_attach = function(_, bufnr)
-            local exclude_filetypes = { 'help' }
-
-            if vim.tbl_contains(exclude_filetypes, vim.bo.filetype) then
-              vim.diagnostic.enable(false, { bufnr = bufnr })
-            end
-          end,
-        },
-        harper_ls = {},
-      }
-
-      local function setup(server)
-        local server_opts = servers[server] or {}
-        server_opts.capabilities = capabilities
-        require('lspconfig')[server].setup(server_opts)
-      end
-
-      local mlsp = require('mason-lspconfig')
-      local ensure_installed = {}
-
-      for server, server_opts in pairs(servers) do
-        if server_opts then
-          server_opts = server_opts == true and {} or server_opts
-          if server_opts.mason == false or not vim.tbl_contains(mlsp.get_available_servers(), server) then
-            setup(server)
-          else
-            ensure_installed[#ensure_installed + 1] = server
-          end
-        end
-      end
-
-      require('mason-lspconfig').setup({ ensure_installed = ensure_installed })
-      require('mason-lspconfig').setup_handlers({ setup })
-    end,
+    'mason-org/mason.nvim',
+    opts = {},
   },
   {
-    'mason-org/mason.nvim',
-    version = '^1.0.0',
-    cmd = 'Mason',
-    opts = {
-      ensure_installed = {
-        'stylua',
-        'shellcheck',
-        'shfmt',
-        'clang-format',
-        'yamlfmt',
-      },
+    'mason-org/mason-lspconfig.nvim',
+    dependencies = {
+      'mason-org/mason.nvim',
     },
-    config = function(_, opts)
-      require('mason').setup(opts)
-      local mr = require('mason-registry')
-      for _, tool in ipairs(opts.ensure_installed) do
-        local p = mr.get_package(tool)
-        if not p:is_installed() then
-          p:install()
-        end
-      end
-    end,
+    opts = {},
   },
   {
     'Wansmer/symbol-usage.nvim',
