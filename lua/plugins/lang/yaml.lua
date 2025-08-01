@@ -9,15 +9,6 @@ return {
     end,
   },
   {
-    'neovim/nvim-lspconfig',
-    ft = 'yaml',
-    opts = {
-      servers = {
-        docker_compose_language_service = {},
-      },
-    },
-  },
-  {
     'stevearc/conform.nvim',
     ft = 'yaml',
     opts = function(_, opts)
@@ -36,22 +27,7 @@ return {
     },
   },
   {
-    'neovim/nvim-lspconfig',
+    'b0o/SchemaStore.nvim',
     ft = 'yaml',
-    dependencies = {
-      'b0o/SchemaStore.nvim',
-    },
-    opts = {
-      servers = {
-        yamlls = {
-          settings = {
-            yaml = {
-              keyOrdering = false,
-              schemas = require('schemastore').yaml.schemas(),
-            },
-          },
-        },
-      },
-    },
   },
 }
