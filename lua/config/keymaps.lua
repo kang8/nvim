@@ -56,3 +56,10 @@ vim.keymap.set({ 'n', 'v' }, '<A-/>', '<Esc>/\\%V', { desc = 'Search within last
 
 -- Delete the current buffer(like another editor)
 vim.api.nvim_set_keymap('n', '<D-w>', ':bd<CR>', { noremap = true, silent = true, desc = 'Delete the current buffer' })
+
+vim.keymap.set(
+  { 'n', 'v' },
+  '<leader>cc',
+  ':CCLine<CR>',
+  { desc = 'Copy file path with line number for [C]laude [C]ode' }
+)
