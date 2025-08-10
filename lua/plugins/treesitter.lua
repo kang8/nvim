@@ -16,7 +16,7 @@ return {
       context_commentstring = { enable = true, enable_autocmd = false },
       ensure_installed = 'all',
       auto_install = true,
-      ignore_install = { 'phpdoc' },
+      ignore_install = { 'phpdoc', 'ipkg' },
       incremental_selection = {
         enable = true,
         keymaps = {
