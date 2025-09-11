@@ -262,4 +262,41 @@ return {
       vim.opt.foldlevelstart = 99
     end,
   },
+  {
+    'lewis6991/hover.nvim',
+    opts = {
+      providers = {
+        'hover.providers.diagnostic',
+        'hover.providers.dap',
+        'hover.providers.lsp',
+        'hover.providers.gh',
+        'hover.providers.gh_user',
+        'hover.providers.dictionary',
+        'hover.providers.man',
+      },
+    },
+    keys = {
+      {
+        'K',
+        function()
+          require('hover').open()
+        end,
+        desc = 'hover.nvim (open)',
+      },
+      {
+        'gK',
+        function()
+          require('hover').enter()
+        end,
+        desc = 'hover.nvim (enter)',
+      },
+      {
+        '<MouseMove>',
+        function()
+          require('hover').mouse()
+        end,
+        desc = 'hover.nvim (mouse)',
+      },
+    },
+  },
 }
