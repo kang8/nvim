@@ -29,3 +29,11 @@ jobs:
         with:
           deno-version: 2.5.4 # Run with latest stable Deno.
       - run: deno fmt --check
+  spelling:
+    name: Spell Check with Typos
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Actions Repository
+      uses: actions/checkout@v4
+    - name: Spell Check Repo
+      uses: crate-ci/typos@v1.38.1
