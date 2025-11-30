@@ -168,7 +168,7 @@ return {
           require('nvim-window').pick()
         end,
         mode = { 'n' },
-        desc = 'windown: pick window',
+        desc = 'window: pick window',
       },
     },
     opts = {
