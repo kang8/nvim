@@ -26,7 +26,6 @@ return {
       { '<leader>su', '<cmd>Telescope undo<cr>', desc = 'Undo' },
       -- personal preference
       { '<C-S-f>', '<cmd>Telescope live_grep<cr>', desc = 'Find in Files (Grep)' },
-      { '<D-p>', '<cmd>Telescope find_files<cr>', desc = 'Find Files (root dir)' },
     },
     opts = {
       defaults = {

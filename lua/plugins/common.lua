@@ -299,4 +299,31 @@ return {
       },
     },
   },
+  {
+    'dmtrKovalenko/fff.nvim',
+    build = function()
+      require('fff.download').download_or_build_binary()
+    end,
+    -- https://github.com/dmtrKovalenko/fff.nvim?tab=readme-ov-file#configuration
+    opts = {
+      debug = {
+        enabled = true,
+        show_scores = true,
+      },
+      layout = {
+        -- prompt_position = 'top',
+        -- preview_position = 'top',
+      },
+    },
+    lazy = false,
+    keys = {
+      {
+        '<D-p>',
+        function()
+          require('fff').find_files()
+        end,
+        desc = 'FFFind files',
+      },
+    },
+  },
 }
