@@ -12,6 +12,10 @@ jobs:
       pull-requests: write
     steps:
       - uses: actions/checkout@v6
+      - name: Temporarily modify the rust toolchain version
+        run: rustup override set nightly
+      - name: Output rust version for educational purposes
+        run: rustup --version
 
       - uses: rhysd/action-setup-vim@v1
         with:
