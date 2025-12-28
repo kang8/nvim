@@ -12,15 +12,18 @@ jobs:
       pull-requests: write
     steps:
       - uses: actions/checkout@v6
-      - name: Temporarily modify the rust toolchain version
-        run: rustup override set nightly
-      - name: Output rust version for educational purposes
-        run: rustup --version
-
       - uses: rhysd/action-setup-vim@v1
         with:
           neovim: true
           version: nightly
+
+      - name: Cache Neovim plugins
+        uses: actions/cache@v4
+        with:
+          path: ~/.local/share/nvim/lazy
+          key: ${{ runner.os }}-lazy-${{ hashFiles('lazy-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-lazy-
 
       - name: Run lockfile-autoupdate
         timeout-minutes: 5
