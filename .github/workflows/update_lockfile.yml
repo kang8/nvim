@@ -18,10 +18,23 @@ jobs:
           neovim: true
           version: nightly
 
-      - name: Run lockfile-autoupdate
+      - name: Cache Neovim plugins
+        uses: actions/cache@v4
+        with:
+          path: ~/.local/share/nvim/lazy
+          key: ${{ runner.os }}-lazy-${{ hashFiles('lazy-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-lazy-
+
+      - name: Lazy install first
         timeout-minutes: 5
         run: |
           git clone https://github.com/kang8/nvim.git ~/.config/nvim
+          nvim --headless "+Lazy! install" +qa
+
+      - name: Then run lockfile-autoupdate
+        timeout-minutes: 5
+        run: |
           nvim --headless "+Lazy! update" +qa
           cp -pv "${HOME}/.config/nvim/lazy-lock.json" .
 
