@@ -14,10 +14,14 @@ return {
         callback = function(args)
           local ft = vim.bo[args.buf].filetype
           local lang = vim.treesitter.language.get_lang(ft) or ft
-          if lang and not pcall(vim.treesitter.language.inspect, lang) then
-            pcall(function()
-              require('nvim-treesitter').install({ lang })
-            end)
+
+          local available_parsers = require('nvim-treesitter').get_available()
+          if not vim.tbl_contains(available_parsers, lang) then
+            return
+          end
+
+          if not pcall(vim.treesitter.language.inspect, lang) then
+            require('nvim-treesitter').install({ lang })
           end
 
           -- Enable Tree-sitter highlight
