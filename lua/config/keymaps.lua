@@ -63,3 +63,4 @@ vim.keymap.set(
   ':CCLine<CR>',
   { desc = 'Copy file path with line number for [C]laude [C]ode' }
 )
+vim.keymap.set({ 'n', 'v' }, '<D-A-k>', ':CCLine<CR>', { desc = 'Copy file path with line number for [C]laude [C]ode' })
