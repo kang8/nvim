@@ -9,7 +9,7 @@ return {
     end,
   },
   {
-    'b0o/SchemaStore.nvim',
+    'b0o/schemastore.nvim',
     ft = { 'json', 'jsonc', 'json5' },
   },
 }

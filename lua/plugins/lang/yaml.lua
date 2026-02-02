@@ -27,7 +27,7 @@ return {
     },
   },
   {
-    'b0o/SchemaStore.nvim',
+    'b0o/schemastore.nvim',
     ft = 'yaml',
   },
 }
