@@ -60,9 +60,6 @@ vim.api.nvim_create_user_command('CCLine', function(opts)
     format = string.format('@%s', relative_path)
   end
 
-  -- Copy to clipboard (fallback)
-  vim.fn.setreg('+', format)
-
   -- Find and send to Claude window in same tab
   local claude_id = find_claude_window_id()
   if claude_id then
@@ -71,6 +68,9 @@ vim.api.nvim_create_user_command('CCLine', function(opts)
     vim.fn.system(string.format('kitty @ focus-window --match id:%d', claude_id))
     vim.notify('Sent to Claude: ' .. format)
   else
+    -- Just copy to clipboard when not found Claude window (fallback)
+    vim.fn.setreg('+', format)
+
     vim.notify('Copied (no Claude window in tab): ' .. format, vim.log.levels.WARN)
   end
 end, { range = true })
