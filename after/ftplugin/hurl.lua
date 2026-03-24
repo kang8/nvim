@@ -1,1 +1,1 @@
-vim.o.foldmethod = 'manual'
+vim.opt_local.foldmethod = 'manual'

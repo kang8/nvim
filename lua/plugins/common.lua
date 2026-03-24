@@ -91,7 +91,7 @@ return {
     'akinsho/toggleterm.nvim',
     event = 'BufReadPost',
     keys = {
-      { '<Esc>', [[<C-\><C-n>]], mode = { 'n', 'i' } },
+      { '<Esc>', [[<C-\><C-n>]], mode = 't' },
       { '<D-j>', '<cmd>ToggleTerm direction=float<cr>', mode = { 'n', 't' } },
       {
         '<leader>lg',

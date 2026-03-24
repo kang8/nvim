@@ -24,7 +24,7 @@ return {
             print('nogit diff')
           end
         end,
-        'git: Toggle git diff',
+        desc = 'git: Toggle git diff',
       },
     },
   },

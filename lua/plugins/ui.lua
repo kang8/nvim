@@ -7,7 +7,6 @@ return {
       vim.keymap.set('n', '<C-c>', function()
         for _, bufinfo in ipairs(vim.fn.getbufinfo({ buflisted = 1 })) do
           if bufinfo.bufnr ~= vim.fn.bufnr() then
-            vim.print(bufinfo.bufnr)
             vim.api.nvim_buf_delete(bufinfo.bufnr, { force = true })
           end
         end
