@@ -15,7 +15,7 @@ return {
         handle = function(mode, line, _)
           local id = require('gx.helper').find(line, mode, '(%u+-%d+)')
           local gx_jira_url = vim.g.gx_jira_url or os.getenv('WORK_JIRA_URL')
-          if id then
+          if id and gx_jira_url then
             return gx_jira_url .. '/browse/' .. id
           end
         end,

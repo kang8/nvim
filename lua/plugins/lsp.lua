@@ -47,7 +47,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('i', '<c-k>', vim.lsp.buf.signature_help, 'Signature Help')
 
     local client = vim.lsp.get_client_by_id(args.data.client_id)
-    assert(client) -- check client is not nil
+    if not client then
+      return
+    end
     if client.server_capabilities.inlayHintProvider then
       vim.lsp.inlay_hint.enable(true)
     end

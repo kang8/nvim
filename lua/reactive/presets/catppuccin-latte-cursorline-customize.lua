@@ -3,7 +3,7 @@ local lighten = require('catppuccin.utils.colors').lighten
 local palette = require('catppuccin.palettes').get_palette('latte')
 
 return {
-  name = 'catppuccin-latte-cursorline-custoimze',
+  name = 'catppuccin-latte-cursorline-customize',
   static = {
     winhl = {
       inactive = {

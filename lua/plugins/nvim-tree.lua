@@ -24,7 +24,7 @@ return {
       return
     end
 
-    local stat = vim.loop.fs_stat(vim.fn.argv(0))
+    local stat = vim.uv.fs_stat(vim.fn.argv(0))
     if not stat or stat.type == 'file' then
       return
     end

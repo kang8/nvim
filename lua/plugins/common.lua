@@ -23,7 +23,7 @@ return {
   {
     {
       'okuuva/auto-save.nvim',
-      cmd = { '' },
+      cmd = { '' }, -- prevent lazy.nvim from registering auto-save commands
       event = { 'InsertLeave', 'TextChanged' },
       opts = {
         debounce_delay = 500,

@@ -220,7 +220,7 @@ return {
   {
     'rasulomaroff/reactive.nvim',
     opts = {
-      load = 'catppuccin-latte-cursorline-custoimze',
+      load = 'catppuccin-latte-cursorline-customize',
     },
   },
   {
