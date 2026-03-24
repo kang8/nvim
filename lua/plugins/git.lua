@@ -49,7 +49,7 @@ return {
 
       vim.api.nvim_create_autocmd('FileType', {
         desc = 'Set buffer-local options for fugitive blame buffers.',
-        group = vim.api.nvim_create_augroup('FugitiveSettings', {}),
+        group = vim.api.nvim_create_augroup('FugitiveSettings', { clear = true }),
         pattern = 'fugitiveblame',
         callback = function()
           local win_alt = vim.fn.win_getid(vim.fn.winnr('#')) -- last accessed window
