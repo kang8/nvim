@@ -1,6 +1,6 @@
-vim.opt.number = false
-vim.opt.relativenumber = false
-vim.opt.scrolloff = 999
+vim.opt_local.number = false
+vim.opt_local.relativenumber = false
+vim.opt_local.scrolloff = 999
 
-vim.keymap.set({ 'n', 'x' }, 'd', '<C-d>')
-vim.keymap.set({ 'n', 'x' }, 'u', '<C-u>')
+vim.keymap.set({ 'n', 'x' }, 'd', '<C-d>', { buffer = true })
+vim.keymap.set({ 'n', 'x' }, 'u', '<C-u>', { buffer = true })

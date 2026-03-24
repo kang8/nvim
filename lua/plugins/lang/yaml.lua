@@ -18,7 +18,7 @@ return {
     end,
   },
   {
-    'williamboman/mason.nvim',
+    'mason-org/mason.nvim',
     ft = 'yaml',
     opts = {
       ensure_installed = {

@@ -1,1 +1,1 @@
-vim.opt.listchars = {} -- unset listchars in fugitiveblame
+vim.opt_local.listchars = {} -- unset listchars in fugitiveblame

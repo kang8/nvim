@@ -1,9 +1,12 @@
 vim.api.nvim_create_autocmd('BufRead', {
-  group = vim.api.nvim_create_augroup('kang', {}),
+  group = vim.api.nvim_create_augroup('kang', { clear = true }),
   desc = 'Restore last cursor position',
   callback = function(args)
     local bufnr = args.buf
     local line, col = unpack(vim.api.nvim_buf_get_mark(bufnr, '"'))
+    if line == 0 then
+      return
+    end
     local winid = vim.api.nvim_get_current_win()
 
     local end_line = vim.api.nvim_buf_line_count(bufnr)
