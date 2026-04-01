@@ -27,8 +27,9 @@ vim.diagnostic.config({
   virtual_lines = { current_line = true },
 })
 
-if vim.fn.has('nvim-0.12') == 1 and not vim.g.vscode then
+if not vim.g.vscode then
   require('vim._core.ui2').enable({})
+  vim.cmd('packadd nvim.undotree')
 end
 
 vim.opt.maxsearchcount = 9999

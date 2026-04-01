@@ -50,11 +50,30 @@ vim.api.nvim_create_autocmd('LspAttach', {
     if not client then
       return
     end
-    if client.server_capabilities.inlayHintProvider then
+
+    -- Inlay hints
+    if client:supports_method('textDocument/inlayHint') then
       vim.lsp.inlay_hint.enable(true)
     end
 
-    vim.lsp.document_color.enable(true, args.buf, { style = 'virtual' })
+    -- Document colors
+    vim.lsp.document_color.enable(true, { bufnr = args.buf }, { style = 'background' })
+
+    -- Code lens
+    if client:supports_method('textDocument/codeLens') then
+      vim.lsp.codelens.enable(true)
+    end
+
+    -- LSP folding (prefer over treesitter when available)
+    if client:supports_method('textDocument/foldingRange') then
+      vim.wo.foldmethod = 'expr'
+      vim.wo.foldexpr = 'v:lua.vim.lsp.foldexpr()'
+    end
+
+    -- Linked editing (e.g., auto-rename HTML tags)
+    if vim.lsp.linked_editing_range and client:supports_method('textDocument/linkedEditingRange') then
+      vim.lsp.linked_editing_range.enable(true)
+    end
   end,
 })
 
