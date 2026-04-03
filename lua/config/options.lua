@@ -29,7 +29,6 @@ vim.diagnostic.config({
 
 if not vim.g.vscode then
   require('vim._core.ui2').enable({})
-  vim.cmd('packadd nvim.undotree')
 end
 
 vim.opt.maxsearchcount = 9999
