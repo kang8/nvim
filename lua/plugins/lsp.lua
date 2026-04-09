@@ -9,7 +9,7 @@ vim.lsp.enable(servers)
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
-    local opts = { buffer = args.buf }
+    local opts = { buf = args.buf }
 
     local function map(mode, lhs, rhs, desc)
       vim.keymap.set(mode, lhs, rhs, vim.tbl_extend('force', opts, { desc = desc }))

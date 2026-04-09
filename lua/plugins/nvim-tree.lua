@@ -80,7 +80,7 @@ return {
       vim.keymap.set('n', 'x', api.node.navigate.parent_close, opts('Close Directory'))
       vim.keymap.set('n', '<C-l>', '<cmd>NvimTreeResize +20<cr>', opts('Increase File Tree'))
       vim.keymap.set('n', '<C-h>', '<cmd>NvimTreeResize -20<cr>', opts('Decrease File Tree'))
-      vim.keymap.del('n', 'B', { buffer = bufnr })
+      vim.keymap.del('n', 'B', { buf = bufnr })
       vim.keymap.set('n', 'A', function()
         if vim.w.nvim_tree_width == nil then
           vim.w.nvim_tree_width = vim.api.nvim_win_get_width(0)
