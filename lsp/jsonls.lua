@@ -5,9 +5,11 @@ return {
     '.git',
     'package.json',
   },
+  on_init = function(client)
+    client.settings.json.schemas = require('schemastore').json.schemas()
+  end,
   settings = {
     json = {
-      schemas = require('schemastore').json.schemas(),
       format = {
         enable = true,
       },

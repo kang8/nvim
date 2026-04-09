@@ -28,6 +28,6 @@ return {
   },
   {
     'b0o/schemastore.nvim',
-    ft = 'yaml',
+    lazy = true,
   },
 }

@@ -7,9 +7,11 @@ return {
     'docker-compose.yml',
     'docker-compose.yaml',
   },
+  on_init = function(client)
+    client.settings.yaml.schemas = require('schemastore').yaml.schemas()
+  end,
   settings = {
     yaml = {
-      schemas = require('schemastore').yaml.schemas(),
       keyOrdering = false,
     },
   },

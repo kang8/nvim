@@ -10,6 +10,6 @@ return {
   },
   {
     'b0o/schemastore.nvim',
-    ft = { 'json', 'jsonc', 'json5' },
+    lazy = true,
   },
 }
