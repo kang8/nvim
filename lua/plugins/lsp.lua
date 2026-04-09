@@ -92,6 +92,15 @@ return {
     },
   },
   {
+    'folke/lazydev.nvim',
+    ft = 'lua',
+    opts = {
+      library = {
+        { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+      },
+    },
+  },
+  {
     'Wansmer/symbol-usage.nvim',
     event = 'BufReadPre', -- Need run before LspAttach if you use nvim 0.9. On 0.10 use 'LspAttach'
     opts = {

@@ -7,11 +7,11 @@ return {
     ['rust-analyzer'] = {
       cargo = {
         allFeatures = true,
-        loadOutDirsFromCheck = true,
-        runBuildScripts = true,
+        buildScripts = {
+          enable = true,
+        },
       },
-      checkOnSave = {
-        allFeatures = true,
+      check = {
         command = 'clippy',
         extraArgs = { '--no-deps' },
       },
