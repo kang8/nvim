@@ -21,21 +21,22 @@ return {
     end,
   },
   {
-    {
-      'okuuva/auto-save.nvim',
-      cmd = { '' }, -- prevent lazy.nvim from registering auto-save commands
-      event = { 'InsertLeave', 'TextChanged' },
-      opts = {
-        debounce_delay = 500,
-        condition = function(buf)
-          local utils = require('auto-save.utils.data')
-
-          if utils.not_in(vim.fn.getbufvar(buf, '&filetype'), { 'COMMIT_EDITMSG' }) then
-            return true
-          end
+    'okuuva/auto-save.nvim',
+    cmd = { '' }, -- prevent lazy.nvim from registering auto-save commands
+    event = { 'InsertLeave', 'TextChanged' },
+    opts = {
+      debounce_delay = 500,
+      condition = function(buf)
+        if
+          vim.tbl_contains({
+            'gitcommit',
+            'COMMIT_EDITMSG',
+          }, vim.fn.getbufvar(buf, '&filetype'))
+        then
           return false
-        end,
-      },
+        end
+        return true
+      end,
     },
   },
   {
