@@ -21,6 +21,24 @@ jobs:
       - uses: lunarmodules/luacheck@v1
         with:
           args: . --std luajit --globals vim --max-line-length 150 --no-config
+  lua-language-server:
+    name: lua-language-server
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: rhysd/action-setup-vim@v1
+        with:
+          neovim: true
+          version: nightly
+      - run: |
+          mkdir -p ~/.local/share/lua-language-server
+          LUA_LS_VERSION=$(curl -s https://api.github.com/repos/LuaLS/lua-language-server/releases/latest | grep -o '"tag_name": "[^"]*"' | cut -d'"' -f4)
+          curl -L "https://github.com/LuaLS/lua-language-server/releases/download/${LUA_LS_VERSION}/lua-language-server-${LUA_LS_VERSION}-linux-x64.tar.gz" \
+            | tar xz -C ~/.local/share/lua-language-server
+          echo "$HOME/.local/share/lua-language-server/bin" >> "$GITHUB_PATH"
+      - run: |
+          VIMRUNTIME=$(nvim --clean --headless -c 'echo $VIMRUNTIME' -c 'q' 2>&1) \
+            lua-language-server --check lua --configpath "$PWD/.luarc.json" --checklevel=Warning
   deno_fmt:
     runs-on: ubuntu-latest
     steps:
