@@ -25,9 +25,23 @@ local function find_claude_window_id()
         if window.is_self then
           current_tab = true
         end
-        local cmdline = window.last_reported_cmdline or ''
-        if cmdline:find('claude') then
+        local function has_claude(s)
+          return type(s) == 'string' and s:find('claude', 1, true) ~= nil
+        end
+        if has_claude(window.last_reported_cmdline) or has_claude(window.title) then
           claude_window_id = window.id
+        else
+          for _, proc in ipairs(window.foreground_processes or {}) do
+            for _, arg in ipairs(proc.cmdline or {}) do
+              if has_claude(arg) then
+                claude_window_id = window.id
+                break
+              end
+            end
+            if claude_window_id == window.id then
+              break
+            end
+          end
         end
       end
 
