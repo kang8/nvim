@@ -11,14 +11,16 @@
 -- When 0 windows match -> callback(nil) (caller usually does a clipboard fallback).
 -- When 1 window matches → callback fires immediately, no UI.
 -- When >=2 match -> opens a floating ASCII grid that approximates the tab
---                  layout and binds h/j/k/l (uppercase for a 2nd window in
---                  the same direction) for single-keypress selection.
+--                  layout and binds h/j/k/l plus Enter for the last selected
+--                  window when it is still available.
 --
 -- The layout is reconstructed from `kitty @ ls`'s neighbor graph (which
 -- references group ids, resolved through tab.groups). It's a topological
 -- approximation, not pixel-accurate.
 
 local M = {}
+
+local STATE_FILE = vim.fn.stdpath('state') .. '/kitty_agent_picker_last.json'
 
 local TARGETS = {
   claude = {
@@ -81,6 +83,64 @@ local function window_matches_target(window, target)
     end
   end
   return false, nil
+end
+
+local function read_last_state()
+  local f = io.open(STATE_FILE, 'r')
+  if not f then
+    return {}
+  end
+  local content = f:read('*a')
+  f:close()
+  if content == '' then
+    return {}
+  end
+  local ok, data = pcall(vim.fn.json_decode, content)
+  if not ok or type(data) ~= 'table' then
+    return {}
+  end
+  return data
+end
+
+local function write_last_state(state)
+  local dir = vim.fn.fnamemodify(STATE_FILE, ':h')
+  vim.fn.mkdir(dir, 'p')
+  local encoded = vim.fn.json_encode(state)
+  local f = io.open(STATE_FILE, 'w')
+  if not f then
+    return
+  end
+  f:write(encoded)
+  f:close()
+end
+
+local function remember_last_window(target, meta)
+  if not meta or not meta.window_id then
+    return
+  end
+  local state = read_last_state()
+  state[target] = {
+    window_id = meta.window_id,
+    cwd = meta.cwd,
+    title = meta.title,
+    agent_name = meta.agent_name,
+    updated_at = os.time(),
+  }
+  write_last_state(state)
+end
+
+local function find_last_group_id(target, target_group_ids, group_meta)
+  local last = read_last_state()[target]
+  if type(last) ~= 'table' or not last.window_id then
+    return nil
+  end
+  for _, gid in ipairs(target_group_ids) do
+    local meta = group_meta[gid]
+    if meta and meta.window_id == last.window_id then
+      return gid
+    end
+  end
+  return nil
 end
 
 -- Collect everything we need from `kitty @ ls` for the current tab.
@@ -413,7 +473,7 @@ local function center_text(s, width)
   return string.rep(' ', left) .. s .. string.rep(' ', right)
 end
 
-local function render_layout_grid(spans, self_group_id, group_meta, group_keys)
+local function render_layout_grid(spans, self_group_id, group_meta, group_keys, default_group_id)
   -- Find bounds across all spans (not just anchor positions).
   local min_c, max_c, min_r, max_r = 0, 0, 0, 0
   for _, span in pairs(spans) do
@@ -543,6 +603,12 @@ local function render_layout_grid(spans, self_group_id, group_meta, group_keys)
     if gid == self_group_id then
       label = '[*]'
       name = 'nvim'
+    elseif gid == default_group_id and group_keys[gid] then
+      label = '[' .. group_keys[gid] .. '/Enter]'
+      name = vim.fn.fnamemodify(meta.cwd or '', ':t')
+    elseif gid == default_group_id then
+      label = '[Enter]'
+      name = vim.fn.fnamemodify(meta.cwd or '', ':t')
     elseif group_keys[gid] then
       label = '[' .. group_keys[gid] .. ']'
       name = vim.fn.fnamemodify(meta.cwd or '', ':t')
@@ -643,7 +709,7 @@ function M.pick(opts, callback)
 
   local target_group_ids = {}
   for gid, meta in pairs(topo.group_meta) do
-    if meta.is_target then
+    if meta.is_target and gid ~= topo.self_group_id then
       table.insert(target_group_ids, gid)
     end
   end
@@ -655,6 +721,7 @@ function M.pick(opts, callback)
 
   if #target_group_ids == 1 then
     local meta = topo.group_meta[target_group_ids[1]]
+    remember_last_window(target, meta)
     callback({ id = meta.window_id, cwd = meta.cwd, title = meta.title, agent_name = meta.agent_name or display_name })
     return
   end
@@ -662,7 +729,8 @@ function M.pick(opts, callback)
   local positions = compute_layout(topo.self_group_id, topo.group_neighbors)
   local spans = compute_spans(positions, topo.group_neighbors)
   local keymap, group_keys = assign_direction_keys(target_group_ids, positions, topo.group_meta, topo.history_rank)
-  local grid_lines = render_layout_grid(spans, topo.self_group_id, topo.group_meta, group_keys)
+  local default_group_id = find_last_group_id(target, target_group_ids, topo.group_meta)
+  local grid_lines = render_layout_grid(spans, topo.self_group_id, topo.group_meta, group_keys, default_group_id)
 
   local available = {}
   for _, k in ipairs({ 'h', 'j', 'k', 'l', 'H', 'J', 'K', 'L' }) do
@@ -673,15 +741,24 @@ function M.pick(opts, callback)
   table.insert(grid_lines, '')
   table.insert(
     grid_lines,
-    'Pick ' .. display_name .. ': ' .. table.concat(available, '/') .. '  (Esc to cancel) - approximate layout'
+    'Pick '
+      .. display_name
+      .. ': '
+      .. table.concat(available, '/')
+      .. (default_group_id and '/Enter' or '')
+      .. '  (Esc to cancel) - approximate layout'
   )
 
   open_picker_floating(grid_lines, function(ch)
     local gid = keymap[ch]
+    if not gid and (ch == '\r' or ch == '\n') then
+      gid = default_group_id
+    end
     if not gid then
       return
     end
     local meta = topo.group_meta[gid]
+    remember_last_window(target, meta)
     callback({ id = meta.window_id, cwd = meta.cwd, title = meta.title, agent_name = meta.agent_name or display_name })
   end)
 end
