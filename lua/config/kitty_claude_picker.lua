@@ -1,12 +1,16 @@
--- Visual picker for selecting one Claude Code window in the current Kitty tab.
+-- Visual picker for selecting one agent CLI window in the current Kitty tab.
 --
--- Public API: M.pick(callback)
+-- Public API:
+--   M.pick(callback)                    -- defaults to Claude Code
+--   M.pick({ target = 'codex' }, callback)
+--   M.pick({ target = 'agent' }, callback) -- Claude or Codex
+--
 --   callback({ id, cwd, title }) on selection,
---   callback(nil)                when no Claude window is reachable / cancelled.
+--   callback(nil)                when no matching window is reachable / cancelled.
 --
--- When 0 windows match → callback(nil) (caller usually does a clipboard fallback).
+-- When 0 windows match -> callback(nil) (caller usually does a clipboard fallback).
 -- When 1 window matches → callback fires immediately, no UI.
--- When ≥2 match → opens a floating ASCII grid that approximates the tab
+-- When >=2 match -> opens a floating ASCII grid that approximates the tab
 --                  layout and binds h/j/k/l (uppercase for a 2nd window in
 --                  the same direction) for single-keypress selection.
 --
@@ -16,22 +20,67 @@
 
 local M = {}
 
-local function has_claude(s)
-  return type(s) == 'string' and s:find('claude', 1, true) ~= nil
+local TARGETS = {
+  claude = {
+    display_name = 'Claude',
+    patterns = { 'claude' },
+  },
+  codex = {
+    display_name = 'Codex',
+    patterns = { 'codex' },
+  },
+  agent = {
+    display_name = 'Agent',
+    patterns = { 'claude', 'codex' },
+  },
+}
+
+local function normalize_target(target)
+  target = target or 'claude'
+  return TARGETS[target] and target or 'claude'
 end
 
-local function window_is_claude(window)
-  if has_claude(window.last_reported_cmdline) or has_claude(window.title) then
-    return true
+local function has_target(s, target)
+  if type(s) ~= 'string' then
+    return false
   end
-  for _, proc in ipairs(window.foreground_processes or {}) do
-    for _, arg in ipairs(proc.cmdline or {}) do
-      if has_claude(arg) then
-        return true
-      end
+  s = s:lower()
+  for _, pattern in ipairs(TARGETS[target].patterns) do
+    if s:find(pattern, 1, true) ~= nil then
+      return true
     end
   end
   return false
+end
+
+local function detect_agent_name(s)
+  if type(s) ~= 'string' then
+    return nil
+  end
+  s = s:lower()
+  if s:find('claude', 1, true) ~= nil then
+    return 'Claude'
+  end
+  if s:find('codex', 1, true) ~= nil then
+    return 'Codex'
+  end
+  return nil
+end
+
+local function window_matches_target(window, target)
+  local agent_name = detect_agent_name(window.last_reported_cmdline) or detect_agent_name(window.title)
+  if agent_name and has_target(agent_name, target) then
+    return true, agent_name
+  end
+  for _, proc in ipairs(window.foreground_processes or {}) do
+    for _, arg in ipairs(proc.cmdline or {}) do
+      agent_name = detect_agent_name(arg)
+      if agent_name and has_target(agent_name, target) then
+        return true, agent_name
+      end
+    end
+  end
+  return false, nil
 end
 
 -- Collect everything we need from `kitty @ ls` for the current tab.
@@ -40,10 +89,10 @@ end
 --   self_window_id, self_group_id,
 --   groups          = { [group_id] = { window_ids... } },
 --   group_neighbors = { [group_id] = { left=[gids], right=[gids], top=[gids], bottom=[gids] } },
---   group_meta      = { [group_id] = { is_claude, cwd, title, window_id, lines, columns } },
+--   group_meta      = { [group_id] = { is_target, agent_name, cwd, title, window_id, lines, columns } },
 --   history_rank    = { [window_id] = rank }  -- 1 = most recent
 -- }
-local function collect_tab_topology()
+local function collect_tab_topology(target)
   local output = vim.fn.system('kitty @ ls')
   if vim.v.shell_error ~= 0 then
     return nil
@@ -90,11 +139,13 @@ local function collect_tab_topology()
             end
             group_neighbors[gid] = merged
 
-            -- Mark group as claude if any window in it is claude; pick the
-            -- claude window's metadata for display.
-            local meta = group_meta[gid] or { is_claude = false }
-            if window_is_claude(w) then
-              meta.is_claude = true
+            -- Mark group as target if any window in it matches; pick the
+            -- matching window's metadata for display.
+            local meta = group_meta[gid] or { is_target = false }
+            local matches_target, agent_name = window_matches_target(w, target)
+            if matches_target then
+              meta.is_target = true
+              meta.agent_name = agent_name
               meta.window_id = w.id
               meta.cwd = w.cwd
               meta.title = w.title
@@ -300,14 +351,14 @@ local function compute_spans(positions, group_neighbors)
   return spans
 end
 
--- Assign h/j/k/l (lower then upper) to claude groups, ordered by recency.
+-- Assign h/j/k/l (lower then upper) to target groups, ordered by recency.
 -- Returns: keymap = { [key] = group_id }, group_keys = { [group_id] = key }
 local DIR_TO_KEY = { left = 'h', bottom = 'j', top = 'k', right = 'l' }
 
-local function assign_direction_keys(claude_group_ids, positions, group_meta, history_rank)
+local function assign_direction_keys(target_group_ids, positions, group_meta, history_rank)
   -- Bucket by first-step direction.
   local buckets = { left = {}, right = {}, top = {}, bottom = {} }
-  for _, gid in ipairs(claude_group_ids) do
+  for _, gid in ipairs(target_group_ids) do
     local pos = positions[gid]
     if pos and pos.dir then
       table.insert(buckets[pos.dir], gid)
@@ -575,34 +626,42 @@ local function open_picker_floating(lines, on_key)
   on_key(ch)
 end
 
-function M.pick(callback)
-  local topo = collect_tab_topology()
+function M.pick(opts, callback)
+  if type(opts) == 'function' then
+    callback = opts
+    opts = {}
+  end
+  opts = opts or {}
+  local target = normalize_target(opts.target)
+  local display_name = TARGETS[target].display_name
+
+  local topo = collect_tab_topology(target)
   if not topo then
     callback(nil)
     return
   end
 
-  local claude_group_ids = {}
+  local target_group_ids = {}
   for gid, meta in pairs(topo.group_meta) do
-    if meta.is_claude then
-      table.insert(claude_group_ids, gid)
+    if meta.is_target then
+      table.insert(target_group_ids, gid)
     end
   end
 
-  if #claude_group_ids == 0 then
+  if #target_group_ids == 0 then
     callback(nil)
     return
   end
 
-  if #claude_group_ids == 1 then
-    local meta = topo.group_meta[claude_group_ids[1]]
-    callback({ id = meta.window_id, cwd = meta.cwd, title = meta.title })
+  if #target_group_ids == 1 then
+    local meta = topo.group_meta[target_group_ids[1]]
+    callback({ id = meta.window_id, cwd = meta.cwd, title = meta.title, agent_name = meta.agent_name or display_name })
     return
   end
 
   local positions = compute_layout(topo.self_group_id, topo.group_neighbors)
   local spans = compute_spans(positions, topo.group_neighbors)
-  local keymap, group_keys = assign_direction_keys(claude_group_ids, positions, topo.group_meta, topo.history_rank)
+  local keymap, group_keys = assign_direction_keys(target_group_ids, positions, topo.group_meta, topo.history_rank)
   local grid_lines = render_layout_grid(spans, topo.self_group_id, topo.group_meta, group_keys)
 
   local available = {}
@@ -612,7 +671,10 @@ function M.pick(callback)
     end
   end
   table.insert(grid_lines, '')
-  table.insert(grid_lines, 'Press ' .. table.concat(available, '/') .. '  (Esc to cancel) — approximate layout')
+  table.insert(
+    grid_lines,
+    'Pick ' .. display_name .. ': ' .. table.concat(available, '/') .. '  (Esc to cancel) - approximate layout'
+  )
 
   open_picker_floating(grid_lines, function(ch)
     local gid = keymap[ch]
@@ -620,7 +682,7 @@ function M.pick(callback)
       return
     end
     local meta = topo.group_meta[gid]
-    callback({ id = meta.window_id, cwd = meta.cwd, title = meta.title })
+    callback({ id = meta.window_id, cwd = meta.cwd, title = meta.title, agent_name = meta.agent_name or display_name })
   end)
 end
 

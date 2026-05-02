@@ -63,4 +63,10 @@ vim.keymap.set(
   ':CCLine<CR>',
   { desc = 'Copy file path with line number for [C]laude [C]ode' }
 )
-vim.keymap.set({ 'n', 'v' }, '<D-A-k>', ':CCLine<CR>', { desc = 'Copy file path with line number for [C]laude [C]ode' })
+vim.keymap.set({ 'n', 'v' }, '<leader>cx', ':CodexLine<CR>', { desc = 'Copy file path with line number for [C]ode[x]' })
+vim.keymap.set(
+  { 'n', 'v' },
+  '<D-A-k>',
+  ':AgentLine<CR>',
+  { desc = 'Send file path with line number to Claude or Codex' }
+)
