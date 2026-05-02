@@ -31,7 +31,7 @@ local function send_current_file_reference(opts, target, display_name)
     vim.notify('Sent to ' .. display_name .. ': ' .. format)
   end
 
-  require('config.kitty_claude_picker').pick({ target = target }, function(win)
+  require('kitty-agent-picker').pick({ target = target }, function(win)
     if win then
       display_name = win.agent_name or display_name
       send_to_agent(win)
