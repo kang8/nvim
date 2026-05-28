@@ -158,6 +158,13 @@ return {
         },
       },
     },
+    config = function(_, opts)
+      -- nvim 0.13 nightly removed `BufModifiedSet`; replace dropbar's default list to drop it.
+      opts.bar = opts.bar or {}
+      opts.bar.update_events = opts.bar.update_events or {}
+      opts.bar.update_events.buf = { 'FileChangedShellPost', 'TextChanged', 'ModeChanged' }
+      require('dropbar').setup(opts)
+    end,
   },
   {
     'dstein64/nvim-scrollview',
