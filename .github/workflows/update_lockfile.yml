@@ -11,15 +11,15 @@ jobs:
       contents: write
       pull-requests: write
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v6.0.3
 
-      - uses: rhysd/action-setup-vim@v1
+      - uses: rhysd/action-setup-vim@v1.6.1
         with:
           neovim: true
           version: nightly
 
       - name: Cache lazy.nvim
-        uses: actions/cache@v5
+        uses: actions/cache@v5.0.5
         with:
           path: ~/.local/share/nvim/lazy
           key: ${{ runner.os }}-lazy-${{ hashFiles('lazy-lock.json') }}
