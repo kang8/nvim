@@ -9,6 +9,9 @@ vim.opt.relativenumber = true
 vim.opt.clipboard:append({ 'unnamedplus' })
 vim.opt.wrap = false
 vim.opt.sidescrolloff = 6
+-- 'scrolloff' itself is set in keymaps.lua
+vim.opt.scrolloffpad = 1 -- with 'scrolloff', keep cursor centered even at end of file
+vim.opt.shortmess:append('u') -- silence undo/redo messages
 vim.opt.wildmode = { 'list:longest', 'full' }
 vim.opt.listchars = { tab = '>·', nbsp = '+', trail = '·', extends = '→', precedes = '←' }
 vim.opt.showbreak = '↪'

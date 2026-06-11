@@ -153,12 +153,21 @@ return {
   {
     'tzachar/highlight-undo.nvim',
     event = 'BufReadPost',
-    config = true,
-  },
-  {
-    'Aasim-A/scrollEOF.nvim',
-    event = 'CursorMoved',
-    opts = true,
+    -- match the native TextYankPost highlight set up in init below
+    opts = {
+      hlgroup = 'IncSearch',
+      duration = 200,
+    },
+    init = function()
+      -- Put/undo/redo highlights are handled by this plugin; yank does not
+      -- modify the buffer so only a TextYankPost autocmd can cover it
+      vim.api.nvim_create_autocmd('TextYankPost', {
+        desc = 'Highlight yanked text',
+        callback = function()
+          vim.hl.hl_op({ timeout = 200 })
+        end,
+      })
+    end,
   },
   {
     'yorickpeterse/nvim-window',
