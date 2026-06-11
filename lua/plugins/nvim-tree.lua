@@ -5,6 +5,16 @@ return {
     { '<leader>e', '<cmd>NvimTreeToggle<cr>', desc = 'Open file tree' },
   },
   init = function()
+    vim.api.nvim_create_autocmd('BufWinEnter', {
+      pattern = 'NvimTree_*',
+      desc = 'Pin file tree window so :only / :fclose will not close it',
+      callback = function()
+        if vim.bo.filetype == 'NvimTree' then
+          vim.wo.winpinned = true
+        end
+      end,
+    })
+
     vim.api.nvim_create_autocmd('BufEnter', {
       nested = true,
       callback = function()
