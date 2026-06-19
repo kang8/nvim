@@ -7,7 +7,7 @@ jobs:
     name: stylua
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6.0.3
+      - uses: actions/checkout@v7.0.0
       - uses: JohnnyMorganz/stylua-action@v5.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -17,7 +17,7 @@ jobs:
     name: luacheck
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6.0.3
+      - uses: actions/checkout@v7.0.0
       - uses: lunarmodules/luacheck@v1.2.0
         with:
           args: . --std luajit --globals vim --max-line-length 150 --no-config
@@ -25,7 +25,7 @@ jobs:
     name: lua-language-server
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6.0.3
+      - uses: actions/checkout@v7.0.0
       - uses: rhysd/action-setup-vim@v1.6.1
         with:
           neovim: true
@@ -42,7 +42,7 @@ jobs:
   deno_fmt:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6.0.3
+      - uses: actions/checkout@v7.0.0
       - uses: denoland/setup-deno@v2.0.4
         with:
           deno-version: 2.8.3 # Run with latest stable Deno.
@@ -52,6 +52,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Actions Repository
-        uses: actions/checkout@v6.0.3
+        uses: actions/checkout@v7.0.0
       - name: Spell Check Repo
         uses: crate-ci/typos@v1.47.2
