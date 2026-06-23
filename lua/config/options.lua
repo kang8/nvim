@@ -26,9 +26,24 @@ vim.opt.titlestring = '%{expand("%:p")} [%{mode()}]'
 -- Search and Replace
 vim.opt.inccommand = 'split' -- "for incsearch while sub
 
+-- CursorHold fires after this many ms idle (default 4000). That default is a
+-- legacy Vim value meant for swap-file writes; it also gates diagnostic
+-- virtual_lines `current_line`, which otherwise appears ~4s late. 100ms = snappy.
+vim.o.updatetime = 100
+
 vim.diagnostic.config({
-  virtual_text = { current_line = false },
+  virtual_text = { current_line = false, source = true },
   virtual_lines = { current_line = true },
+  float = { source = true },
+  severity_sort = true,
+  signs = {
+    numhl = {
+      [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
+      [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
+      [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
+      [vim.diagnostic.severity.HINT] = 'DiagnosticSignHint',
+    },
+  },
 })
 
 if not vim.g.vscode then
