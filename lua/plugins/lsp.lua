@@ -68,6 +68,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     if client:supports_method('textDocument/foldingRange') then
       vim.wo.foldmethod = 'expr'
       vim.wo.foldexpr = 'v:lua.vim.lsp.foldexpr()'
+      vim.wo.foldtext = 'v:lua.vim.lsp.foldtext()'
     end
 
     -- Linked editing (e.g., auto-rename HTML tags)

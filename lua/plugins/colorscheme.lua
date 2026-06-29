@@ -20,6 +20,7 @@ return {
         MiniTablineVisible = { link = 'lualine_a_inactive' },
         NonText = { fg = '#d20f3a' },
         GitSignsChangeLn = { link = 'GitSignsAddLn' },
+        Folded = { bg = '#bcc0cc', italic = true }, -- latte surface1: make closed folds stand out
       },
     },
   },

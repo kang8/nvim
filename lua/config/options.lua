@@ -31,6 +31,10 @@ vim.opt.inccommand = 'split' -- "for incsearch while sub
 -- virtual_lines `current_line`, which otherwise appears ~4s late. 100ms = snappy.
 vim.o.updatetime = 100
 
+-- When jumping to a buffer (LSP goto, quickfix, :sbuffer), reuse a window that
+-- already shows it instead of reopening it in the current window.
+vim.o.switchbuf = 'useopen,uselast'
+
 vim.diagnostic.config({
   virtual_text = { current_line = false, source = true },
   virtual_lines = { current_line = true },
