@@ -96,7 +96,7 @@ return {
           vim.w.nvim_tree_width = vim.api.nvim_win_get_width(0)
           vim.cmd(':wincmd |')
         else
-          vim.api.nvim_win_set_width(0, vim.w.nvim_tree_width)
+          vim.api.nvim_win_resize(0, vim.w.nvim_tree_width, -1, {})
           vim.w.nvim_tree_width = nil
         end
       end, opts('Toggle Nvim-Tree Window Maximize/Minimize'))
