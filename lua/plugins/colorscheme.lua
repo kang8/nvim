@@ -7,9 +7,10 @@ return {
       vim.cmd.colorscheme('catppuccin-latte')
     end,
     opts = {
+      auto_integrations = true, -- auto-detect installed plugins and enable their integrations (gitsigns/nvimtree/illuminate, etc.)
       integrations = {
+        -- kept explicit: not picked up by auto_integrations (dropbar also needs custom color_mode)
         mini = true,
-        illuminate = true,
         dropbar = { enabled = true, color_mode = true },
       },
       transparent_background = true,
