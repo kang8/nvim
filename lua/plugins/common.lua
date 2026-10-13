@@ -190,7 +190,9 @@ return {
     build = './kitty/install-kittens.bash',
     lazy = false,
     opts = {
-      at_edge = 'stop',
+      move = {
+        at_edge = 'stop',
+      },
     },
     config = function(_, opts)
       require('smart-splits').setup(opts)
