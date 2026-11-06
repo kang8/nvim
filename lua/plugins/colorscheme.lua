@@ -22,6 +22,9 @@ return {
         NonText = { fg = '#d20f3a' },
         GitSignsChangeLn = { link = 'GitSignsAddLn' },
         Folded = { bg = '#bcc0cc', italic = true }, -- latte surface1: make closed folds stand out
+        -- tiny-cmdline links this to MsgArea, which is transparent here while FloatBorder has a bg,
+        -- leaving a gray ring around a transparent body. Use the float bg for the whole window.
+        TinyCmdlineNormal = { link = 'NormalFloat' },
       },
     },
   },

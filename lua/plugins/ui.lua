@@ -65,6 +65,15 @@ return {
           { 'filename', path = 1 },
         },
         lualine_x = {
+          { '%S' },
+          {
+            function()
+              return 'recording @' .. vim.fn.reg_recording()
+            end,
+            cond = function()
+              return vim.fn.reg_recording() ~= ''
+            end,
+          },
           { 'lsp_status', color = 'StatusLineNC' },
           { 'filetype' },
           { 'encoding' },
@@ -93,6 +102,18 @@ return {
     },
   },
   { 'nvim-tree/nvim-web-devicons', lazy = true },
+  {
+    -- Centers the cmdline in a floating window. Depends on ui2, enabled in config/options.lua.
+    'rachartier/tiny-cmdline.nvim',
+    cond = function()
+      return not vim.g.vscode
+    end,
+    init = function()
+      vim.o.cmdheight = 0
+      -- With cmdheight=0, pending keys (e.g. `d3`) have nowhere to render; show them in the statusline (%S).
+      vim.o.showcmdloc = 'statusline'
+    end,
+  },
   {
     'Bekaboo/dropbar.nvim',
     lazy = false,
