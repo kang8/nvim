@@ -113,6 +113,12 @@ return {
       -- With cmdheight=0, pending keys (e.g. `d3`) have nowhere to render; show them in the statusline (%S).
       vim.o.showcmdloc = 'statusline'
     end,
+    opts = function()
+      return {
+        -- blink.cmp positions its cmdline menu itself; move it along with the centered cmdline window.
+        on_reposition = require('tiny-cmdline').adapters.blink,
+      }
+    end,
   },
   {
     'Bekaboo/dropbar.nvim',

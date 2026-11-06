@@ -1,96 +1,39 @@
 return {
   {
-    'hrsh7th/nvim-cmp',
-    event = 'InsertEnter',
-    dependencies = {
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
-      'hrsh7th/cmp-nvim-lsp-signature-help',
-      'saadparwaiz1/cmp_luasnip',
-    },
-    opts = function()
-      -- make CmpGhostText and Comment highlight more visualization
-      vim.api.nvim_set_hl(0, 'CmpGhostText', { link = 'Whitespace', default = true })
-      local cmp = require('cmp')
-
-      return {
-        completion = {
-          completeopt = 'menu,menuone,noselect',
-        },
-        snippet = {
-          expand = function(args)
-            require('luasnip').lsp_expand(args.body)
-          end,
-        },
-        mapping = cmp.mapping.preset.insert({
-          ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-          ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-          ['<C-d>'] = cmp.mapping.scroll_docs(4),
-          ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-Space>'] = cmp.mapping.complete(),
-          ['<C-e>'] = cmp.mapping.abort(),
-          ['<CR>'] = cmp.mapping.confirm({ select = false }),
-        }),
-        sources = cmp.config.sources({
-          { name = 'lazydev', group_index = 0 },
-          { name = 'nvim_lsp' },
-          { name = 'luasnip' },
-          { name = 'buffer' },
-          { name = 'path' },
-          { name = 'nvim_lsp_signature_help' },
-        }),
-        formatting = {
-          format = function(_, item)
-            local icons = {
-              Array = ' ',
-              Boolean = ' ',
-              Class = ' ',
-              Color = ' ',
-              Constant = ' ',
-              Constructor = ' ',
-              Enum = ' ',
-              EnumMember = ' ',
-              Event = ' ',
-              Field = ' ',
-              File = ' ',
-              Folder = ' ',
-              Function = ' ',
-              Interface = ' ',
-              Key = ' ',
-              Keyword = ' ',
-              Method = ' ',
-              Module = ' ',
-              Namespace = ' ',
-              Null = 'ﳠ ',
-              Number = ' ',
-              Object = ' ',
-              Operator = ' ',
-              Package = ' ',
-              Property = ' ',
-              Reference = ' ',
-              Snippet = ' ',
-              String = ' ',
-              Struct = ' ',
-              Text = ' ',
-              TypeParameter = ' ',
-              Unit = ' ',
-              Value = ' ',
-              Variable = ' ',
-            }
-
-            if icons[item.kind] then
-              item.kind = icons[item.kind] .. item.kind
-            end
-            return item
-          end,
-        },
-        experimental = {
-          ghost_text = {
-            hl_group = 'CmpGhostText',
+    'saghen/blink.cmp',
+    -- Stay on v1: `main` is V2 with breaking changes; release tags also ship the prebuilt fuzzy binary.
+    version = '1.*',
+    event = { 'InsertEnter', 'CmdlineEnter' },
+    dependencies = { 'L3MON4D3/LuaSnip' },
+    opts = {
+      keymap = {
+        preset = 'enter',
+        ['<C-d>'] = { 'scroll_documentation_down', 'fallback' },
+        ['<C-u>'] = { 'scroll_documentation_up', 'fallback' },
+      },
+      completion = {
+        -- Nothing selected by default; <CR> only accepts an item picked with <C-n>/<C-p>.
+        list = { selection = { preselect = false, auto_insert = false } },
+        documentation = { auto_show = true, auto_show_delay_ms = 200 },
+        ghost_text = { enabled = true, show_without_selection = true },
+      },
+      signature = { enabled = true },
+      snippets = { preset = 'luasnip' },
+      sources = {
+        default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
+        providers = {
+          lazydev = {
+            name = 'LazyDev',
+            module = 'lazydev.integrations.blink',
+            score_offset = 100,
           },
         },
-      }
+      },
+    },
+    config = function(_, opts)
+      -- Dim ghost text so it reads differently from real code
+      vim.api.nvim_set_hl(0, 'BlinkCmpGhostText', { link = 'Whitespace', default = true })
+      require('blink.cmp').setup(opts)
     end,
   },
 }
