@@ -187,11 +187,19 @@ return {
   },
   {
     'mrjones2014/smart-splits.nvim',
-    build = './kitty/install-kittens.bash',
     lazy = false,
+    dependencies = {
+      { 'adriankarlen/smart-splits-backend-herdr', main = 'smart-splits-backend-herdr', opts = {} },
+    },
     opts = {
+      mux = { backend = 'smart-splits-backend-herdr' },
       move = {
-        at_edge = 'stop',
+        -- At the outer edge of herdr, carry on to the neighboring kitty window
+        at_edge = function(ctx)
+          if vim.env.HERDR_PANE_ID then
+            vim.system({ vim.fn.expand('~/.config/herdr/kitty-neighbor.sh'), ctx.direction })
+          end
+        end,
       },
     },
     config = function(_, opts)

@@ -22,24 +22,76 @@ local function current_file_reference(opts)
   return string.format('@%s', relative_path)
 end
 
+local agent_names = { claude = 'Claude', codex = 'Codex' }
+
+local function herdr(args)
+  local output = vim.fn.system(vim.list_extend({ 'herdr' }, args))
+  if vim.v.shell_error ~= 0 then
+    return nil
+  end
+  local ok, data = pcall(vim.json.decode, output)
+  return ok and data.result or nil
+end
+
+-- Inside herdr kitty only sees the herdr window, but herdr reports which agent
+-- each pane runs. Picks from the agents in the same herdr tab as this nvim.
+local function pick_herdr_agent(target, display_name, callback)
+  local current = herdr({ 'pane', 'current' })
+  local list = herdr({ 'agent', 'list' })
+  if not current or not list then
+    return callback(nil)
+  end
+
+  local agents = {}
+  for _, a in ipairs(list.agents) do
+    if a.tab_id == current.pane.tab_id and agent_names[a.agent] and (target == 'agent' or a.agent == target) then
+      table.insert(
+        agents,
+        { pane_id = a.pane_id, agent_name = agent_names[a.agent], title = a.terminal_title_stripped }
+      )
+    end
+  end
+
+  if #agents <= 1 then
+    return callback(agents[1])
+  end
+  vim.ui.select(agents, {
+    prompt = 'Pick ' .. display_name,
+    format_item = function(a)
+      return a.agent_name .. '  ' .. a.title
+    end,
+  }, callback)
+end
+
 local function send_current_file_reference(opts, target, display_name)
   local format = current_file_reference(opts)
 
-  local function send_to_agent(win)
-    vim.fn.system({ 'kitty', '@', 'send-text', '--match', 'id:' .. win.id, format .. ' ' })
-    vim.fn.system({ 'kitty', '@', 'focus-window', '--match', 'id:' .. win.id })
-    vim.notify('Sent to ' .. display_name .. ': ' .. format)
-  end
-
-  require('kitty-agent-picker').pick({ target = target }, function(win)
-    if win then
-      display_name = win.agent_name or display_name
-      send_to_agent(win)
-    else
+  local function deliver(win, send)
+    if not win then
       -- Fallback: copy to clipboard when no matching window is found in tab
       vim.fn.setreg('+', format)
       vim.notify('Copied (no ' .. display_name .. ' window in tab): ' .. format, vim.log.levels.WARN)
+      return
     end
+    send(win)
+    vim.notify('Sent to ' .. (win.agent_name or display_name) .. ': ' .. format)
+  end
+
+  if vim.env.HERDR_PANE_ID then
+    pick_herdr_agent(target, display_name, function(agent)
+      deliver(agent, function(a)
+        vim.fn.system({ 'herdr', 'pane', 'send-text', a.pane_id, format .. ' ' })
+        vim.fn.system({ 'herdr', 'agent', 'focus', a.pane_id })
+      end)
+    end)
+    return
+  end
+
+  require('kitty-agent-picker').pick({ target = target }, function(win)
+    deliver(win, function(w)
+      vim.fn.system({ 'kitty', '@', 'send-text', '--match', 'id:' .. w.id, format .. ' ' })
+      vim.fn.system({ 'kitty', '@', 'focus-window', '--match', 'id:' .. w.id })
+    end)
   end)
 end
 
